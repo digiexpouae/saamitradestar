@@ -64,7 +64,7 @@ const Header = () => {
 
       {/* Sidebar menu */}
       <nav
-        className={`fixed top-0 right-0 h-full bg-red-900 bg-opacity-95 z-30 transition-transform duration-300 ease-in-out transform
+        className={`fixed top-0 right-0 h-full bg-white bg-opacity-95 z-30 transition-transform duration-300 ease-in-out transform
         ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
           w-50 lg:w-1/4`}
       >
@@ -72,10 +72,10 @@ const Header = () => {
           onClick={toggleMenu}
           className="absolute top-8 left-6 text-white cursor-pointer z-40"
         >
-          <FaTimes size={24} />
+          <FaTimes size={24} color="black"/>
         </button>
 
-        <div className="flex flex-col items-center justify-center h-full text-white text-2xl md:text-3xl font-medium gap-6 md:gap-8">
+        <div className="flex flex-col items-center justify-center h-full text-black text-2xl md:text-3xl font-medium gap-6 md:gap-8">
           <a href="#" onClick={closeMenu}>Home</a>
           <a href="#" onClick={closeMenu}>About</a>
           <a href="#" onClick={closeMenu}>Services</a>
