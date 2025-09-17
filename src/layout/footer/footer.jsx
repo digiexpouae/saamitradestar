@@ -12,9 +12,9 @@ const Footer = () => {
           <div className="flex flex-col items-center mb-4">
             {/* Make sure your image path is correct */}
             <Image src="/assets/footer/1 (2).png" alt="Saami Tradestar Logistics Ltd." width={400} height={400} className="object-cover mb-2" />
-            <h1 className="text-xl md:text-2xl font-normal italic text-blue-800">Saami Tradestar Logistics Ltd.</h1>
+            {/* <h1 className="text-xl md:text-2xl font-normal italic text-blue-800">Saami Tradestar Logistics Ltd.</h1> */}
           </div>
-          <p className="text-sm md:text-base max-w-lg text-gray-700">Over the past 25 years, Saami Tradestar Logistics Limited has Pioneered Supply Chain Management Solutions</p>
+          <p className="text-sm md:text-[20px] max-w-lg text-black">Over the past 25 years, Saami Tradestar Logistics Limited has Pioneered Supply Chain Management Solutions</p>
         </div>
 
         {/* Horizontal Divider */}
@@ -35,10 +35,10 @@ const Footer = () => {
         </nav>
 
         {/* Horizontal Divider */}
-        <div className="h-px bg-gray-300 w-3/4 mx-auto my-2"></div>
+        <div className="h-[1px] bg-gray-800 w-[80%] mx-auto my-2"></div>
 
         {/* Bottom Section: Copyright & Legal Links */}
-        <div className="flex flex-col mx-auto px-[120px] md:flex-row md:justify-between items-center text-center md:text-left  text-black">
+        <div className="flex flex-col mx-auto px-[120px] md:flex-row md:justify-between items-center text-center md:text-left  text-gray-800">
           <span className='text-[20px]'>Saamitradestar@2025 all right reserved</span>
           <span className="mt-2 md:mt-0 text-[20px]">Terms & Conditions | Privacy Policy</span>
         </div>

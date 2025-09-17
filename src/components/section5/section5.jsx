@@ -36,7 +36,7 @@ export default function ServicesTable() {
       },]
   
     return (
-      <div className="py-10 px-1 ">
+      <div className="md:py-10 py-5 px-1 ">
         <div className="grid relative border border-gray-300 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ">
           {/* Map over the services array and render each card */}
           {services.map((service, index) => (

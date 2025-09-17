@@ -26,9 +26,9 @@ const section2=()=>{
       }, []);
     
     return(<div className="flex flex-col items-center justify-center " style={{flexDirection:'column'}}>
-<div className="flex items-center justify-center mb-80 !overflow-hidden hero gap-[60px] h-[100vh] relative w-full"><div className="child-1"><h2 className="text-[200px] tracking-tighter font-semibold uppercase">We</h2></div>
+<div className="flex items-center justify-center mb-80 !overflow-hidden hero gap-[20px] md:gap-[60px] h-[100vh] relative w-full"><div className="child-1"><h2 className="text-[70px] md:text-[200px] tracking-tighter font-semibold uppercase">We</h2></div>
 
-<div className="child-2"><h2 className="text-[200px]  tracking-tighter  font-semibold  uppercase">EXpert</h2></div>
+<div className="child-2"><h2 className="text-[70px] md:text-[200px]  tracking-tighter  font-semibold  uppercase">Expert</h2></div>
 </div>
 
 

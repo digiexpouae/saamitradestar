@@ -28,14 +28,7 @@ body{
   }
 }
 
-@keyframes scroll-right2 {
-  0% {
-    transform: translateX(90%); /* Start from initial position */
-  }
-  100% {
-    transform: translateX(120%); /* Move to left by 50% to show the next set of text */
-  }
-}
+
 .animate-scroll-left {
   display: flex;
   animation: scroll-left 2s linear infinite; 
@@ -46,10 +39,6 @@ body{
 .animate-scroll-right{
   display: flex;
   animation: scroll-right 2s linear infinite; /* Infinite loop with smooth continuous movement */
-}
-.animate-scroll-right2{
-  display: flex;
-  animation: scroll-right2 2s linear infinite; /* Infinite loop with smooth continuous movement */
 }
 
 

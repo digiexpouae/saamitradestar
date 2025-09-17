@@ -11,7 +11,7 @@ const section3=()=>{
         // normalize scroll across devices (touch, wheel, trackpad)
         ScrollTrigger.normalizeScroll(true);
     
-        gsap.set('.child-3,.child-4,.child-5',{yPercent:180});
+        gsap.set('.child-3,.child-4,.child-5',{yPercent:250});
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".container",
@@ -24,7 +24,7 @@ const section3=()=>{
         });
  
     
-        tl.to(".child-3",{ yPercent: 0, duration: 1})
+        tl.to(".child-3",{ yPercent: 0, duration: 2})
         .to(".child-3", { yPercent: -250, duration: 2,ease:'power1.in' })
         .to(".child-4", { yPercent: 0, duration: 1})
         .to(".child-4", { yPercent:-250, duration: 2 ,ease:'power1.in'})
@@ -36,9 +36,9 @@ const section3=()=>{
       []);
     return(<div className='container h-[100vh] flex items-center justify-center w-full relative'>
 
-        <div className="flex flex-col items-center  h-[40%] w-full justify-center overflow-hidden relative "><div className="child-3 absolute" ><h2 className="text-[70px]  tracking-tighter  font-semibold  ">In Surface Mode</h2></div>
-<div className="child-4 absolute"><h2 className="text-[70px]  tracking-tighter  font-semibold  ">Air Mode</h2></div>
-<div className="child-5 absolute"><h2 className="text-[70px]  tracking-tighter  font-semibold  ">Full Truck Load</h2></div></div>
+        <div className="flex flex-col items-center  h-[40%] w-full justify-center overflow-hidden relative "><div className="child-3 absolute" ><h2 className="text-[50px] md:text-[70px]  tracking-tighter  font-semibold  ">In Surface Mode</h2></div>
+<div className="child-4 absolute"><h2 className="text-[50px] md:text-[70px]  tracking-tighter  font-semibold  ">Air Mode</h2></div>
+<div className="child-5 absolute"><h2 className="text-[50px] md:text-[70px]  tracking-tighter  font-semibold  ">Full Truck Load</h2></div></div>
     </div>)
 }
 export default section3

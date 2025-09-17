@@ -11,11 +11,11 @@ const index=()=>{
 
     return(
         <>
-    <div className=" flex items-center relative h-[120vh] w-full justify-center">
+    <div className=" flex items-center relative h-[100vh] w-full justify-center">
 <Header />
 <div
   className="absolute inset-0 z-0 bg-cover bg-center "
-  style={{ backgroundImage: "url('/assets/section1/1.png')",borderBottomLeftRadius:'55px',borderBottomRightRadius:'55px', backgroundSize:'cover',backgroundPosition:'center' }}
+  style={{ backgroundImage: "url('/assets/section1/1.png')",borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px', backgroundSize:'cover',backgroundPosition:'center' }}
 ></div>
 
 </div>  
