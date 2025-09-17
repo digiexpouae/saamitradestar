@@ -1,26 +1,58 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body{
+  font-family: "Urbanist", sans-serif;
+  overflow: hidden;
+  background-color: white;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.urbanist-uniquifier {
+  font-family: "Urbanist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes scroll-left {
+  0% {
+    transform: translateX(-100%); /* Start from initial position */
+  }
+  100% {
+    transform: translateX(50%); /* Move to left by 50% to show the next set of text */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%); /* Start from initial position */
+  }
+  100% {
+    transform: translateX(90%); /* Move to left by 50% to show the next set of text */
+  }
 }
+
+@keyframes scroll-right2 {
+  0% {
+    transform: translateX(90%); /* Start from initial position */
+  }
+  100% {
+    transform: translateX(120%); /* Move to left by 50% to show the next set of text */
+  }
+}
+.animate-scroll-left {
+  display: flex;
+  animation: scroll-left 2s linear infinite; 
+  
+  /* Infinite loop with smooth continuous movement */
+}
+
+.animate-scroll-right{
+  display: flex;
+  animation: scroll-right 2s linear infinite; /* Infinite loop with smooth continuous movement */
+}
+.animate-scroll-right2{
+  display: flex;
+  animation: scroll-right2 2s linear infinite; /* Infinite loop with smooth continuous movement */
+}
+
+
+/* .animate-scroll-left {
+  animation: scroll-left 2 linear infinite;
+} */
