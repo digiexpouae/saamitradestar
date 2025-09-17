@@ -42,11 +42,11 @@ export default function ServicesTable() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={` p-4 px-15 border  shadow-md  `}
+              className={` p-4 px-4 md:px-15 border  shadow-md  `}
               onMouseEnter={() => setHoveredIndex(true)} // Set hoveredIndex on hover
               onMouseLeave={() => setHoveredIndex(false)} 
             >
-              <h3 className="text-2xl font-medium mb-3">{service.title}</h3>
+              <h3 className="text-xl  md:text-2xl font-medium mb-3">{service.title}</h3>
               <p className="text-black leading-5 mb-4 font-medium text-sm">{service.desc}</p>
               <a href="#" className="text-black hover:text-blue-700 text-sm font-semibold">
                 Read More 
@@ -56,16 +56,16 @@ export default function ServicesTable() {
             </div>
           ))}
         </div>
-        <div className={`grid relative border border-gray-300 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 transition-transform duration-700 ${hoveredIndex ? "transform translate-y-[148%]" : ""}`}>
+        <div className={`grid relative border border-gray-300 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 transition-transform duration-700 ${hoveredIndex ? "transform md:translate-y-[148%]" : ""}`}>
           {/* Map over the services array and render each card */}
           {services2.map((service, index) => (
             <div
               key={index}
-              className={` p-4 px-15 border  shadow-md  `}
+              className={` p-4 px-4 md:px-15 border  shadow-md  `}
               onMouseEnter={() => setHoveredIndex2(true)} // Set hoveredIndex on hover
               onMouseLeave={() => setHoveredIndex2(false)}
             >
-              <h3 className="text-2xl font-medium mb-3">{service.title}</h3>
+              <h3 className="text-xl md:text-2xl font-medium mb-3">{service.title}</h3>
               <p className="text-black leading-5 mb-4 font-medium text-sm">{service.desc}</p>
               <a href="#" className="text-black hover:text-blue-700 text-sm font-semibold">
                 Read More 
@@ -75,7 +75,7 @@ export default function ServicesTable() {
             </div>
           ))}
         </div>
-<Section6 className={`transition-transform duration-1500  ease-in-out ${hoveredIndex ? "transform translate-y-[40%]" : ""} ${hoveredIndex2 ? "transform translate-y-[40%]" : ""}`} />
+<Section6 className={`transition-transform duration-1500  ease-in-out ${hoveredIndex ? "md:transform translate-y-[40%]" : ""} ${hoveredIndex2 ? "transform md:translate-y-[40%]" : ""}`} />
       </div>
     );
   }

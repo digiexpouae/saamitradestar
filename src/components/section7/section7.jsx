@@ -2,7 +2,7 @@ import React from "react";
 
 const Section7 = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-[70vh] relative overflow-hidden">
+    <div className="flex flex-col items-center justify-center py-6 md:py-0 h-[60vh] md:h-[70vh] relative overflow-hidden">
       <div className=" relative flex items-center justify-center gap-0 h-[50vh] w-full">
         {/* Flex container that holds both headlines */}
         

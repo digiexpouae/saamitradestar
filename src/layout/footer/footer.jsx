@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 const Footer = () => {
   return (
-    <footer className="bg-[#F0FBFF] py-8 md:py-10 border border-[#FF0000] px-4 md:px-8" style={{borderTopLeftRadius:'75px',borderTopRightRadius:'75px'}}>
+    <footer className="bg-[#F0FBFF] py-8 md:py-10 border border-[#FF0000] px-4 md:px-8" style={{borderTopLeftRadius:'75px',borderTopRightRadius:'75px',borderBottom:'none'}}>
       <div className="container mx-auto">
 
         {/* Top Section: Logo & Description */}
@@ -38,9 +38,9 @@ const Footer = () => {
         <div className="h-[1px] bg-gray-800 w-[80%] mx-auto my-2"></div>
 
         {/* Bottom Section: Copyright & Legal Links */}
-        <div className="flex flex-col mx-auto px-[120px] md:flex-row md:justify-between items-center text-center md:text-left  text-gray-800">
-          <span className='text-[20px]'>Saamitradestar@2025 all right reserved</span>
-          <span className="mt-2 md:mt-0 text-[20px]">Terms & Conditions | Privacy Policy</span>
+        <div className="flex mx-auto md:px-[120px] md:flex-row justify-between items-center text-center md:text-left  text-gray-800">
+          <span className='text-[14px] md:text-[20px]'>Saamitradestar@2025 all right reserved</span>
+          <span className="mt-2 md:mt-0 text-[14px] md:text-[20px]">Terms & Conditions | Privacy Policy</span>
         </div>
 
       </div>

@@ -2,28 +2,52 @@ import { useEffect } from "react"
 import {gsap} from 'gsap'
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 const section2=()=>{
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        ScrollTrigger.normalizeScroll(true);
-    
-        // Create a timeline with ScrollTrigger
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.normalizeScroll(true);
+
+    ScrollTrigger.matchMedia({
+      // Desktop (768px and up)
+      "(min-width: 768px)": function () {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: ".hero",       // the section container
-            start: "top top",       // when section hits top of viewport
-            scrub: 2,            // link progress to scrollbar
-            pin: true,     
-            end:"+=1000"  ,       // keeps the section pinned while animating
-            markers: true,          // shows start/end markers (remove in prod)
+            trigger: ".hero",
+            start: "top top",
+            scrub: 1,
+            pin: true,
+            end: "+=1000",
           },
         });
-    
-        // Animate children
-        tl.to(".child-1", { x: "-200%", duration: 0.5 },"+0.5")
-          .to(".child-2", { x: "200%", duration: 0.5 }, "<")
-          .to(".child-3", { y: "0%", duration: 0.5 }, "+1")
-         // "<" makes it run at same time
-      }, []);
+
+        tl.to(".child-1", { xPercent: -200,yPercent:0, duration: 0.5 }, "+0.5")
+          .to(".child-2", { xPercent: 200,yPercent:0, duration: 0.5 }, "<")
+      },
+
+      // Mobile (below 768px)
+      "(max-width: 767px)": function () {
+        const tlMobile = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".hero",
+            start: "top top",
+            scrub:0.5,
+            pin: true,
+            end: "+=1500", // shorter distance for mobile
+            markers: true,
+          },
+        });
+
+        // Different animation for mobile
+        tlMobile
+          .to(".child-1", { xPercent: -200,yPercent:0, duration: 1 }, "+1.5")
+          .to(".child-2", { xPercent: 200,yPercent:0, duration: 1 }, "<");
+      },
+    });
+
+    // cleanup on unmount
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, []);
     
     return(<div className="flex flex-col items-center justify-center " style={{flexDirection:'column'}}>
 <div className="flex items-center justify-center mb-80 !overflow-hidden hero gap-[20px] md:gap-[60px] h-[100vh] relative w-full"><div className="child-1"><h2 className="text-[70px] md:text-[200px] tracking-tighter font-semibold uppercase">We</h2></div>

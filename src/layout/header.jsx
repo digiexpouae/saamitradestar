@@ -14,7 +14,7 @@ const Header = () => {
   };
 
   return (
-    <header className="absolute top-4 z-20 w-full md:w-[75%] px-2">
+    <header className="fixed top-4 z-20  w-full md:w-[75%] px-2">
       <div
         className="bg-white px-4 py-2 flex justify-between items-center w-full h-[10vh] md:h-[14vh]"
         style={{ borderRadius: "45px" }}
@@ -65,7 +65,7 @@ const Header = () => {
       <nav
         className={`fixed top-0 right-0 h-full bg-red-900 bg-opacity-95 z-30 transition-transform duration-300 ease-in-out transform
         ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
-        w-full sm:w-2/3 md:w-1/2 lg:w-1/4`}
+          w-62 lg:w-1/4`}
       >
         <button
           onClick={toggleMenu}
