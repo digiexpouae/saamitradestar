@@ -25,24 +25,25 @@ const Header = () => {
             src="/assets/header/saami.png"
             alt="logo"
             width={500}
-            height={400}
+            height={50}
             className="object-cover"
           />
         </div>
 
         {/* Phone image (hidden on small devices) */}
-        <div className="hidden md:flex w-1/2 items-center justify-end">
+        <div className="hidden md:flex w-1/2 h-[70%] items-center justify-end">
           <Image
             src="/assets/header/2.png"
             alt="phone"
             width={200}
-            height={200}
+            height={20}
             className="object-contain"
           />
         </div>
 
         {/* Menu Button */}
-        <div className="flex items-center justify-center gap-2 hover:bg-red-800 bg-[#ED3039] rounded-full px-4 md:px-6 py-2 cursor-pointer">
+        <div className="flex items-center justify-center gap-2 hover:bg-red-800 bg-[#ED3039] rounded-full px-4 md:px-6 py-2 cursor-pointer"             onClick={toggleMenu}
+        >
           <button
             className="text-white cursor-pointer font-medium"
             onClick={toggleMenu}

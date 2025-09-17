@@ -20,15 +20,14 @@ const section3=()=>{
             start: "top top",
             scrub: 1,
             pin: true,
-            end: "+=3000", // longer scroll distance for desktop
-            markers: true,
+            end: "+=6000", // longer scroll distance for desktop
           },
         });
-
-        tl.to(".child-3", { yPercent: 0, duration: 2 })
-          .to(".child-3", { yPercent: -250, duration: 1, ease: "power1.in" })
-          .to(".child-4", { yPercent: 0, duration: 1 })
-          .to(".child-4", { yPercent: -250, duration: 1, ease: "power1.in" })
+        tl.to(".child-3", {  duration: 2})
+        .to(".child-3", { yPercent: 0, duration: 2 })
+          .to(".child-3", { yPercent: -550, duration: 1, ease: "power2.inOut" })
+          .to(".child-4", { yPercent: 0, duration: 2})
+          .to(".child-4", { yPercent: -550, duration: 1, ease: "power2.inOut" })
           .to(".child-5", { yPercent: 0, duration: 2 })
       },
 
@@ -38,10 +37,9 @@ const section3=()=>{
           scrollTrigger: {
             trigger: ".container",
             start: "top top",
-            scrub: 0.5,
+            scrub: true,
             snap: {
               snapTo: [0, 0.33, 0.66, 1], // 3 children (normalized progress)
-              duration: 0.5,              // snap speed
               ease: "power1.inOut"
             },
             pin: true,
@@ -51,12 +49,20 @@ const section3=()=>{
         });
 
         tlMobile
-          .to(".child-3", { yPercent: 0, duration: 3 },"+2")
-          .to(".child-3", { yPercent: -250, duration: 2, ease: "power1.in" })
-          .to(".child-4", { yPercent: 0, duration: 2})
-          .to(".child-4", { yPercent: -250, duration: 2, ease: "power1.in" })
-          .to(".child-5", { yPercent: 0, duration: 2 })        
-            .to(".child-5", {duration: 2 })
+        // Child 3
+        .to({}, { duration: 2 }) 
+        .to(".child-3", { yPercent: 0, duration: 3, ease: "power3.inOut" }) // move into view
+        .to({}, { duration: 1 }) // pause for 1s
+        .to(".child-3", { yPercent: -250, duration: 3, ease: "power3.inOut" }) // move upward
+      
+        // Child 4
+        .to(".child-4", { yPercent: 0, duration: 3, ease: "power3.inOut" })
+        .to({}, { duration: 1 })
+        .to(".child-4", { yPercent: -250, duration: 3, ease: "power3.inOut" })
+      
+        // Child 5
+        .to(".child-5", { yPercent: 0, duration: 3, ease: "power3.inOut" })
+        .to({}, { duration: 1 }); 
 
       },
     });
