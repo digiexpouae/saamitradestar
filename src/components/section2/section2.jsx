@@ -32,7 +32,6 @@ const section2=()=>{
             scrub:0.5,
             pin: true,
             end: "+=1500", // shorter distance for mobile
-            markers: true,
           },
         });
 
