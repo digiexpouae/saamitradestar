@@ -20,7 +20,7 @@ const Header = () => {
         style={{ borderRadius: "45px" }}
       >
         {/* Logo */}
-        <div className="w-28 sm:w-32 md:w-60">
+        <div className="w-36 md:w-60">
           <Image
             src="/assets/header/saami.png"
             alt="logo"
@@ -65,7 +65,7 @@ const Header = () => {
       <nav
         className={`fixed top-0 right-0 h-full bg-red-900 bg-opacity-95 z-30 transition-transform duration-300 ease-in-out transform
         ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
-          w-62 lg:w-1/4`}
+          w-50 lg:w-1/4`}
       >
         <button
           onClick={toggleMenu}
