@@ -15,20 +15,20 @@ const section2=()=>{
             start: "top top",
             scrub: true, // smooth scrubbing (takes 1.5s to "catch up")
             pin: true,
-            end:"+=2500"
+            end:"+=1000"
           },
         });
-    tl.to('.child-1',{x:0,duration:0.8})
+    tl.to('.child-1',{x:0,duration:0.8,delay:2})
     tl.to('.child-2',{x:0,duration:0.8})
         tl.to(".child-1", {
             x: "-250%",
-            duration: 1.5,
-            ease: "power2.inOut",
+            duration: 3,
+            ease: "power2.in",
           })
           .to(".child-2", {
             x: "250%",
-            duration: 1.5,
-            ease: "power2.inOut",
+            duration: 3,
+            ease: "power2.in",
           }, "<"); // runs at the same time as .child-1
     
       // // Mobile (below 768px)

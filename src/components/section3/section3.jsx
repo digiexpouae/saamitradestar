@@ -20,14 +20,14 @@ const section3=()=>{
             start: "top top",
             scrub: 1,
             pin: true,
-            end: "+=6000", // longer scroll distance for desktop
+            end: "+=3000", // longer scroll distance for desktop
           },
         });
         tl.to(".child-3", {  duration: 2})
         .to(".child-3", { yPercent: 0, duration: 2 })
-          .to(".child-3", { yPercent: -550, duration: 1, ease: "power2.inOut" })
+          .to(".child-3", { yPercent: -550, duration: 3, ease: "power2.in" })
           .to(".child-4", { yPercent: 0, duration: 2})
-          .to(".child-4", { yPercent: -550, duration: 1, ease: "power2.inOut" })
+          .to(".child-4", { yPercent: -550, duration: 3, ease: "power2.in" })
           .to(".child-5", { yPercent: 0, duration: 2 })
       },
 
