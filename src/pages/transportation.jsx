@@ -9,7 +9,7 @@ const Transportation=()=>{
     return(
 <div>
     <HeroSection image="/assets/transportation/t-1.jpg" heading="Transportation Services"   className="bg-[#00000080]"/>
-<Section2 image="/assets/transportation/t-2.jpg" heading="Transportation Services" text={text} description={description } description2={description2} />
+<Section2 image="/assets/transportation/t-2.JPG" heading="Transportation Services" text={text} description={description } description2={description2} />
 <Section3 />
 <Footer />
 </div>
