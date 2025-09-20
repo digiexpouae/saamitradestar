@@ -22,7 +22,9 @@ const section4=()=>{
             </div>
         <div className="h-full  md:w-[40%]"><Image src="/assets/warehouse/w-4.png" alt="plane" width={400} height={900} className="h-full w-full object-cover rounded-2xl" /></div>
         </div>
-        <div className=" rounded-2xl  w-[95%] md:h-screen  md:w-[80%] p-6 md:p-10 m-auto md:h-[90vh]  gap-10 md:hidden flex-col md:flex-row  justify-between ">
+
+        {/* mobile */}
+        <div className=" rounded-2xl  w-[95%] md:h-screen  md:w-[80%] p-6 md:p-10 m-auto md:h-[90vh]  gap-10 md:hidden flex-col md:flex-row  justify-between mb-20 ">
         <div className="h-full  md:w-[40%]"><Image src="/assets/warehouse/w-4.png" alt="plane" width={400} height={900} className="h-full w-full object-cover rounded-2xl" /></div>
 
             <div className="md:w-[55%] text-left"><h2 className="text-[30px] md:text-[40px]  tracking-tighter font-semibold ">Our Warehousing Locations</h2>

@@ -33,9 +33,9 @@ const Section3 = () => {
   return (
     <div className="w-full py-16 bg-[#F0FBFF]">
       <div className="w-[90%] md:w-[80%] mx-auto flex flex-col items-center md:items-start  justify-center md:justify-start">
-        <div className="text-center mb-12">
+        <div className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl  font-semibold text-gray-900 mb-4">
-            Our Warehousing & Distribution Services
+          Our Distribution Services Includes
           </h2>
         </div>
 

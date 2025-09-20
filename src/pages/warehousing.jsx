@@ -1,7 +1,7 @@
 
 import Header from "@/layout/header"
 import Footer from '../layout/footer/footer'
-import Section1 from '../common/section1/section1'
+import Section1 from '../common/section1'
 import Section from '../components/warehousedistribution/section1/section1'
 import Section2 from '../components/warehousedistribution/section2/section2'
 import Section3 from "@/components/warehousedistribution/section3/section3"

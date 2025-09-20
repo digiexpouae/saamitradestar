@@ -46,3 +46,7 @@ body{
   animation: scroll-left 2 linear infinite;
 } */
 
+ul li::marker {
+  font-size: 0.5em; /* increase or decrease bullet size */
+  color: black;       /* optional: change bullet color */
+}
