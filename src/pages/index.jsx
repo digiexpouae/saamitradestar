@@ -4,6 +4,7 @@ import Section3 from "../components/section3/section3";
 import Section4 from '../components/section4/section4'
 import Section5 from '../components/section5/section5'
 import Section7 from '../components/section7/section7'
+import ServicesSection from "@/common/servicessection";
 import Footer from '../layout/footer/footer'
 const index=()=>{
 

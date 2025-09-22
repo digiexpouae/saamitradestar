@@ -94,7 +94,8 @@ const Header = () => {
               onClick={toggleServices}
               type="button"
             >
-              Services <FaPlus size={20} />
+               <Link href="/services">      </Link>  Services <FaPlus size={20} />
+         
             </button>
 
             {/* Dropdown menu with smooth spacing */}
