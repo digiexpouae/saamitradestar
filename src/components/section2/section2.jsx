@@ -1,7 +1,20 @@
 import { useEffect } from "react"
 import {gsap} from 'gsap'
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import {motion} from 'framer-motion'
 const section2=()=>{
+  const fadeVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: 'easeOut',
+      },
+    },
+  };
+  
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.normalizeScroll(true);
@@ -62,13 +75,13 @@ const section2=()=>{
   }, []);
   
     
-    return(<div className="flex items-center justify-center " style={{flexDirection:'column'}}>
+    return(<motion.div variants={fadeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="flex items-center justify-center "  style={{flexDirection:'column'}}>
 <div className="flex flex-col md:flex-row items-center justify-center mb-80 !overflow-hidden hero gap-[5px] md:gap-[60px] h-[100vh] relative w-full"><div className="child-1"><h2 className="text-[80px] md:text-[200px] tracking-tighter font-semibold uppercase">We</h2></div>
 
 <div className="child-2"><h2 className="text-[80px] md:text-[200px]  tracking-tighter  font-semibold  uppercase">Expert</h2></div>
 </div>
 
 
-</div> )
+</motion.div> )
 }
 export default section2

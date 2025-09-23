@@ -46,7 +46,7 @@ export default function ApplyForm({className}) {
               placeholder="Enter your full name"
               value={formData.fullName}
               onChange={handleChange}
-              className="w-full border rounded-full px-4 py-1 mt-1"
+              className="w-full border rounded-full px-4 py-2 mt-1"
               required
             />
           </div>
@@ -61,7 +61,7 @@ export default function ApplyForm({className}) {
                 placeholder="Enter email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full border rounded-full px-4 py-1 mt-1"
+                className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
             <div>
@@ -78,7 +78,7 @@ export default function ApplyForm({className}) {
                   placeholder="Mobile number"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full border rounded-r-full px-4 py-1"
+                  className="w-full border rounded-r-full px-4 py-2"
                   required
                 />
               </div>
@@ -95,7 +95,7 @@ export default function ApplyForm({className}) {
                 placeholder="Enter Country"
                 value={formData.country}
                 onChange={handleChange}
-                className="w-full border rounded-full px-4 py-1 mt-1"
+                className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
             <div>
@@ -106,7 +106,7 @@ export default function ApplyForm({className}) {
                 placeholder="Enter City"
                 value={formData.city}
                 onChange={handleChange}
-                className="w-full border rounded-full px-4 py-1 mt-1"
+                className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
           </div>
@@ -118,7 +118,7 @@ export default function ApplyForm({className}) {
               name="role"
               value={formData.role}
               onChange={handleChange}
-              className="w-full border rounded-full px-4 py-1 mt-1"
+              className="w-full border rounded-full px-4 py-2 mt-1"
             >
               <option value="">Select</option>
               <option value="developer">Developer</option>
@@ -137,7 +137,7 @@ export default function ApplyForm({className}) {
                 placeholder="Enter"
                 value={formData.currentSalary}
                 onChange={handleChange}
-                className="w-full border rounded-full px-4 py-1 mt-1"
+                className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
             <div>
@@ -148,7 +148,7 @@ export default function ApplyForm({className}) {
                 placeholder="Enter"
                 value={formData.expectedSalary}
                 onChange={handleChange}
-                className="w-full border rounded-full px-4 py-1 mt-1"
+                className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
           </div>
@@ -163,7 +163,7 @@ export default function ApplyForm({className}) {
                 placeholder="Enter"
                 value={formData.linkedin}
                 onChange={handleChange}
-                className="w-full border rounded-full px-4 py-1 mt-1"
+                className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
             <div>
@@ -172,7 +172,7 @@ export default function ApplyForm({className}) {
                 type="file"
                 name="resume"
                 onChange={handleChange}
-                className="w-full border rounded-full px-4 py-1 mt-1"
+                className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
           </div>
@@ -187,7 +187,7 @@ export default function ApplyForm({className}) {
               placeholder="Enter your skills"
               value={formData.skills}
               onChange={handleChange}
-              className="w-full border resize-none rounded-lg px-4 py-1 mt-1 h-24"
+              className="w-full border resize-none rounded-lg px-4 py-2 mt-1 h-24"
             />
           </div>
 

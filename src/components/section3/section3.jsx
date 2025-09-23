@@ -2,9 +2,20 @@
 import {gsap} from 'gsap'
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { useEffect } from 'react'
-
+import {motion} from 'framer-motion'
 
 const section3=()=>{
+  const fadeVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 1,
+        ease: 'easeOut',
+      },
+    },
+  };
+    
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.normalizeScroll(true);
@@ -73,7 +84,7 @@ const section3=()=>{
     };
   }, []);
 
-    return(<div className='container h-[100vh] flex items-center justify-center w-full relative'>
+    return(<div variants={fadeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className='container h-[100vh] flex items-center justify-center w-full relative'>
 
         <div className="flex flex-col items-center  h-[40%] w-full justify-center overflow-hidden relative "><div className="child-3 absolute" ><h2 className="text-[50px] md:text-[70px]  tracking-tighter  font-semibold  ">In Surface Mode</h2></div>
 <div className="child-4 absolute"><h2 className="text-[50px] md:text-[70px]  tracking-tighter  font-semibold  ">Air Mode</h2></div>

@@ -1,9 +1,19 @@
 import Header from '../layout/header'
-
+import {motion} from 'framer-motion'
 const HeroSection = ({ image, heading,className }) => {
+  const fadeVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 2,
+        ease: 'easein',
+      },
+    },
+  };
   return (
-    <>
-      <div className="flex items-center relative h-[65vh] w-full justify-center">
+
+      <motion.div variants={fadeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="flex items-center relative h-[65vh] w-full justify-center">
         <Header />
 
         {/* Background Image */}
@@ -30,8 +40,7 @@ const HeroSection = ({ image, heading,className }) => {
             {heading}
           </h2>
         </div>
-      </div>
-    </>
+      </motion.div>
   );
 };
 
