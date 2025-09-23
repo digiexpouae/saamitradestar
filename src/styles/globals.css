@@ -50,3 +50,11 @@ ul li::marker {
   font-size: 0.5em; /* increase or decrease bullet size */
   color: black;       /* optional: change bullet color */
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}

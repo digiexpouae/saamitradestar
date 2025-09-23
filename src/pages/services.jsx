@@ -9,7 +9,7 @@ return(<div>
 
 <HeroSection image="/assets/services/s-1.webp" heading="Services"   className="bg-[#0000004D]"/>
 <Section1 />
-<Section2 />
+<Section2 className="hidden" />
 <Footer />
 </div>)
 }

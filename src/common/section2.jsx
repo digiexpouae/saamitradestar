@@ -1,5 +1,5 @@
 import Image from "next/image"
-const warehouse=({image,heading,text,description,description2,className,className2,clstext,cls1,cls3,cls4,desccls,headingcls})=>{
+const warehouse=({image,heading,text,description,description2,className,className2,clstext,cls1,cls3,cls4,desccls,headingcls,description3,desccls2})=>{
     return(
     
 
@@ -13,9 +13,8 @@ const warehouse=({image,heading,text,description,description2,className,classNam
         <div className={`flex md:flex-row flex-col  w-[90%] md:w-[80%] gap-10 md:gap-0 justify-between  mx-auto ${className}`}>
                 <div className={`md:w-[50%] text-left flex flex-col gap-4 md:gap-6 ${cls3}`}>
                 <p className="font-medium text-[20px] leading-[1.3] ">{description}</p>
-
-
 <p className={`font-medium text-[20px] leading-[1.3] ${desccls}`}>{description2}</p>
+<p className={`font-medium text-[20px] leading-[1.3] hidden ${desccls2}`}>{description3}</p>
                 </div>
             <div className={`h-full  md:w-[45%] ${cls4}`}><Image src={image} alt="plane" width={400} height={900} className="!h-full w-full object-cover rounded-2xl object-center" /></div>
             </div>
@@ -36,6 +35,7 @@ const warehouse=({image,heading,text,description,description2,className,classNam
 
 
 <p className="font-medium text-[20px] leading-[1.3] ">{description2}</p>
+<p className={`font-medium text-[20px] leading-[1.3] hidden ${desccls2}`}>{description3}</p>
                 </div>
             </div>
 

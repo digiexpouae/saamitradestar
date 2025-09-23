@@ -79,7 +79,7 @@ const Header = () => {
         </button>
 
         {/* Nav items */}
-        <div className="flex flex-col items-center justify-center h-full text-black font-medium gap-6 md:gap-8">
+        <div className="flex flex-col items-center text-center p-20 h-full text-black font-medium gap-6 md:gap-8">
           <Link href="/" onClick={closeMenu} className="text-2xl md:text-3xl">
             Home
           </Link>
@@ -89,19 +89,18 @@ const Header = () => {
 
           {/* Services Dropdown */}
           <div className="flex flex-col items-center gap-2 relative w-full">
-            <button
+            <div
               className="flex items-center gap-2 cursor-pointer text-2xl md:text-3xl"
-              onClick={toggleServices}
               type="button"
             >
-               <Link href="/services">    Services   </Link>  <FaPlus size={20} />
+               <Link href="/services">    Services   </Link> <button  className="cursor-pointer" onClick={toggleServices}> <FaPlus size={20} /></button>
          
-            </button>
+            </div>
 
             {/* Dropdown menu with smooth spacing */}
             <div
               className={`transition-all duration-1000 ease-in-out overflow-hidden flex flex-col items-center gap-2 mt-2 text-base md:text-lg font-medium
-                ${isServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}
+                ${isServicesOpen ? "max-h-96" : "max-h-0"}`}
             >
               <Link href="/freightforwarding" onClick={closeMenu}>
                 Freight Forwarding
@@ -125,10 +124,10 @@ const Header = () => {
           </div>
 
           {/* Other links */}
-          <Link href="/franchise" onClick={closeMenu} className="text-2xl md:text-3xl">
+          <Link href="/franchise" onClick={closeMenu} className={`text-2xl md:text-3xl `}>
             Franchise
           </Link>
-          <Link href="/contact" onClick={closeMenu} className="text-2xl md:text-3xl">
+          <Link href="/contact" onClick={closeMenu} className={`text-2xl md:text-3xl `}>
             Contact
           </Link>
         </div>

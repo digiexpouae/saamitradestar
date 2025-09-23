@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Section6 from '../section6/section6'
 import ServicesSection from "@/common/servicessection";
-export default function ServicesTable() {
+export default function ServicesTable({className}) {
     // Array of services for rendering
     const [hoveredIndex, setHoveredIndex] = useState(false);
     const [hoveredIndex2, setHoveredIndex2] = useState(false);
@@ -112,7 +112,7 @@ export default function ServicesTable() {
             </div>
           ))}
         </div>
-<Section6 className={`transition-transform duration-1500  ease-in-out ${hoveredIndex ? "md:transform translate-y-[40%]" : ""} ${hoveredIndex2 ? "transform md:translate-y-[40%]" : ""}`} />
+<Section6 className={`transition-transform duration-1500  ease-in-out ${hoveredIndex ? "md:transform translate-y-[40%]" : ""} ${hoveredIndex2 ? "transform md:translate-y-[40%]" : ""} ${className}`} />
       </div>
     );
   }

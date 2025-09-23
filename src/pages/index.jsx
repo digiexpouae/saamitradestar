@@ -5,6 +5,7 @@ import Section4 from '../components/section4/section4'
 import Section5 from '../components/section5/section5'
 import Section7 from '../components/section7/section7'
 import ServicesSection from "@/common/servicessection";
+import Fadein from '../common/fadein'
 import Footer from '../layout/footer/footer'
 const index=()=>{
 
@@ -19,8 +20,10 @@ const index=()=>{
   style={{ backgroundImage: "url('/assets/section1/1.png')",borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px', backgroundSize:'cover',backgroundPosition:'center' }}
 ></div>
 
-</div>  
+</div> 
+{/* <Fadein> */}
 <Section2 />
+{/* </Fadein> */}
 <Section3 />
 <Section4 />
 <Section5 />

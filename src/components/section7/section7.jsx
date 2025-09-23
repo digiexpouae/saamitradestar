@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 const Section7 = () => {
   return (
     <div className="flex flex-col items-center justify-center py-6 md:py-0 h-[60vh] md:h-[70vh] relative overflow-hidden">
@@ -23,7 +23,7 @@ const Section7 = () => {
        
       </div>
       <div>
-        <button className="bg-[#ED3039] rounded-full text-white h-12 w-32">Get in touch</button>
+        <button  className="bg-[#ED3039] rounded-full text-white h-12 w-32"> <Link href='/contact'>Get in touch</Link></button>
       </div>
     </div>
   );
