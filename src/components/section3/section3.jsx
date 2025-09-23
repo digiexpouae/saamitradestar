@@ -9,7 +9,7 @@ const section3=()=>{
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.normalizeScroll(true);
 
-    gsap.set(".child-3, .child-4, .child-5", { yPercent: 250 });
+    gsap.set(".child-3, .child-4, .child-5", { yPercent: 550 });
 
     ScrollTrigger.matchMedia({
       // Desktop
