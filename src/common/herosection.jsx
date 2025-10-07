@@ -30,7 +30,7 @@ const HeroSection = ({ image, heading,className }) => {
 
         {/* Overlay + Heading */}
         <div
-          className={`absolute inset-0 z-10 flex items-center justify-center ${className}`}
+          className={`absolute inset-0 flex items-center justify-center ${className}`}
           style={{
             borderBottomLeftRadius: "65px",
             borderBottomRightRadius: "65px",
@@ -40,7 +40,12 @@ const HeroSection = ({ image, heading,className }) => {
             {heading}
           </h2>
         </div>
+        <div className='absolute left-0    -bottom-2  h-20 w-20 bg-white' style={{clipPath: 'polygon(0 0, 0% 100%, 100% 100%)'}}></div>'
+        <div className='absolute right-0   -bottom-2 h-20 w-20 bg-white' style={{clipPath: 'polygon(0 100%, 100% 0, 100% 100%)'}}></div>'
+        
+        <div className='h-30 absolute -z-10 bg-blur -bottom-10 w-full opacity-[0.2]' style={{backgroundColor:'rgb( 255, 227, 227)'}}></div>
       </motion.div>
+   
   );
 };
 
