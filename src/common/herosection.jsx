@@ -40,8 +40,8 @@ const HeroSection = ({ image, heading,className }) => {
             {heading}
           </h2>
         </div>
-        <div className='absolute left-0    -bottom-1  h-20 w-20 bg-white' style={{clipPath:  'polygon(0 0, 0% 100%, 100% 100%)'}}><div className='absolute inset-0 ' style={{  background: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',filter:'blur(50px)'}}></div></div>
-        <div className='absolute right-0   -bottom-1 h-20 w-20  bg-white' style={{clipPath: 'polygon(0 100%, 100% 0, 100% 100%)'}}><div className='absolute inset-0 ' style={{  background: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',filter:'blur(50px)'}}></div></div>
+        <div className='absolute left-0    bottom-0  h-20 w-20 bg-white' style={{clipPath:  'polygon(0 0, 0% 118%, 100% 100%)'}}><div className='absolute inset-0 ' style={{  background: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',filter:'blur(50px)'}}></div></div>
+        <div className='absolute right-0   bottom-0 h-20 w-20  bg-white' style={{clipPath: 'polygon(0 102%, 100% 0, 100% 100%)'}}><div className='absolute inset-0 ' style={{  background: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',filter:'blur(50px)'}}></div></div>
         <div className='absolute -bottom-10 h-6 left-0 right-0   ' style={{  background: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)',filter:'blur(25px)'}}></div>
         <div className='h-30 absolute -z-10 bg-blur -bottom-10 w-full opacity-[0.2]' style={{backgroundColor:'rgb( 255, 227, 227)'}}></div>
       </motion.div>

@@ -33,7 +33,7 @@ export default function ValuesSection() {
       <div className="max-w-6xl mx-auto">
         
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Mission */}
           {data.map((elem,index)=>{
 
@@ -44,7 +44,7 @@ export default function ValuesSection() {
             <p className="text-base leading-[1.3]">
          {elem.description}
             </p>
-            <div className="absolute -right-1 -bottom-1  bg-white h-20 w-20" style={{clipPath: 'polygon(24% 46%, 100% 46%, 100% 100%, 0 99%, 0 100%)'}}></div>
+            <div className="absolute right-0 bottom-0  bg-white h-20 w-20 " style={{clipPath: 'polygon(24% 46%, 120% 46%, 100% 105%, 0px 155%, 0px 100%)'}}></div>
 
           </div>)
             })}

@@ -4,7 +4,7 @@
 import Image from "next/image";
 export default function SaamiSection({heading1,heading2,text}) {
   return (
-    <section className=" py-16 px-6 md:px-12 lg:px-24 text-center text-gray-800" style={{backgroundColor:'rgba(255, 245, 245, 1)'}}>
+    <section className=" py-16 px-6 md:px-12 lg:px-24 text-center text-gray-800 relative" style={{backgroundColor:'rgba(255, 245, 245, 1)'}}>
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl md:text-5xl  font-semibold tracking-tighter mb-4" style={{color:'rgba(237, 48, 57, 1)'}}>
         {heading1}
@@ -27,7 +27,7 @@ export default function SaamiSection({heading1,heading2,text}) {
               To secure the confidence and trust of our valued clients by
               conducting business with integrity and honesty.
             </p>
-            <div className="absolute -right-1 -bottom-1  h-20 w-20" style={{clipPath: 'polygon(24% 46%, 100% 46%, 100% 100%, 0 99%, 0 100%)',backgroundColor:'rgba(255, 245, 245, 1)'}}></div>
+            <div className="absolute right-0 bottom-0 h-20 w-20" style={{clipPath:  'polygon(24% 46%, 120% 46%, 100% 105%, 0px 155%, 0px 100%)',backgroundColor:'rgba(255, 245, 245, 1)'}}></div>
 
           </div>
 
@@ -39,7 +39,7 @@ export default function SaamiSection({heading1,heading2,text}) {
               To be the preferred logistics company through our deep commitment
               to innovation, technology, and service <br/> excellence.
             </p>
-            <div className="absolute -right-1 -bottom-1  h-20 w-20" style={{clipPath: 'polygon(100% 49%, 100% 73%, 100% 100%, 75% 100%, 0 100%, 31% 50%)',backgroundColor:'rgba(255, 245, 245, 1)'}}></div>
+            <div className="absolute right-0 bottom-0  h-20 w-20" style={{clipPath:  'polygon(24% 46%, 120% 46%, 100% 105%, 0px 155%, 0px 100%)',backgroundColor:'rgba(255, 245, 245, 1)'}}></div>
           </div>
 
           {/* Values */}
@@ -50,11 +50,13 @@ export default function SaamiSection({heading1,heading2,text}) {
               The Values of Saami Tradestar is the value that we generate to our
               customers, partners &amp; stakeholders.
             </p>
-            <div className="absolute -right-1 -bottom-1  h-20 w-20" style={{clipPath: 'polygon(24% 46%, 100% 46%, 100% 100%, 0 99%, 0 100%)',backgroundColor:'rgba(255, 245, 245, 1)'}}></div>
+            <div className="absolute right-0 bottom-0  h-20 w-20" style={{clipPath:  'polygon(24% 46%, 120% 46%, 100% 107%, 0px 155%, 0px 100%)',backgroundColor:'rgba(255, 245, 245, 1)'}}></div>
 
           </div>
         </div>
       </div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 left-0 " style={{clipPath:'polygon(0 0, 0% 110%, 100% 100%)'}}></div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 right-0 " style={{clipPath:'polygon(100% 0, 0% 110%, 100% 100%)'}}></div>
     </section>
   );
 }
