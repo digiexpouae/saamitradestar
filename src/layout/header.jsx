@@ -15,10 +15,10 @@ const Header = () => {
   const toggleServices = () => setIsServicesOpen((prev) => !prev);
 
   return (
-    <header className="fixed top-4 z-20 w-full md:w-[80%] px-2">
+    <header className="fixed top-4 z-20 w-full md:w-[65%] px-2">
       {/* Top Bar */}
       <div
-        className="bg-[#FFF8F8] px-6 py-2 lg:py-4 border flex justify-between items-center w-full "
+        className="bg-[#FFF8F8] px-2 md:px-6 py-2 lg:py-4 border flex justify-between items-center w-full "
         style={{ borderRadius: "10px" }}
       >
         {/* Logo */}
@@ -36,14 +36,14 @@ const Header = () => {
 
         {/* Phone Image */}
        <div className="hidden lg:flex  w-1/2 h-[70%] gap-6 items-center justify-center">
-       <Link className="font-medium text-base" href={'/'}>Home</Link>
-       <Link className="font-medium text-base" href={'/about'}>About</Link>
+       <Link className="font-medium text-sm" href={'/'}>Home</Link>
+       <Link className="font-medium text-sm" href={'/about'}>About</Link>
      {/* Services with dropdown */}
      <div className="relative">
   {/* Services Link */}
   <Link
     href="/services"
-    className="font-medium text-base hover:text-blue-600 transition-colors peer"
+    className="font-medium text-sm hover:text-blue-600 transition-colors peer"
   >
     Services
   </Link>
@@ -94,8 +94,8 @@ const Header = () => {
   </div>
 </div>
 
-       <Link className="font-medium text-base" href={'/career'}>Career</Link>
-       <Link className="font-medium text-base" href={'/contact'}>Contact Us</Link>
+       <Link className="font-medium text-sm" href={'/career'}>Career</Link>
+       <Link className="font-medium text-sm" style={{whiteSpace:'nowrap'}} href={'/contact'}>Contact Us</Link>
           {/* <Image
             src="/assets/header/2.png"
             alt="phone"
