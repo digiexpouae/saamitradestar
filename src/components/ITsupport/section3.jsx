@@ -51,7 +51,7 @@ const Section3 = () => {
   return (
   <>
   {/* mobile */}
-    <div className="w-full py-16 md:hidden flex bg-[#FFF5F5]">
+    <div className="w-full py-16 md:hidden flex relative bg-[#FFF5F5]">
       <div className="w-[90%] md:w-[80%] mx-auto flex flex-col items-center   justify-center ">
         <div className="text-center mb-4">
           <h2 className="text-3xl md:text-4xl  font-semibold text-gray-900 mb-4">
@@ -121,6 +121,8 @@ const Section3 = () => {
               <p className="text-sm md:text-[20px]  leading-[1.3] font-medium text-white">customized reports of inbound and outbound</p>
             </div>
       </div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 left-0 " style={{clipPath:'polygon(0 0, 0% 110%, 100% 100%)'}}></div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 right-0 " style={{clipPath:'polygon(100% 0, 0% 110%, 100% 100%)'}}></div>
     </div>
   </>
   );

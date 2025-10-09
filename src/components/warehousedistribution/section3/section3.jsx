@@ -27,7 +27,7 @@ const Section3 = () => {
   ];
 
   return (
-    <div className="w-full py-16 flex items-center justify-center" style={{backgroundColor:'rgba(255, 245, 245, 1)'}}>
+    <div className="w-full py-16 flex items-center justify-center relative" style={{backgroundColor:'rgba(255, 245, 245, 1)'}}>
       <div className="w-[90%] md:w-[80%] mx-auto flex flex-col items-center  justify-center ">
         <div className="text-center mb-4">
           <h2 className="text-3xl md:text-5xl  font-semibold text-gray-900 mb-4">
@@ -75,6 +75,8 @@ const Section3 = () => {
             </div>
         
       </div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 left-0 " style={{clipPath:'polygon(0 0, 0% 110%, 100% 100%)'}}></div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 right-0 " style={{clipPath:'polygon(100% 0, 0% 110%, 100% 100%)'}}></div>
     </div>
   );
 };
