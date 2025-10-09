@@ -2,47 +2,61 @@ import Image from "next/image"
 
 const section2=({heading})=>{
 return(
-    <>
-    <div className=" hidden md:flex  p-10 pb-20 w-full items-center justify-center mx-auto">
- <div className="w-[45%]">
-    <h2 className="text-[35px] md:text-[40px] mb-2 w-full leading-[1]  text-black font-semibold ">Custom Clearance Control</h2>
-    <ul className="font-medium  text-[20px]  " style={{listStyle:'disc'}} >
-        <li>Import/ Export Regulation Advice</li>
-        <li>Import/ Export Permits</li>
-        <li>Monitor Shipping Schedule</li>
-        <li>Supervision of Packing, Loading, Unloading</li>
-        <li>Preparation of Import/ Export Documents</li>
-        <li>Custom and Port examination of Cargo</li>
-        <li>Identification and Arrangement of suitable mode of Transportation</li>
-       
-    </ul>
+    <div className="flex flex-col   max-w-5xl px-4 mx-auto" >
+        <h2 className="text-4xl font-medium  text-start md:pl-10  md:text-[40px] mb-2  leading-[1]  text-black font-semibold " >Custom Clearance Control</h2>
+    <div className=" hidden md:flex  p-10 pb-20 w-full  mx-auto">
+ <div className="w-1/2">
+
+    <div className="font-medium  text-[20px] space-y-4 " style={{color:'rgba(90, 90, 90, 1)'}} >
+
+  <div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Import/ Export Regulation Advice</p></div></div>
+  <div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Import/ Export Permits</p></div></div>
+  <div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Monitor Shipping Schedule</p></div></div>
+  <div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Supervision of Packing, Loading, Unloading</p></div></div>
+  <div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Preparation of Import/ Export Documents</p></div></div>
+  <div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Custom and Port examination of Cargo</p></div></div>
+  <div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Identification and Arrangement of suitable 
+  mode of Transportation</p></div></div>
+
+
+
+</div>
 </div>
 <div>
-    <Image src={'/assets/customer/c-2.jpg'} alt="plane" width={400} height={600} className=" object-cover  rounded-2xl" />
+    <Image src={'/assets/spareparts/s-1.png'} alt="plane" width={400} height={600} className=" object-cover " />
 </div>
     </div>
     {/* mobile */}
-    <div className=" flex md:hidden gap-6 h-screen mb-10  w-[90%] items-center flex-col justify-center mx-auto">
+    <div className=" flex md:hidden gap-6  mb-10 max-w-5xl px-4 mx-auto items-center  flex-col justify-center mx-auto">
     <div>
-    <Image src={'/assets/customer/c-2.jpg'} alt="plane" width={400} height={600} className=" object-cover  rounded-2xl" />
+    <Image src={'/assets/spareparts/s-1.png'} alt="plane" width={400} height={600} className=" object-cover  " />
 </div>
 
- <div className="w-[90%]">
-    <h2 className="text-[35px] md:text-[40px] w-full leading-[1]  text-black font-semibold ">Custom Clearance Control</h2>
-    <ul className="font-medium  text-[20px]  " style={{listStyle:'disc'}} >
-        <li>Import/ Export Regulation Advice</li>
-        <li>Import/ Export Permits</li>
-        <li>Monitor Shipping Schedule</li>
-        <li>Supervision of Packing, Loading, Unloading</li>
-        <li>Preparation of Import/ Export Documents</li>
-        <li>Custom and Port examination of Cargo</li>
-        <li>Identification and Arrangement of suitable mode of Transportation</li>
-       
-    </ul>
+<div className="">
+
+<div className="font-medium  text-[20px] space-y-4 " style={{color:'rgba(90, 90, 90, 1)'}} >
+<div className="flex  items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative
+flex-shrink-0 relative
+flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" width={80} height={80} /></div> <div> 
+<p className="font-semibold">
+Quick response to any request form our nearest warehouses        </p>
+</div></div>
+<div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Import/ Export Regulation Advice</p></div></div>
+<div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Import/ Export Permits</p></div></div>
+<div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Monitor Shipping Schedule</p></div></div>
+<div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Supervision of Packing, Loading, Unloading</p></div></div>
+<div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Preparation of Import/ Export Documents</p></div></div>
+<div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Custom and Port examination of Cargo</p></div></div>
+<div className="flex items-start  gap-3"><div className="w-8 h-8 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold">Identification and Arrangement of suitable 
+mode of Transportation</p></div></div>
+
+
+
+</div>
 </div>
 
     </div>
-    </>
+    </div>
 )       
 }
 export default section2

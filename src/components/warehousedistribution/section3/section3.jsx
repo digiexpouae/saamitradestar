@@ -22,19 +22,15 @@ const Section3 = () => {
       title: "Value Added Services",
       description: "Physical proof of delivery option"
     },
-    {
-      icon: "/assets/warehouse/icon5.png",
-      title: "E-commerce Fulfillment",
-      description: "E - billing and e - POD"
-    },
+    
    
   ];
 
   return (
-    <div className="w-full py-16 bg-[#F0FBFF]">
-      <div className="w-[90%] md:w-[80%] mx-auto flex flex-col items-center md:items-start  justify-center md:justify-start">
+    <div className="w-full py-16 flex items-center justify-center" style={{backgroundColor:'rgba(255, 245, 245, 1)'}}>
+      <div className="w-[90%] md:w-[80%] mx-auto flex flex-col items-center  justify-center ">
         <div className="text-center mb-4">
-          <h2 className="text-3xl md:text-4xl  font-semibold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-5xl  font-semibold text-gray-900 mb-4">
           Our Distribution Services Includes
           </h2>
         </div>
@@ -43,21 +39,41 @@ const Section3 = () => {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="bg-white p-2  py-4 flex items-center gap-2 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
+              className=" p-2  py-4 flex items-center gap-2  shadow-md hover:shadow-lg transition-shadow duration-300"
+         style={{backgroundColor:'rgba(237, 48, 57, 1)'}}
+         >
               <div className=" rounded-full flex  justify-center w-[15%]">
                 <Image 
-                  src={'/assets/warehouse/w-icon.svg'} 
+                  src={'/assets/warehouse/Layer_1.svg'} 
                   alt={service.title}
                   width={72}
                   height={72}
                   className="w-12 h-12 object-contain"
                 />
               </div>
-              <p className="text-sm md:text-[20px] w-[85%]  leading-[1.3] font-medium text-gray-600">{service.description}</p>
+              <p className="text-sm lg:text-[20px] w-[85%]  leading-[1.3] font-medium text-white">{service.description}</p>
             </div>
           ))}
+
         </div>
+        <div className="flex items-center justify-center w-[85%]">
+        <div 
+              className="w-full md:w-[50%]  mt-6 p-2  py-4 flex items-center gap-2   shadow-md hover:shadow-lg transition-shadow duration-300"
+         style={{backgroundColor:'rgba(237, 48, 57, 1)'}}
+         >
+              <div className=" rounded-full flex  justify-center w-[15%]">
+                <Image 
+                  src={'/assets/warehouse/Layer_1.svg'} 
+                  alt={'service'}
+                  width={72}
+                  height={72}
+                  className="w-12 h-12 object-contain"
+                />
+              </div>
+              <p className="text-sm lg:text-[20px] w-[85%]  leading-[1.3] font-medium text-white">E - billing and e - POD</p>
+            </div>
+            </div>
+        
       </div>
     </div>
   );

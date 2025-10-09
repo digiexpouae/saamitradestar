@@ -22,6 +22,7 @@ const Openingposition = () => {
 
   return (
     <div className="w-full flex flex-col  py-10 items-center relative">
+      <hr className="h-px bg-[#000000] w-3/4 my-20" />
     <div className="w-[100%] md:w-[80%] ">
       <h2 className="text-[35px] text-center md:text-[40px] w-full leading-[1] text-black font-semibold">
         Opening Position

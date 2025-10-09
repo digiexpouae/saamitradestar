@@ -8,6 +8,7 @@ import Section2 from '../components/warehousedistribution/section2/section2'
 import Section3 from "@/components/warehousedistribution/section3/section3"
 import Section4 from "@/components/warehousedistribution/section4/section4"
 import HeroSection from "@/common/herosection"
+import Getintouch from "@/common/getintouch"
 const Warehouse=()=>{
 return(<>
 
@@ -18,6 +19,7 @@ return(<>
 <Fadein> <Section2 /></Fadein>
 <Fadein> <Section3 /></Fadein>
 <Fadein> <Section4 /></Fadein>
+<Fadein><Getintouch /> </Fadein>
 <Fadein> <Footer /></Fadein>
 
 </>)

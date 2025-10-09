@@ -108,7 +108,7 @@ const index=()=>{
 </div> 
 {/* <Section2 /> */}
 <Homesectio2 />
-<div className="py-20"> 
+<div className="py-20 md:px-10"> 
 <Fadein> <Section2 heading={'Freight Forwarding'} text={`For over 20 years, we've delivered on our service commitments. 
 `} img={'/assets/services/service-1.png'}  /></Fadein>
 <Fadein> <Section3 heading={<>Warehousing & Distribution</>} text={`One of the most important element of supply chain management is warehousing.`} img={'/assets/services/s-2.png'}  /></Fadein>
@@ -123,7 +123,7 @@ text={`The major activities of the Organization covers various disciplines of ma
 <Fadein> <Section3 heading={'IT Support'} 
 text={`We have invested in world-class technology to manage your supply chain.`} img={'/assets/services/s-6.png'}  /></Fadein>
 </div>
-<Fadein><Sectionhomethree /> </Fadein>
+<Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<>Saami  <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} /> </Fadein>
  <Fadein><Section6 /></Fadein> 
 
 <Getintouch />

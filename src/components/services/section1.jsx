@@ -7,6 +7,7 @@ const section1=()=>{
 Over the last 20 years, Saami has emerged as leading provider of Express, Courier & Logistics services across the globe.We have the methods, the competence and the resources to design and implement with you the logistics solutions that are adequate to your reality and to your needs.    </p>
 
 </div>
+
 </div>)
 }
 export default section1

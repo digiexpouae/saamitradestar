@@ -15,14 +15,14 @@ const Header = () => {
   const toggleServices = () => setIsServicesOpen((prev) => !prev);
 
   return (
-    <header className="fixed top-4 z-20 w-full md:w-[75%] px-2">
+    <header className="fixed top-4 z-20 w-full md:w-[80%] px-2">
       {/* Top Bar */}
       <div
-        className="bg-white px-4 py-2 flex justify-between items-center w-full h-[10vh] md:h-[14vh]"
-        style={{ borderRadius: "45px" }}
+        className="bg-[#FFF8F8] px-6 py-2 lg:py-4 border flex justify-between items-center w-full "
+        style={{ borderRadius: "10px" }}
       >
         {/* Logo */}
-        <div className="w-36 md:w-60 cursor-pointer">
+        <div className="w-36 md:w-1/3 cursor-pointer">
           <Link href="/">
             <Image
               src="/assets/header/saami.png"
@@ -35,23 +35,76 @@ const Header = () => {
         </div>
 
         {/* Phone Image */}
-        <div className="hidden md:flex w-1/2 h-[70%] items-center justify-end">
-          <Image
+       <div className="hidden lg:flex  w-1/2 h-[70%] gap-6 items-center justify-center">
+       <Link className="font-medium text-base" href={'/'}>Home</Link>
+       <Link className="font-medium text-base" href={'/about'}>About</Link>
+     {/* Services with dropdown */}
+     <div className="relative group">
+        <Link
+          href="/services"
+          className="font-medium text-base hover:text-blue-600 transition-colors"
+        >
+          Services
+        </Link>
+
+        {/* Dropdown menu */}
+        <div
+          className="absolute left-0 mt-2 hidden w-48 flex-col rounded-lg bg-white shadow-lg group-hover:flex transition-all duration-300"
+        >
+          <Link
+            href="/freightforwarding"
+            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+          >
+            Freight Forwarding
+          </Link>
+          <Link
+            href="/warehousing"
+            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+          >
+       Warehousing & Distribution
+          </Link>
+          <Link
+            href="/transportation"
+            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+          >
+             Transportation
+          </Link>
+          <Link
+            href="/spareparts"
+            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+          >
+                    Spare Part Logistics
+          </Link>
+          <Link
+            href="/customerclearance"
+            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+          >
+                       Customer Clearance
+          </Link>
+          <Link href="/ITSupport"
+               className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+              IT Support
+              </Link>
+        </div>
+      </div>
+       <Link className="font-medium text-base" href={'/career'}>Career</Link>
+       <Link className="font-medium text-base" href={'/contact'}>Contact Us</Link>
+          {/* <Image
             src="/assets/header/2.png"
             alt="phone"
             width={200}
             height={20}
             className="object-contain"
-          />
-        </div>
+          /> */}
+        </div> 
 
         {/* Menu Button */}
         <button
-          className="flex items-center justify-center gap-2 hover:bg-red-800 bg-[#ED3039] rounded-full px-4 md:px-6 py-2 cursor-pointer"
+          className="lg:hidden flex items-center justify-center gap-2 hover:bg-red-800 bg-[#ED3039] rounded-full px-4 md:px-6 py-2 cursor-pointer"
           onClick={toggleMenu}
         >
-          <span className="text-white font-medium">Menu</span>
-          <FaBars size={14} color="white" />
+          <span className="text-white text-sm md:text-base font-medium">Menu</span>
+          <FaBars size={12} color="white" />
         </button>
       </div>
 
