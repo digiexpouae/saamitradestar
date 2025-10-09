@@ -39,54 +39,61 @@ const Header = () => {
        <Link className="font-medium text-base" href={'/'}>Home</Link>
        <Link className="font-medium text-base" href={'/about'}>About</Link>
      {/* Services with dropdown */}
-     <div className="relative group">
-        <Link
-          href="/services"
-          className="font-medium text-base hover:text-blue-600 transition-colors"
-        >
-          Services
-        </Link>
+     <div className="relative">
+  {/* Services Link */}
+  <Link
+    href="/services"
+    className="font-medium text-base hover:text-blue-600 transition-colors peer"
+  >
+    Services
+  </Link>
 
-        {/* Dropdown menu */}
-        <div
-          className="absolute left-0 mt-2 hidden w-48 flex-col rounded-lg bg-white shadow-lg group-hover:flex transition-all duration-300"
-        >
-          <Link
-            href="/freightforwarding"
-            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
-          >
-            Freight Forwarding
-          </Link>
-          <Link
-            href="/warehousing"
-            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
-          >
-       Warehousing & Distribution
-          </Link>
-          <Link
-            href="/transportation"
-            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
-          >
-             Transportation
-          </Link>
-          <Link
-            href="/spareparts"
-            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
-          >
-                    Spare Part Logistics
-          </Link>
-          <Link
-            href="/customerclearance"
-            className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
-          >
-                       Customer Clearance
-          </Link>
-          <Link href="/ITSupport"
-               className="px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
-              IT Support
-              </Link>
-        </div>
-      </div>
+  {/* Dropdown menu */}
+  <div
+    className="absolute left-0 mt-2 w-56 flex-col rounded-lg bg-white shadow-lg opacity-0 invisible 
+    transition-all duration-300 ease-out
+    peer-hover:opacity-100 peer-hover:visible
+    hover:opacity-100 hover:visible z-20"
+  >
+    <Link
+      href="/freightforwarding"
+      className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+    >
+      Freight Forwarding
+    </Link>
+    <Link
+      href="/warehousing"
+      className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+    >
+      Warehousing & Distribution
+    </Link>
+    <Link
+      href="/transportation"
+      className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+    >
+      Transportation
+    </Link>
+    <Link
+      href="/spareparts"
+      className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+    >
+      Spare Part Logistics
+    </Link>
+    <Link
+      href="/customerclearance"
+      className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+    >
+      Customer Clearance
+    </Link>
+    <Link
+      href="/ITSupport"
+      className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+    >
+      IT Support
+    </Link>
+  </div>
+</div>
+
        <Link className="font-medium text-base" href={'/career'}>Career</Link>
        <Link className="font-medium text-base" href={'/contact'}>Contact Us</Link>
           {/* <Image

@@ -2,10 +2,10 @@ import Image from "next/image"
 const services2=({img,heading,text,btn,className})=>{
     return(
 
-<div className={`flex items-center justify-center w-full p-16 md:p-0  md:mb-16 ${className}`}>
+<div className={`flex items-center justify-center w-full p-10 md:p-0  md:mb-16 ${className}`}>
     <div className="flex md:flex-row flex-col   justify-center md:justify-between w-4xl gap-8">
 
-<div className="h-full flex justify-end ">
+<div className="h-full flex md:justify-end ">
     <Image src={img}
      width={300} height={300} className="object-cover"/></div>
      <div className="flex flex-col  md:w-1/2">
