@@ -74,7 +74,7 @@ const section4=()=>{
 
 
              <div className=" flex w-full items-center justify-center" style={{ height: '70vh' }}>
-            <div className="w-full h-[90%] md:h-full bg-black">
+            <div className="w-full h-[90%] md:h-full ">
              <DomeGallery />
             </div>
              </div>
