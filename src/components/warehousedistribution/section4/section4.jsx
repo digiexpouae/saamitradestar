@@ -43,7 +43,7 @@ const section4=()=>{
 </div>
 
              <div className=" flex w-full items-center justify-center py-10" style={{ height: '80vh' }}>
-            <div className="w-full lg:max-w-5xl h-full bg-black">
+            <div className="w-full lg:max-w-5xl h-full " >
              <DomeGallery />
             </div>
              </div>
