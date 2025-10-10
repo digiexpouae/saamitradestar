@@ -13,7 +13,7 @@ const HeroSection = ({ image, heading,className }) => {
   };
   return (
 
-      <motion.div variants={fadeVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="flex items-center relative h-[65vh] w-full justify-center">
+      <motion.div  className="flex items-center relative h-[65vh] w-full justify-center">
         <Header />
 
         {/* Background Image */}

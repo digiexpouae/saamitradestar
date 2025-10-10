@@ -57,15 +57,14 @@ const index=()=>{
         <>
     <div className=" flex items-center relative h-[100vh] w-full justify-center">
 <Header />
-<Fadein>
 
 <motion.div
   className="absolute inset-0 z-0 bg-cover bg-center flex flex-col items-center justify-center  overflow-hidden"
- variants={fadeVariants}
- initial="hidden"
- whileInView="visible"
+// //  variants={fadeVariants}
+//  initial="hidden"
+//  whileInView="visible"
 
- viewport={{ once: true, amount: 0.3 }}
+//  viewport={{ once: true, amount: 0.3 }}
  style={{ backgroundImage: "url('/assets/section1/h-1.webp')",borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px', backgroundSize:'cover',backgroundPosition:'center' }}
 >
   <div className="-translate-y-10 flex flex-col items-center justify-center ">
@@ -104,7 +103,6 @@ const index=()=>{
 
 
 </motion.div>
-</Fadein>
 </div> 
 {/* <Section2 /> */}
 <Homesectio2 />
