@@ -104,7 +104,7 @@ export default function Footer() {
         </p>
       </div>
       </div>
-      <div className="absolute top-0 right-0 h-8  bg-[#E9E9E9] w-[35vw]" style={{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 9% 100%)',   background: 'linear-gradient(185.17deg , #FFF0F1 -21.25%, #FFFFFF 98.8%)'}}></div>
+      <div className="absolute top-0 right-0 h-8  bg-[#FFFF] w-[35vw]" style={{clipPath: 'polygon(0 0, 100% 0, 100% 100%, 9% 100%)'}}></div>
     </footer>
   );
 }
