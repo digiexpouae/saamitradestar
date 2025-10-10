@@ -2,7 +2,7 @@ import Image from "next/image"
 const section2=()=>{
     return(
         <>
-        <div className=" max-w-5xl hidden md:flex  p-6 md:p-10 m-auto rounded-2xl gap-10  flex-col md:flex-row   justify-between " >
+        <div className=" max-w-5xl hidden md:flex  my-24 p-6 md:p-10 m-auto rounded-2xl gap-10  flex-col md:flex-row   justify-between " >
                     <div className="h-full  md:w-[40%]"><Image src="/assets/warehouse/2.png" alt="plane" width={400} height={600} className=" object-cover  " /></div>
 
             <div className="md:w-[55%] text-center md:text-left"><h2 className="text-[30px] md:text-[40px] tracking-tighter font-semibold leading-[1.3] ">We Provide The Right Storage 

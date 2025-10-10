@@ -6,7 +6,7 @@ const section4=()=>{
     return(
         <>
         {/* desktop */}
-        <div className=" rounded-2xl  w-[95%] md:w-[90%] p-6 md:p-10 m-auto  gap-10 hidden md:flex  flex-col  justify-center ">
+        <div className=" rounded-2xl  w-[95%] md:w-[90%] md:py-20 p-6 md:p-10 m-auto  gap-10 hidden md:flex  flex-col  justify-center ">
             <div className="text-left"><h2 className="text-[30px] md:text-5xl  tracking-tighter font-semibold mb-2 text-center">Our Warehousing Locations</h2>
              <p className="font-medium text-[20px] leading-[1.3] text-center">We have our own warehouses of all areas in all major cities of india like:-</p>
              <div className="grid grid-cols-2 md:flex  gap-4 p-4 md:items-center md:justify-center ">
@@ -52,7 +52,7 @@ const section4=()=>{
         </div>
 
         {/* mobile */}
-        <div className=" rounded-2xl  w-[95%] md:w-[90%] p-6 md:p-10 m-auto  gap-10 md:hidden flex  flex-col  justify-center ">
+        <div className=" rounded-2xl  w-[95%] md:w-[90%] py-20 p-6 md:p-10 m-auto  gap-10 md:hidden flex  flex-col  justify-center ">
             <div className="text-left"><h2 className="text-4xl md:text-5xl  tracking-tighter font-semibold mb-2 text-center">Our Warehousing Locations</h2>
              <p className="font-medium text-[20px] leading-[1.3] text-center">We have our own warehouses of all areas in all major cities of india like:-</p>
              <div className="grid grid-cols-2 md:flex  gap-4 p-4 md:items-center md:justify-center ">

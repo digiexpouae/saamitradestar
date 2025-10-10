@@ -3,11 +3,11 @@ const warehouse=({image,heading,text,description,desccls1,description2,className
     return(
     
 
-    <div className="flex items-center  flex-col justify-center w-full">
+    <div className="flex items-center max-w-5xl mx-auto flex-col justify-center w-full">
 {/* desktop */}
               <div className={`hidden md:flex flex-col items-center w-full mt-20  justify-center gap-6 mx-auto ${classNamemain}`}> 
  <div className={`relative  text-left max-w-5xl mx-auto p-6 md:p-0 md:px-10 flex flex-col items-center justify-center ${cls1} `}>
-<h2 className={`text-[35px] md:text-[40px] w-full leading-[1]  text-black font-semibold ${clsheading} `}>{heading}</h2>
+<h2 className={`text-[35px] md:text-5xl w-full leading-[1]  text-[#2A2A2A] font-semibold ${clsheading} `}>{heading}</h2>
         <p className={` py-4 text-[20px]   leading-[1.5] md:leading-[1.3] ${clstext}`}style={{lineClamp:6}}>{text}</p>
         </div>
         <div className={`flex md:flex-row flex-col  max-w-5xl mx-auto  p-6 md:p-0 md:px-10  gap-10 md:gap-6 justify-between  mx-auto ${className}`}>
@@ -40,7 +40,7 @@ const warehouse=({image,heading,text,description,desccls1,description2,className
             </div>
 
          </div>
-                     <hr className={`w-[90%] h-[0.8px] bg-zinc-800 hidden md:block border-0 my-14 rounded-full ${className2}`} />
+                     <hr className={`w-[95%] h-[0.8px] bg-zinc-800 hidden md:block border-0 my-14 rounded-full ${className2}`} />
 </div>
         
     )

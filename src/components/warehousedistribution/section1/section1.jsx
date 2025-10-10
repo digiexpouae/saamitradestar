@@ -1,7 +1,7 @@
 import Image from "next/image"
 const warehouse=()=>{
     return(<>             
-    <div className="hidden md:flex flex-col  max-w-5xl p-8 items-center w-full my-10  justify-center gap-15  mx-auto" style={{color:'rgba(90, 90, 90, 1)'}}> 
+    <div className="hidden md:flex flex-col relative max-w-5xl p-8 items-center w-full my-10  justify-center gap-15  mx-auto" style={{color:'rgba(90, 90, 90, 1)'}}> 
  <div className={`relative  text-left flex flex-col items-center justify-center `}>
 <h2 className="text-[35px] md:text-5xl w-full leading-[1]  text-black font-semibold text-center">Warehousing & Distribution</h2>
         <p className=" font-medium py-4 text-[20px]  leading-6 text-center " style={{lineClamp:6}}>One of the most important element of supply chain management is warehousing. The proper storage and tracking of inventory ensures that delivery times are met and asset management costs are reduced. With the widest network, the best of cargo movement facilities and several value added services to choose from, Saami Logistics is one of the preferred distribution solution provider today.</p>
@@ -15,6 +15,8 @@ const warehouse=()=>{
                 </div>
             <div className="h-full  md:w-1/2"><Image src="/assets/warehouse/Subtract.png" alt="plane" width={400} height={900} className="!h-full  w-full object-cover  object-center" /></div>
             </div>
+         <hr className="h-px w-[90%] px-4  mx-auto bg-[#000000] absolute -bottom-10" />
+
          </div>
         {/* mobile */}
          <div className="md:hidden flex flex-col items-center w-full my-20  justify-center gap-6 md:h-[100vh] mx-auto"> 
@@ -33,6 +35,7 @@ const warehouse=()=>{
 <p className="font-medium text-[20px] leading-[1.3] ">We are also capable of handling cargo that is in units, packages, crates, bags and much more.Well guarded and spacious, our warehousing provides complete safety of the goods. Keeping the goods intact and impervious to any kind of damage, our warehousing facility is available throughout the country. Our expert freight forwarders ensure that utmost care is taken while transit of goods to the warehouse and ensures undamaged care for stored items.</p>
                 </div>
             </div>
+          
          </div>
         </>
     )
