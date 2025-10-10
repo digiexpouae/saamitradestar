@@ -123,7 +123,7 @@ text={`The major activities of the Organization covers various disciplines of ma
 <Fadein> <Section3 heading={'IT Support'} 
 text={`We have invested in world-class technology to manage your supply chain.`} img={'/assets/services/s-6.png'}  /></Fadein>
 </div>
-<Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<>Saami  <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} /> </Fadein>
+<Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<>Saami  <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'}/> </Fadein>
  <Fadein><Section6 /></Fadein> 
 
 <Getintouch />
