@@ -34,7 +34,7 @@ export default function ApplyForm({className}) {
     <div className={`flex justify-center items-center pt-10 h-auto ${className}`}>
 
       <div className="bg-white  rounded-2xl px-5 md:px-20  py-10 w-full max-w-2xl">
-        <h2 className="text-3xl font-bold text-center mb-2">Get In Touch</h2>
+        <h2 className=" text-3xl md:text-5xl font-medium text-center mb-2">Get In Touch</h2>
 
         <form className="space-y-2" onSubmit={handleSubmit}>
           {/* Full Name */}
@@ -107,7 +107,7 @@ Message            </label>
           <div className="text-center">
             <button
               type="submit"
-              className="w-full bg-red-500 text-white font-medium py-2 rounded-full hover:bg-red-600"
+              className="w-full cursor-pointer bg-red-500 text-white font-medium py-2 rounded-full hover:bg-red-600"
             >
               Submit
             </button>

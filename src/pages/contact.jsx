@@ -10,7 +10,7 @@ const contact=()=>{
                               <HeroSection image="/assets/contact/c-1.webp" heading="Contact Us"   className="bg-[#00000080]"/>
          <Fadein>  <Contactform /></Fadein>
   
- <Fadein> <Icons /></Fadein>
+ {/* <Fadein> <Icons /></Fadein> */}
  <Fadein><Map /></Fadein> 
  <Fadein><Footer /></Fadein>
         </div>
