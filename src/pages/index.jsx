@@ -11,22 +11,81 @@ import Homesectio2 from '../components/home/section2'
  import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import ServicesSection from "@/common/servicessection";
 import Sectionhomethree from '../components/home/section3'
+import Section from '../components/home/section4'
+import Section5 from '../components/home/section5'
+import Service1 from '../components/home/section6'
+import Service2 from '../components/home/section7'
+
 import Fadein from '../common/fadein'
 
 import { motion } from 'framer-motion';
 import Image from "next/image";
 import Getintouch from "@/common/getintouch";
 import Footer from '../layout/footer/footer'
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 const index=()=>{
+const ref1=useRef()
+const ref2=useRef()
+const ref3=useRef()
+const ref4=useRef()
+const ref5=useRef()
+const ref6=useRef()
+const container=useRef()
+const  containerRef=useRef()
+const headingref=useRef()
+useEffect(() => {
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.normalizeScroll(true);
+
+  const mm = ScrollTrigger.matchMedia();
+
+  mm.add("(min-width: 768px)", () => {
+    const sections = [ ref2, ref3, ref4, ref5, ref6];
+    const section = [ ref1,ref2, ref3, ref4, ref5, ref6];
+    // Initial positions: all start below viewport
+    gsap.set(sections.map(ref => ref.current), { yPercent: 500,duration:2,ease:'power2.out' });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        pin: true,
+        scrub: 3,
+        start: "top top",
+        end: "+=3000",
+        // markers: true,
+      },
+    });
+
+    // Animate each section one by one
+    section.forEach(ref => {
+      const el = ref.current;
+
+      tl.to(el, { yPercent: 0, duration: 2, ease: "power2.out" })
+        .to({}, { duration: 5 }) // hold
+        .to(el, { yPercent: -400, duration: 6, ease: "power2.in" }); // exit
+    });
+
+    // Return cleanup for this media query
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  });
+
+  // Global cleanup
+  return () => mm.revert();
+}, []);
+
+
+
 
   const fadeVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        duration: 4,
-        ease: 'easein',
+        // duration: 4,
+        // ease: 'easein',
       },
     },
   };
@@ -55,7 +114,7 @@ const index=()=>{
 // },[])
     return(
         <>
-    <div className=" flex items-center relative h-[100vh] w-full justify-center">
+    <div className=" flex items-center relative h-[100vh] w-full justify-center ">
 <Header />
 
 <motion.div
@@ -106,22 +165,22 @@ const index=()=>{
 </div> 
 {/* <Section2 /> */}
 <Homesectio2 />
-<div className="py-20 md:px-10"> 
-<Fadein> <Section2 heading={'Freight Forwarding'} text={`For over 20 years, we've delivered on our service commitments. 
-`} img={'/assets/services/service-1.png'}  /></Fadein>
-<Fadein> <Section3 heading={<>Warehousing & Distribution</>} text={`One of the most important element of supply chain management is warehousing.`} img={'/assets/services/s-2.png'}  /></Fadein>
-<Fadein> <Section2 heading={'Transportation Services'} 
-text={`With advancements in technology and the global trading, wenow have faster `} img={'/assets/services/s-3.png'}  /></Fadein>
-<Fadein> <Section3 heading={'Sparepart Logistics'}
- text={`Without the speedy installation of spare parts and timely maintenance on the ground.`} img={'/assets/services/s-4.png'}  /></Fadein>
+<div className="py-20 md:px-10 relative md:h-[100vh] w-full"  ref={container}> 
+ <Section2 ref={ref1} heading={'Freight Forwarding'} className={'md:absolute inset-0'} text={`For over 20 years, we've delivered on our service commitments. 
+`} img={'/assets/services/service-1.png'}  />
+ <Section3 ref={ref2} heading={<>Warehousing & Distribution</>} className={'md:absolute inset-0 '}  text={`One of the most important element of supply chain management is warehousing.`} img={'/assets/services/s-2.png'}  />
+ <Section ref={ref3} heading={'Transportation Services'} 
+text={`With advancements in technology and the global trading, wenow have faster `} className={'md:absolute inset-0'}  img={'/assets/services/s-3.png'}  />
+ <Section5 ref={ref4} heading={'Sparepart Logistics'} className={'md:absolute inset-0'}
+ text={`Without the speedy installation of spare parts and timely maintenance on the ground.`} img={'/assets/services/s-4.png'}  />
 
-<Fadein> <Section2 heading={'Custom Clearance'} 
+<Service1 ref={ref5} heading={'Custom Clearance'} className={'md:absolute inset-0'} 
 text={`The major activities of the Organization covers various disciplines of material handling. 
- `} img={'/assets/services/s-5.png'}  /></Fadein>
-<Fadein> <Section3 heading={'IT Support'} 
-text={`We have invested in world-class technology to manage your supply chain.`} img={'/assets/services/s-6.png'}  /></Fadein>
+ `} img={'/assets/services/s-5.png'}  />
+ <Service2 ref={ref6} heading={'IT Support'} className={'md:absolute inset-0'} 
+text={`We have invested in world-class technology to manage your supply chain.`} img={'/assets/services/s-6.png'}  />
 </div>
-<Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<>Saami  <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'}/> </Fadein>
+<Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<> Saami <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'}/> </Fadein>
  <Fadein><Section6 /></Fadein> 
 
 <Getintouch />

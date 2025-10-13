@@ -1,8 +1,9 @@
 import Image from "next/image"
-const services2=({img,heading,text,btn,className})=>{
+import { forwardRef } from "react"
+const services2=forwardRef(({img,heading,text,btn,className},ref)=>{
     return(
 
-<div className={`flex items-center justify-center w-full p-10 md:p-0  md:mb-16 ${className}`}>
+<div ref={ref} className={`flex items-center justify-center w-full p-10 md:p-0  md:mb-16 ${className}`}>
     <div className="flex md:flex-row flex-col   justify-center md:justify-between w-4xl gap-8">
 
 <div className="h-full flex md:justify-end ">
@@ -29,5 +30,5 @@ const services2=({img,heading,text,btn,className})=>{
 </div></div>
 
     )
-}
+})
 export default services2

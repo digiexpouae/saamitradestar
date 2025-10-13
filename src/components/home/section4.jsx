@@ -1,5 +1,7 @@
 import Image from "next/image"
-const services2=({img,heading,text,btn,className,ref})=>{
+import { forwardRef } from "react"
+forwardRef
+const services2=forwardRef(({img,heading,text,btn,className},ref)=>{
 
     return(
 
@@ -29,5 +31,5 @@ const services2=({img,heading,text,btn,className,ref})=>{
 </div></div>
 
     )
-}
+})
 export default services2
