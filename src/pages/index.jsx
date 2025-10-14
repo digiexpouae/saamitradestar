@@ -62,7 +62,7 @@ useEffect(() => {
 
       tl.to(el, { yPercent: 0, duration: 2, ease: "power2.out" })
         .to({}, { duration: 5 }) // hold
-        .to(el, { yPercent: -400, duration: 6, ease: "power2.in" }); // exit
+        .to(el, { yPercent: -400, duration: 4, ease: "power2.in" }); // exit
     });
 
     // Return cleanup for this media query
@@ -166,18 +166,18 @@ useEffect(() => {
 {/* <Section2 /> */}
 <Homesectio2 />
 <div className="py-20 md:px-10 relative md:h-[100vh] w-full"  ref={container}> 
- <Section2 ref={ref1} heading={'Freight Forwarding'} className={'md:absolute inset-0'} text={`For over 20 years, we've delivered on our service commitments. 
+ <Section2 btn={true} ref={ref1} heading={'Freight Forwarding'} className={'md:absolute inset-0'} text={`For over 20 years, we've delivered on our service commitments. 
 `} img={'/assets/services/service-1.png'}  />
- <Section3 ref={ref2} heading={<>Warehousing & Distribution</>} className={'md:absolute inset-0 '}  text={`One of the most important element of supply chain management is warehousing.`} img={'/assets/services/s-2.png'}  />
- <Section ref={ref3} heading={'Transportation Services'} 
+ <Section3 btn={true} ref={ref2} heading={<>Warehousing & Distribution</>} className={'md:absolute inset-0 '}  text={`One of the most important element of supply chain management is warehousing.`} img={'/assets/services/s-2.png'}  />
+ <Section btn={true} ref={ref3} heading={'Transportation Services'} 
 text={`With advancements in technology and the global trading, wenow have faster `} className={'md:absolute inset-0'}  img={'/assets/services/s-3.png'}  />
- <Section5 ref={ref4} heading={'Sparepart Logistics'} className={'md:absolute inset-0'}
+ <Section5  btn={true} ref={ref4} heading={'Sparepart Logistics'} className={'md:absolute inset-0'}
  text={`Without the speedy installation of spare parts and timely maintenance on the ground.`} img={'/assets/services/s-4.png'}  />
 
-<Service1 ref={ref5} heading={'Custom Clearance'} className={'md:absolute inset-0'} 
+<Service1 btn={true} ref={ref5} heading={'Custom Clearance'} className={'md:absolute inset-0'} 
 text={`The major activities of the Organization covers various disciplines of material handling. 
  `} img={'/assets/services/s-5.png'}  />
- <Service2 ref={ref6} heading={'IT Support'} className={'md:absolute inset-0'} 
+ <Service2 btn={true} ref={ref6} heading={'IT Support'} className={'md:absolute inset-0'} 
 text={`We have invested in world-class technology to manage your supply chain.`} img={'/assets/services/s-6.png'}  />
 </div>
 <Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<> Saami <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'}/> </Fadein>

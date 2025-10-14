@@ -13,7 +13,7 @@ const services2=forwardRef(({img,heading,text,btn,className},ref)=>{
     <p className="text-[#5A5A5A] text-xl">
         {text}
 </p>
-{btn && <div className="inline-block rounded-full w-32 p-[1px] bg-gradient-to-b from-[#ED3039] to-[#FF7D83]">
+{btn && <div className="mt-4 inline-block rounded-full w-32 p-[1px] bg-gradient-to-b from-[#ED3039] to-[#FF7D83]">
  <button className="w-full px-4 py-2 rounded-full bg-white text-[#ED3039]">
     Learn More
   </button>
