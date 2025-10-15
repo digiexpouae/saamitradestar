@@ -3,7 +3,7 @@ const services2=({img,heading,text,btn,className,ref})=>{
 
     return(
 
-<div className={`flex items-center justify-center w-full p-10 md:p-0 md:mb-16 ${className}`} ref={ref}>
+<div className={`flex items-center justify-center w-full p-10 md:p-0 md:mb-16  ${className}`} ref={ref} style={{willChange:'transform'}}>
     <div className="flex md:flex-row flex-col md:items-center  justify-center md:justify-between w-4xl gap-8">
 <div className="flex flex-col  md:w-1/2">
     <h2 className="text-4xl text-black font-medium">{heading}
