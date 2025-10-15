@@ -113,6 +113,10 @@ const imageref=useRef(null)
     
                     gsap.to(imageref.current,{opacity:1-progress},"<")
            }
+           if(progress >= 1){
+                gsap.to(target,{zIndex:-10})
+
+           }
             },
           });
         },
