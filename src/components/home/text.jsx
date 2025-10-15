@@ -134,7 +134,7 @@ const imageref=useRef(null)
   return (
     <>
       <div
-        className="absolute  inset-0 z-20  md:h-[100vw] w-[100vw] container"
+        className="absolute  inset-0 z-20  md:h-[100vw] w-[100vw] "
      
         ref={container}
       >
