@@ -1,7 +1,7 @@
 import Image from "next/image"
 const section2=()=>{
     return(
-        <div className="h-screen flex items-center justify-center w-full" style={{backgroundColor:'rgba(255, 240, 241, 1)'}}>
+        <div className="h-screen flex items-center justify-center w-full container2" style={{backgroundColor:'rgba(255, 240, 241, 1)'}}>
 
 <div className="h-[60%] md:h-[80%] w-[70%] relative">
   <Image src={'/assets/section1/h-2.png'}  fill className="object-cover" />
