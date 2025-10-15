@@ -113,7 +113,7 @@ useEffect(() => {
 //   });
 // },[])
     return(
-        <>
+        <div>
     <div className=" flex items-center relative h-[100vh] w-full justify-center ">
 <Header />
 
@@ -186,6 +186,6 @@ text={`We have invested in world-class technology to manage your supply chain.`}
 <Getintouch />
 
 <Fadein><Footer /></Fadein>
-</>  )
+</div>  )
 }
 export default index;
