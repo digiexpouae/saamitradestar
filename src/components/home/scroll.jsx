@@ -116,11 +116,11 @@ const Scroll = () => {
   }, [])
 
   return (
-    <div className="relative w-full py-20 md:px-10 overflow-hidden">
+    <div className="relative w-full py-20 md:py-0 md:px-10 overflow-hidden">
       <div
-        className="relative md:!h-[100vh]  max-w-5xl mx-auto !min-h-screen w-full flex md:gap-[30px]  items-center md:justify-between justify-center"
+        className="relative   max-w-5xl mx-auto  w-full flex md:gap-[30px]  items-center md:justify-between justify-center"
         ref={container}
-        style={{ minHeight: '100vh' }}
+
       >
 <div className='hidden md:block space-y-4 md:w-1/3'>
 <h2 className='text-6xl font-semibold '>Our<br /><span className='text-[#ED3039]'> Services</span>  </h2>
