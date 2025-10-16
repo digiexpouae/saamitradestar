@@ -39,7 +39,7 @@ const imageref=useRef(null)
             trigger: target,
             start: "top top",
             scrub: true,
-            once:true,
+            // once:true,
             end: `+=${totalFrames * 10}`,
             onUpdate: (self) => {
               const progress = self.progress;
@@ -52,8 +52,8 @@ const imageref=useRef(null)
                 overwrite: "auto",
                 duration: 0.1,
               })
-          if (progress >= 0.3 && sectionRef.current) {
-            const clipPercent = Math.min((progress - 0.6) / 0.4 * 100, 100);
+          if (progress >= 0.2 && sectionRef.current) {
+            const clipPercent = Math.min((progress - 0.5) / 0.4 * 100, 100);
           
          
                 gsap.to(sectionRef.current, {
@@ -62,17 +62,25 @@ const imageref=useRef(null)
                   // expand circle to fully reveal
 
                   scale: 1,
-                  duration: 3,
-                  ease: "power2.out",
+                  // duration: 3,
+                  // ease: "power2.out",
                   transformOrigin: "center center"
                 },)
 
                 gsap.to(imageref.current,{opacity:1-progress},"<")
        }
-      if(progress>=1){
-      gsap.to(target, { autoAlpha: 0, duration: 0.5 });
-      // gsap.to(imageref, { opacity: 0,  });
-      }
+       else if (progress < 0.4) {
+        gsap.to(sectionRef.current, {
+          opacity: 0,
+          clipPath: "circle(0% at 50% 50%)",
+  
+
+        });
+      } 
+      // if(progress>=1){
+      // gsap.to(target, { autoAlpha: 0, duration: 0.5 });
+      // // gsap.to(imageref, { opacity: 0,  });
+      // }
       }
           });
         },
@@ -96,7 +104,7 @@ const imageref=useRef(null)
               //   overwrite: "auto",
               //   duration: 0.1,
               // });
-              if (progress >= 0.3 && sectionRef.current) {
+              if (progress >= 0.2 && sectionRef.current) {
                 const clipPercent = Math.min((progress - 0.6) / 0.4 * 100, 100);
               
              
@@ -140,7 +148,13 @@ const imageref=useRef(null)
       >
 
       </div>
-      <div className="absolute inset-0  " style={{backgroundImage:'url(/assets/im1.png)'}} ref={imageref}></div>
+      {/* style={{backgroundImage:'url(/assets/im1.png)'}}  */}
+      <div className="absolute inset-0 h-full w-full "
+      ref={imageref}>
+        <video src="/assets/SAAMI.mp4"  playsInline muted loop autoPlay     className="absolute inset-0 h-full w-full object-cover"
+        >
+        </video>
+      </div>
 
     </>
   );

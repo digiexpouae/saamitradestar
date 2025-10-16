@@ -48,11 +48,11 @@ const Scroll = () => {
       const allSections = [ref1, ref2, ref3, ref4, ref5, ref6]
 
       // ✅ Set initial positions
-      gsap.set(ref1.current, { y: 0 })
-      gsap.set(sections.map((ref) => ref.current), {
-        yPercent: 500,
-        ease: 'power2.out',
-      })
+      // gsap.set(ref1.current, { y: 0 })
+      // gsap.set(sections.map((ref) => ref.current), {
+      //   yPercent: 500,
+      //   ease: 'power2.out',
+      // })
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -75,12 +75,32 @@ const Scroll = () => {
       })
 
       // ✅ Animate each section
-      allSections.forEach((ref) => {
-        const el = ref.current
-        tl.to(el, { yPercent: 0, duration: 2, ease: 'power2.out' })
-          .to({}, { duration: 4 }) // hold
-          .to(el, { yPercent: -400, duration: 3, ease: 'power2.in' })
-      })
+      allSections.forEach((ref, i) => {
+        const el = ref.current;
+        const isFirst = i === 0;
+      const lastref = i===5
+        if (!isFirst) gsap.set(el, { opacity:0 })
+          // gsap.set(el,{opacity:0})
+
+
+
+
+      // if(isFirst){
+      //   tl.to(el, { opacity: 1,  duration: 2, ease: 'power2.in' }, "+=0");
+
+      // }
+      // else{
+        tl.to(el, { opacity: 1, duration: 6, ease: 'power2.out' },) 
+       
+       if(!lastref){ tl.to(el,{opacity:0,duration:10,ease:'power2.out'})}
+        // enter slightly later
+          tl.to({}, { duration: 3 }) // hold
+          if(!lastref){
+
+         
+          tl.to(el, { opacity: 0, duration: 2, ease: 'power2.in' }, "+=0");}
+      });
+      
 
       return () => {
         tl.kill()
@@ -98,11 +118,23 @@ const Scroll = () => {
   return (
     <div className="relative w-full py-20 md:px-10 overflow-hidden">
       <div
-        className="relative md:!h-[100vh] !min-h-screen w-full flex items-center justify-center"
+        className="relative md:!h-[100vh]  max-w-5xl mx-auto !min-h-screen w-full flex md:gap-[30px]  items-center md:justify-between justify-center"
         ref={container}
         style={{ minHeight: '100vh' }}
       >
-        <div className="flex flex-col items-center justify-center h-full w-full">
+<div className='hidden md:block space-y-4 md:w-1/3'>
+<h2 className='text-6xl font-semibold '>Our<br /><span className='text-[#ED3039]'> Services</span>  </h2>
+<p className='text-gray-500 text-base'>Find The Right Service For You</p>
+<div className='flex lg:flex-row flex-col gap-4 lg:gap-2'>
+ <button className=" cursor-pointer hover:bg-red-600 px-4 lg:px-6 bg-[#ED3039] py-2 rounded-full  text-white">
+ Get in Touch
+  </button>
+ <button className="cursor-pointer hover:bg-red-100  px-4 lg:px-6 py-2 rounded-full  bg-white text-black border-1 border-[#ED3039]" >
+   View All Services
+  </button>
+</div>
+</div>
+        <div className="flex flex-col w-full md:w-[60%] relative items-center justify-center h-full ">
           <Section2
             btn={true}
             ref={ref1}

@@ -93,10 +93,20 @@ useEffect(() => {
       start: "top top",
       end: "+=" + container.offsetHeight * 2,
        endTrigger:containertwo,       // how long to scroll while pinned
-      scrub: true,
+      scrub: 2,
       pin: true,
-     
+     once:true,
+     pinSpacing: false, // 
       markers: true,   
+      onUpdate: (self) => {
+        // When scroll progress reaches 1 → unpin permanently
+        if (self.progress >= 1) {
+          // Kill the ScrollTrigger (completely removes pin)
+          self.kill(true);
+          // Optionally reset the section position
+          gsap.set(section, { clearProps: "all" });
+        }
+      },
          // 🔧 remove later
     },
   });
@@ -110,7 +120,8 @@ useEffect(() => {
   });
 
   return () => {
-    ScrollTrigger.getAll().forEach((st) => st.kill());
+    tl.kill();
+    ScrollTrigger.getAll().forEach(st => st.kill());
   };
 }, []);
 
@@ -155,10 +166,11 @@ useEffect(() => {
 <Homesectio2 />
 
 
-<Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<> Saami <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'}/> </Fadein>
+
  <Fadein><Section6 /></Fadein> 
 <div className="relative">
 <Scrollsection /></div>
+<Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<> Saami <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'}/> </Fadein>
 <Getintouch />
 
 <Fadein><Footer /></Fadein>
