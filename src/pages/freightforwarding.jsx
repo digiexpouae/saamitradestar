@@ -22,9 +22,9 @@ const freightforwarding=()=>{
 
      </div>
      <Fadein> <Freightforwarding /></Fadein>
-     <Fadein> <Section2 heading={'Air Freight'}   className={'!p-8'} btn={false} text={'We have preferential agreements with the best airlines which provide us a guaranty of quality services. We offer innovating solutions and we deal with any kind of packages, whether small volumes or the freight of an entire airplane, or courier service.'} img={'/assets/freightforwarding/f-1.png' }/></Fadein>
-     <Fadein> <Section3 heading={'Train Freight'} className={'!p-8'} btn={false} text={'There has been a longstanding demand of Railways and for transparency in sharing of information to give the customers an upto-date business-like environment.'} img={'/assets/freightforwarding/f-2.png' }/></Fadein>
-     <Fadein> <Section2 heading={'Truck Freight'} className={'!p-8'} btn={false} text={"We are one of the leading forwarders of groupage and part and full load transports. With a comprehensive and well-established network of our offices across the globe, we are able to meet our customers' demands for secure and timely transportation."} img={'/assets/freightforwarding/f-3.png' }/></Fadein>
+     <Fadein> <Section2 heading={'Air Freight'}   className={'md:mb-16 max-w-4xl mx-auto md:px-4'}  btn={false} text={'We have preferential agreements with the best airlines which provide us a guaranty of quality services. We offer innovating solutions and we deal with any kind of packages, whether small volumes or the freight of an entire airplane, or courier service.'} img={'/assets/freightforwarding/f-1.png' }/></Fadein>
+     <Fadein> <Section3 heading={'Train Freight'} className={'md:mb-16 max-w-4xl mx-auto md:px-4'}  btn={false} text={'There has been a longstanding demand of Railways and for transparency in sharing of information to give the customers an upto-date business-like environment.'} img={'/assets/freightforwarding/f-2.png' }/></Fadein>
+     <Fadein> <Section2 heading={'Truck Freight'} className={'md:mb-16 max-w-4xl mx-auto md:px-4'} btn={false} text={"We are one of the leading forwarders of groupage and part and full load transports. With a comprehensive and well-established network of our offices across the globe, we are able to meet our customers' demands for secure and timely transportation."} img={'/assets/freightforwarding/f-3.png' }/></Fadein>
 
      <Getintouch />
      <Fadein> <Footer /></Fadein>

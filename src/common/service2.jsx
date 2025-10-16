@@ -9,13 +9,14 @@ const services2=forwardRef(({img,heading,text,btn,className,link},ref)=>{
 <div className={`flex items-center justify-center  p-10 md:p-0  ${className}`} ref={ref} style={{willChange:'transform'}}>
     <div className="flex md:flex-row flex-col md:items-center w-full justify-center md:justify-between  ">
 
-<div className="h-full md:w-1/2 flex md:justify-start ">
+<div className="h-full md:w-1/2  flex md:justify-start ">
     <Image src={img}
      width={300} height={300} className="object-cover "/></div>
-     <div className="flex flex-col   md:w-1/2">
+     <div className="flex flex-col mt-10 md:mt-0   md:w-1/2">
     <h2 className="text-4xl text-black font-medium">{heading}
     </h2>
     <p className="text-[#5A5A5A] text-xl">
+      b
         {text}
 </p>
 {btn && <div className=" mt-4 inline-block rounded-full w-32 p-[1px] bg-gradient-to-b from-[#ED3039] to-[#FF7D83]">

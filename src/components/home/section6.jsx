@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { forwardRef } from "react"
+import Link from "next/link"
 forwardRef
 const services2=forwardRef(({img,heading,text,btn,className},ref)=>{
 
@@ -18,11 +19,17 @@ const services2=forwardRef(({img,heading,text,btn,className},ref)=>{
     <p className="text-[#5A5A5A] text-xl">
         {text}
 </p>
-{btn && <div className="mt-4 inline-block rounded-full w-32 p-[1px] bg-gradient-to-b from-[#ED3039] to-[#FF7D83]">
- <button className=" cursor-pointer hover:bg-red-100 w-full px-4 py-2 rounded-full bg-white text-[#ED3039]">
-    Learn More
-  </button>
-</div>}
+{btn && (
+              <button className="mt-4 rounded-full w-32 p-[1px] bg-gradient-to-b from-[#ED3039] to-[#FF7D83]"   style={{ pointerEvents: "auto" }}>
+                <Link
+                  href="/customerclearance"
+                  className="hover:bg-red-100 w-full px-4 py-2 rounded-full bg-white text-[#ED3039] cursor-pointer block text-center"
+                >
+                  Learn More
+                </Link>
+              </button>
+            )}
+
 
 
 
