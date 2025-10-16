@@ -92,10 +92,10 @@ const Scroll = () => {
       // }
       // else{
         tl.to(el, { opacity: 1, duration: 6, ease: 'power2.out',zIndex:10+i },) 
-       
+      //  tl.to(el,{duration:4})
        if(!lastref){ tl.to(el,{opacity:0,duration:10,ease:'power2.out'})}
         // enter slightly later
-          tl.to({}, { duration: 4 }) // hold
+          // tl.to({}, { duration: 10 }) // hold
           if(!lastref){
 
          

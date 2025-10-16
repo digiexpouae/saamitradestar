@@ -68,9 +68,49 @@ export default function ApplyForm({className}) {
               <label className="block text-sm font-medium">Ph Number*</label>
               <div className="flex">
                 <select className="border rounded-l-full px-2">
-                  <option>+971</option>
-                  <option>+92</option>
-                  <option>+91</option>
+                <option>+1</option>   
+<option>+7</option>   
+<option>+20</option>  
+<option>+27</option>  
+<option>+30</option>  
+<option>+31</option>  
+<option>+32</option>  
+<option>+33</option>  
+<option>+34</option>  
+<option>+39</option>  
+<option>+44</option>  
+<option>+49</option>  
+<option>+60</option>  
+<option>+61</option>  
+<option>+62</option>  
+<option>+63</option>  
+<option>+64</option>  
+<option>+65</option>  
+<option>+81</option>  
+<option>+82</option>  
+<option>+86</option>  
+<option>+90</option>  
+<option>+91</option>  
+<option>+92</option>  
+<option>+94</option>  
+<option>+95</option>  
+<option>+971</option> 
+<option>+974</option> 
+<option>+966</option> 
+<option>+968</option> 
+<option>+973</option> 
+<option>+880</option> 
+<option>+98</option>  
+<option>+966</option> 
+<option>+972</option> 
+<option>+20</option>  
+<option>+27</option>  
+<option>+55</option>  
+<option>+52</option>  
+<option>+54</option>  
+<option>+234</option> 
+<option>+254</option> 
+
                 </select>
                 <input
                   type="text"
