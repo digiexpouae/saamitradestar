@@ -4,7 +4,7 @@
 import Image from "next/image";
 export default function SaamiSection({heading1,heading2,text}) {
   return (
-    <section className=" py-16 px-6 md:px-12 lg:px-24 text-center text-gray-800 relative" style={{backgroundColor:'rgba(255, 245, 245, 1)'}}>
+    <section className=" py-16 px-6 md:px-12 lg:px-24 text-center text-gray-800 relative  bg-[rgba(255,245,245,1)]" >
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl md:text-5xl  font-semibold tracking-tighter mb-4" style={{color:'rgba(237, 48, 57, 1)'}}>
         {heading1}
@@ -55,8 +55,8 @@ export default function SaamiSection({heading1,heading2,text}) {
           </div>
         </div>
       </div>
-      <div className="absolute bg-white h-20 w-20 bottom-0 left-0 " style={{clipPath:'polygon(0 0, 0% 110%, 100% 100%)'}}></div>
-      <div className="absolute bg-white h-20 w-20 bottom-0 right-0 " style={{clipPath:'polygon(100% 0, 0% 110%, 100% 100%)'}}></div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 left-0  [clip-path:polygon(0_0,0%_110%,100%_100%)]" ></div>
+      <div className="absolute bg-white h-20 w-20 bottom-0 right-0    [clip-path:polygon(100%_0,0%_110%,100%_100%)] "></div>
     </section>
   );
 }

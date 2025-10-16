@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
 const home=()=>{
 const maincontainer=useRef()
 
@@ -70,13 +71,13 @@ ref={maincontainer}
 <button class="button  " style={{backgroundColor:'rgba(237, 48, 57, 1)',border:'1px solid rgba(237, 48, 57, 1)'}}>
 
     <div class="button-inner text-white">
-      <span>Get In Touch</span>
+    <Link href='/contact'>  <span>Get In Touch</span></Link>
     </div>
 </button>
 
 <button class="button bg-white" style={{border:'1px solid rgba(237, 48, 57, 1)'}}>
     <div class="button-inner text-[rgba(42, 42, 42, 1)]">
-      <span>Learn more</span>
+    <Link href='/services'>  <span>Learn more</span></Link>
     </div>
 </button>
 

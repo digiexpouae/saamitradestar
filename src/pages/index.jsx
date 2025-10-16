@@ -118,6 +118,7 @@ useEffect(() => {
     duration: 4,
     ease: "power2.out",
   });
+  window.scrollTo({ top: 0, behavior: "instant" });
 
   return () => {
     tl.kill();

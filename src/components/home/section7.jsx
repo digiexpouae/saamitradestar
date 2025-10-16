@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { forwardRef } from "react";
+import Link from "next/link";
 
 const Services2 = forwardRef(({ img, heading, text, btn, className }, ref) => {
   return (
@@ -8,7 +9,7 @@ const Services2 = forwardRef(({ img, heading, text, btn, className }, ref) => {
    
     >
       <div className="flex lg:flex-row flex-col items-center justify-center md:justify-between gap-8">
-        <div className="h-full flex md:w-1/2 md:justify-end">
+        <div className="h-full flex md:w-1/2 lg:justify-end">
           <Image src={img} width={300} height={300} className="object-cover" alt={heading} />
         </div>
 
@@ -18,9 +19,12 @@ const Services2 = forwardRef(({ img, heading, text, btn, className }, ref) => {
 
           {btn && (
             <div className="mt-4 inline-block rounded-full w-32 p-[1px] bg-gradient-to-b from-[#ED3039] to-[#FF7D83]">
-              <button className=" cursor-pointer hover:bg-red-100 w-full px-4 py-2 rounded-full bg-white text-[#ED3039]">
+              <Link href="/ITSupport"
+                        className="hover:bg-red-100 w-full px-4 py-2 rounded-full bg-white text-[#ED3039] cursor-pointer block text-center"
+
+               >
                 Learn More
-              </button>
+              </Link>
             </div>
           )}
         </div>

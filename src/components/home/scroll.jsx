@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
-import Section2 from '../../common/service2'
-import Section3 from '../../common/service3'
+import Section2 from '../home/section'
+import Section3 from '../home/section1'
 import Section from './section4'
 import Section5 from './section5'
+import Link from 'next/link'
 import Service1 from './section6'
 import Service2 from './section7'
 import gsap from 'gsap'
@@ -90,11 +91,11 @@ const Scroll = () => {
 
       // }
       // else{
-        tl.to(el, { opacity: 1, duration: 6, ease: 'power2.out' },) 
+        tl.to(el, { opacity: 1, duration: 6, ease: 'power2.out',zIndex:10+i },) 
        
        if(!lastref){ tl.to(el,{opacity:0,duration:10,ease:'power2.out'})}
         // enter slightly later
-          tl.to({}, { duration: 3 }) // hold
+          tl.to({}, { duration: 4 }) // hold
           if(!lastref){
 
          
@@ -127,10 +128,10 @@ const Scroll = () => {
 <p className='text-gray-500 text-base'>Find The Right Service For You</p>
 <div className='flex lg:flex-row flex-col gap-4 lg:gap-2'>
  <button className=" cursor-pointer hover:bg-red-600 px-4 lg:px-6 bg-[#ED3039] py-2 rounded-full  text-white">
- Get in Touch
+ <Link href="/contact">Get in Touch</Link>
   </button>
  <button className="cursor-pointer hover:bg-red-100  px-4 lg:px-6 py-2 rounded-full  bg-white text-black border-1 border-[#ED3039]" >
-   View All Services
+ <Link href="/services"> View All Services</Link> 
   </button>
 </div>
 </div>
@@ -147,7 +148,7 @@ const Scroll = () => {
             btn={true}
             ref={ref2}
             heading={<>Warehousing & Distribution</>}
-            className={'md:absolute inset-0'}
+            className={'md:absolute inset-0 '}
             text={`One of the most important elements of supply chain management is warehousing.`}
             img={'/assets/services/s-2.png'}
           />
@@ -156,14 +157,14 @@ const Scroll = () => {
             ref={ref3}
             heading={'Transportation Services'}
             text={`With advancements in technology and the global trading, we now have faster `}
-            className={'md:absolute inset-0'}
+            className={'md:absolute inset-0 '}
             img={'/assets/services/s-3.png'}
           />
           <Section5
             btn={true}
             ref={ref4}
             heading={'Sparepart Logistics'}
-            className={'md:absolute inset-0'}
+            className={'md:absolute inset-0 '}
             text={`Without the speedy installation of spare parts and timely maintenance on the ground.`}
             img={'/assets/services/s-4.png'}
           />

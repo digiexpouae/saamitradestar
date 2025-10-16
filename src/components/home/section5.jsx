@@ -8,7 +8,7 @@ const Services2 = forwardRef(({ img, heading, text, btn, className }, ref) => {
       ref={ref}
     >
       <div className="flex lg:flex-row flex-col items-center justify-center md:justify-between  gap-8">
-        <div className="h-full flex md:w-1/2 md:justify-end">
+        <div className="h-full flex md:w-1/2 lg:justify-end">
           <Image src={img} width={300} height={300} className="object-cover" alt={heading} />
         </div>
 
