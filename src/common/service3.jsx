@@ -8,7 +8,7 @@ const services2=forwardRef(({img,heading,text,btn,className,link},ref)=>{
     <div className="flex md:flex-row flex-col items-center  justify-center md:justify-between  ">
 
 
-     <div className="flex flex-col  md:w-1/2">
+     <div className="flex flex-col  mb-10 md:mb-0   md:w-1/2">
     <h2 className="text-4xl text-black font-medium">{heading}
     </h2>
     <p className="text-[#5A5A5A]  text-xl">
