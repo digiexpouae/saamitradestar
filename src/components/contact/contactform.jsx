@@ -1,42 +1,72 @@
 "use client";
 import { useState } from "react";
 
-export default function ApplyForm({className}) {
+export default function ApplyForm({ className }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    country: "",
-    city: "",
-    role: "",
-    currentSalary: "",
-    expectedSalary: "",
-    linkedin: "",
-    resume: null,
-    skills: "",
+    message: "",
+    countryCode: "+1", // ✅ Ad
   });
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
-      [name]: files ? files[0] : value,
-    });
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Form submitted! 🚀");
+    setIsSubmitting(true);
+    setSuccess("");
+    setError("");
+
+    try {
+      const res = await fetch("/api/contactform", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+             phone: `${formData.countryCode}${formData.phone}`,
+          
+          message: formData.message,
+        }),
+      });
+
+      const data = await res.json();
+      console.log(data)
+      if (res.ok) {
+        setSuccess("Form submitted successfully ✅");
+        // Optionally redirect
+        // window.location.replace("/thankyou");
+
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        setError(data.message || "Failed to send message.");
+      }
+    } catch (err) {
+      setError("Failed to send message. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className={`flex justify-center items-center pt-10 h-auto ${className}`}>
+      <div className="bg-white rounded-2xl px-5 md:px-20 py-10 w-full max-w-2xl">
+        <h2 className="text-3xl md:text-5xl font-medium text-center mb-2">Get In Touch</h2>
 
-      <div className="bg-white  rounded-2xl px-5 md:px-20  py-10 w-full max-w-2xl">
-        <h2 className=" text-3xl md:text-5xl font-medium text-center mb-2">Get In Touch</h2>
-
-        <form className="space-y-2" onSubmit={handleSubmit}>
+        <form className="space-y-3" onSubmit={handleSubmit}>
           {/* Full Name */}
           <div>
             <label className="block text-sm font-medium">Full Name*</label>
@@ -52,8 +82,8 @@ export default function ApplyForm({className}) {
           </div>
 
           {/* Email + Phone */}
-          <div className="grid md:grid-cols-2 gap-2 md:gap-2 md:gap-2 md:gap-3">
-            <div className="w-[100%]">
+          <div className="grid md:grid-cols-2 gap-3">
+            <div>
               <label className="block text-sm font-medium">Email</label>
               <input
                 type="email"
@@ -64,53 +94,21 @@ export default function ApplyForm({className}) {
                 className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
-            <div className="w-[100%]">
-              <label className="block text-sm font-medium">Ph Number*</label>
-              <div className="flex">
-                <select className="border rounded-l-full px-2">
-                <option>+1</option>   
-<option>+7</option>   
-<option>+20</option>  
-<option>+27</option>  
-<option>+30</option>  
-<option>+31</option>  
-<option>+32</option>  
-<option>+33</option>  
-<option>+34</option>  
-<option>+39</option>  
-<option>+44</option>  
-<option>+49</option>  
-<option>+60</option>  
-<option>+61</option>  
-<option>+62</option>  
-<option>+63</option>  
-<option>+64</option>  
-<option>+65</option>  
-<option>+81</option>  
-<option>+82</option>  
-<option>+86</option>  
-<option>+90</option>  
-<option>+91</option>  
-<option>+92</option>  
-<option>+94</option>  
-<option>+95</option>  
-<option>+971</option> 
-<option>+974</option> 
-<option>+966</option> 
-<option>+968</option> 
-<option>+973</option> 
-<option>+880</option> 
-<option>+98</option>  
-<option>+966</option> 
-<option>+972</option> 
-<option>+20</option>  
-<option>+27</option>  
-<option>+55</option>  
-<option>+52</option>  
-<option>+54</option>  
-<option>+234</option> 
-<option>+254</option> 
 
+            <div>
+              <label className="block text-sm font-medium">Phone Number*</label>
+              <div className="flex">
+                <select 
+                  name="countryCode"
+                  value={formData.countryCode}
+                  onChange={handleChange}
+                  className="border rounded-l-full px-2"
+                >
+                  <option>+1</option>
+                  <option>+44</option>
+                  <option>+91</option>
+                  <option>+971</option>
+                  <option>+61</option>
                 </select>
                 <input
                   type="text"
@@ -125,31 +123,32 @@ export default function ApplyForm({className}) {
             </div>
           </div>
 
-
-          {/* Preferred Role */}
-        
-
-     
-          {/* Skills */}
+          {/* Message */}
           <div>
-            <label className="block text-sm font-medium">
-Message            </label>
+            <label className="block text-sm font-medium">Message</label>
             <textarea
-              name="skills"
-              placeholder="Enter your skills"
-              value={formData.skills}
+              name="message"
+              placeholder="Enter your message"
+              value={formData.message}
               onChange={handleChange}
               className="w-full border resize-none rounded-lg px-4 py-1 mt-1 h-24"
             />
           </div>
 
+          {/* Feedback */}
+          {success && <p className="text-green-600 text-center">{success}</p>}
+          {error && <p className="text-red-600 text-center">{error}</p>}
+
           {/* Submit Button */}
           <div className="text-center">
             <button
               type="submit"
-              className="w-full cursor-pointer bg-red-500 text-white font-medium py-2 rounded-full hover:bg-red-600"
+              disabled={isSubmitting}
+              className={`w-full cursor-pointer bg-red-500 text-white font-medium py-2 rounded-full hover:bg-red-600 ${
+                isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
-              Submit
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>

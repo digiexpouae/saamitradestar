@@ -37,7 +37,7 @@ const JobCard = ({ head, text }) => {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 z-[999] backdrop-blur-sm bg-black/40 flex overflow-y-auto justify-center scrollbar-hide">
+          <div className="fixed inset-0 z-[999] backdrop-blur-sm bg-black/40 flex overflow-auto justify-center ">
             <div className="relative  rounded-2xl h-full flex flex-col items-center md:justify-center w-[100%] lg:justify-start md:max-w-xl shadow-lg">
               {/* Close Button */}
               <button

@@ -1,42 +1,97 @@
 "use client";
 import { useState } from "react";
 
-export default function ApplyForm({className}) {
+export default function ApplyForm({ className }) {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
+    countryCode: "+971", // ✅ controlled select
     country: "",
     city: "",
     role: "",
     currentSalary: "",
     expectedSalary: "",
     linkedin: "",
-    resume: null,
+    resume: null, // ✅ will hold the File object
     skills: "",
   });
 
+  // Handle inputs (including file)
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: files ? files[0] : value,
-    });
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    alert("Form submitted! 🚀");
+    setIsSubmitting(true);
+    setSuccess("");
+    setError("");
+
+    try {
+      // ✅ Use FormData to send file and text fields
+      const data = new FormData();
+      data.append("fullName", formData.fullName);
+      data.append("email", formData.email);
+      data.append("phone", `${formData.countryCode}${formData.phone}`);
+      data.append("country", formData.country);
+      data.append("city", formData.city);
+      data.append("role", formData.role);
+      data.append("currentSalary", formData.currentSalary);
+      data.append("expectedSalary", formData.expectedSalary);
+      data.append("linkedin", formData.linkedin);
+      data.append("skills", formData.skills);
+
+      if (formData.resume) {
+        data.append("resume", formData.resume); // ✅ include file
+      }
+
+      const res = await fetch("/api/careerform", {
+        method: "POST",
+        body: data, // ✅ don't set headers — browser does it for FormData
+      });
+console.log(res)
+      if (res.ok) {
+        setSuccess("Application submitted successfully ✅");
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          countryCode: "+971",
+          country: "",
+          city: "",
+          role: "",
+          currentSalary: "",
+          expectedSalary: "",
+          linkedin: "",
+          resume: null,
+          skills: "",
+        });
+      } else {
+        const err = await res.json();
+        setError(err.message || "Failed to submit the form.");
+      }
+    } catch (err) {
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className={`flex justify-center items-center h-auto ${className}`}>
-
-      <div className="bg-white shadow-md rounded-2xl px-5 md:px-20  py-10 w-full max-w-2xl">
+      <div className="bg-white shadow-md rounded-2xl px-5 md:px-20 py-10 w-full max-w-2xl">
         <h2 className="text-3xl font-bold text-center mb-2">Apply Now</h2>
 
-        <form className="space-y-1" onSubmit={handleSubmit}>
+        <form className="space-y-2" onSubmit={handleSubmit}>
           {/* Full Name */}
           <div>
             <label className="block text-sm font-medium">Full Name*</label>
@@ -52,8 +107,8 @@ export default function ApplyForm({className}) {
           </div>
 
           {/* Email + Phone */}
-          <div className="grid md:grid-cols-2 gap-2 md:gap-2 md:gap-2 md:gap-3">
-            <div className="">
+          <div className="grid md:grid-cols-2 gap-3">
+            <div>
               <label className="block text-sm font-medium">Email</label>
               <input
                 type="email"
@@ -64,14 +119,23 @@ export default function ApplyForm({className}) {
                 className="w-full border rounded-full px-4 py-2 mt-1"
               />
             </div>
+
             <div>
-              <label className="block text-sm font-medium">Ph Number*</label>
+              <label className="block text-sm font-medium">Phone Number*</label>
               <div className="flex">
-                <select className="border rounded-l-full px-2">
-                  <option>+971</option>
-                  <option>+92</option>
-                  <option>+91</option>
+                <select
+                  name="countryCode"
+                  value={formData.countryCode}
+                  onChange={handleChange}
+                  className="border rounded-l-full px-2"
+                >
+                  <option value="+971">+971</option>
+                  <option value="+92">+92</option>
+                  <option value="+91">+91</option>
+                  <option value="+44">+44</option>
+                  <option value="+1">+1</option>
                 </select>
+
                 <input
                   type="text"
                   name="phone"
@@ -86,7 +150,7 @@ export default function ApplyForm({className}) {
           </div>
 
           {/* Country & City */}
-          <div className="grid md:grid-cols-2 gap-2 md:gap-2 md:gap-3">
+          <div className="grid md:grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium">Country</label>
               <input
@@ -128,7 +192,7 @@ export default function ApplyForm({className}) {
           </div>
 
           {/* Salary */}
-          <div className="grid md:grid-cols-2 gap-2 md:gap-2 md:gap-3">
+          <div className="grid md:grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium">Current Salary</label>
               <input
@@ -154,7 +218,7 @@ export default function ApplyForm({className}) {
           </div>
 
           {/* Linkedin + Resume */}
-          <div className="grid md:grid-cols-2 gap-2 md:gap-2 md:gap-3">
+          <div className="grid md:grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium">LinkedIn Profile</label>
               <input
@@ -167,12 +231,14 @@ export default function ApplyForm({className}) {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium">Resume</label>
+              <label className="block text-sm font-medium">Resume*</label>
               <input
                 type="file"
                 name="resume"
+                accept=".pdf,.doc,.docx"
                 onChange={handleChange}
                 className="w-full border rounded-full px-4 py-2 mt-1"
+                required
               />
             </div>
           </div>
@@ -191,13 +257,20 @@ export default function ApplyForm({className}) {
             />
           </div>
 
+          {/* Feedback */}
+          {success && <p className="text-green-600 text-center">{success}</p>}
+          {error && <p className="text-red-600 text-center">{error}</p>}
+
           {/* Submit Button */}
           <div className="text-center">
             <button
               type="submit"
-              className="w-full bg-red-500 text-white font-medium py-2 rounded-full hover:bg-red-600"
+              disabled={isSubmitting}
+              className={`w-full bg-red-500 text-white font-medium py-2 rounded-full hover:bg-red-600 ${
+                isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
-              Submit
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
