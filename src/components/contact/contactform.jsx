@@ -39,7 +39,6 @@ export default function ApplyForm({ className }) {
       });
 
       const data = await res.json();
-      console.log(data)
       if (res.ok) {
         setSuccess("Form submitted successfully ✅");
         // Optionally redirect
@@ -104,11 +103,31 @@ export default function ApplyForm({ className }) {
                   onChange={handleChange}
                   className="border rounded-l-full px-2"
                 >
-                  <option>+1</option>
-                  <option>+44</option>
-                  <option>+91</option>
-                  <option>+971</option>
-                  <option>+61</option>
+         <option value="+1">+1</option>
+  <option value="+44">+44</option>
+  <option value="+61">+61</option>
+  <option value="+64">+64</option>
+  <option value="+91">+91</option>
+  <option value="+92">+92</option>
+  <option value="+971">+971</option>
+  <option value="+974">+974</option>
+  <option value="+966">+966</option>
+  <option value="+20">+20</option>
+  <option value="+27">+27</option>
+  <option value="+60">+60</option>
+  <option value="+62">+62</option>
+  <option value="+63">+63</option>
+  <option value="+65">+65</option>
+  <option value="+81">+81</option>
+  <option value="+82">+82</option>
+  <option value="+86">+86</option>
+  <option value="+33">+33</option>
+  <option value="+34">+34</option>
+  <option value="+39">+39</option>
+  <option value="+49">+49</option>
+  <option value="+55">+55</option>
+  <option value="+52">+52</option>
+  <option value="+234">+234</option>
                 </select>
                 <input
                   type="text"
