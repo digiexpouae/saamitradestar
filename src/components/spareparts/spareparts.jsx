@@ -8,13 +8,16 @@ const section=()=>{
 flex-shrink-0 relative
 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" width={80} height={80} /></div> <div> 
     <p className="font-semibold text-[#5A5A5A]">
-    Quick response to any request form our nearest warehouses        </p>
+    Quick responses to requests from the closest warehouses.   </p>
     </div></div>
-  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">2 ways inbound and outbound for faulty items and its replaced items</p></div></div>
-  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">Secure packaging of the goods ordered</p></div></div>
-  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">End to end real time tracking of the full cycle</p></div></div>
-  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">Outstanding reports of all items</p></div></div>
-  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">E-proof of faulty material given by the client</p></div></div>
+  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">Items that are broken or need to be replaced might move in both directions.</p></div></div>
+  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">All shipments come in safe, protective packaging.</p></div></div>
+  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">Tracking in real-time at every step</p></div></div>
+  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">Reporting on all items in a clear and precise manner.</p></div></div>
+  <div className="flex items-center  gap-3"><div className="w-12 h-12 flex-shrink-0 relative"><Image src={'/assets/tick.svg'} className="object-cover" fill /></div> <div> <p className="font-semibold text-[#5A5A5A]">Verified e-proof for damaged materials sent back by customers.</p></div></div>
+
+
+
 
 </div>
 </div>

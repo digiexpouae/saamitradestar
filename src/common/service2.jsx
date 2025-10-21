@@ -16,7 +16,6 @@ const services2=forwardRef(({img,heading,text,btn,className,link},ref)=>{
     <h2 className="text-4xl text-black font-medium">{heading}
     </h2>
     <p className="text-[#5A5A5A] text-xl">
-      b
         {text}
 </p>
 {btn && <div className=" mt-4 inline-block rounded-full w-32 p-[1px] bg-gradient-to-b from-[#ED3039] to-[#FF7D83]">

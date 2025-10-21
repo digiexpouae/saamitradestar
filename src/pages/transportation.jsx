@@ -5,9 +5,9 @@ import Footer from '../layout/footer/footer'
 import Fadein from '../common/fadein'
 import Getintouch from "@/common/getintouch";
 const Transportation=()=>{
-    const text="With advancements in technology and the global trading, wenow have faster, safer and more reliable vehicles, both on rail and on road. The surface transportation is still the lifeline of economic growth. In the relocation industry, the need for faster and reliable means of transportation is increasing at a fast pace."
-    const description="There are several alternative means to ship the belongings as well as people. With increasing fuel costs and importance of timely deliveries, a number of factors have also to be kept in mind while moving the goods or people."
-    const description2="We also deliver the goods to project sites /Factory of importers etc. through employing surface transport. Our transport arrangements cover all parts of India and a very wide network in all majour countries. We also have the facility to transport the basic normal cargo."
+    const text="Saami Tradedstar provides proven transport services in Dubai. We connect businesses to key trade centers locally and globally. Our transport is designed to be flexible on both rail and on road so that we can move items safely and on time in any situation."
+    const description="We specialize in flexible cargo services in Dubai. We handle both bulk and time-sensitive shipments. We focus on road transport in logistics, using trucks and rail. This approach speeds up delivery times and keeps clients informed."
+    const description2="We help businesses grow confidently with our reliable surface transportation services and custom solutions. Saami Tradestar cargo services in Dubai offer reliable transport services and integrated road transportation in logistics. We also provide multimodal solutions, including rail transport, to cover every aspect of your supply chain."
     return(
 <div>
     <HeroSection image="/assets/transportation/t-1.jpg" heading="Transportation Services"   className="bg-[#00000080]"/>

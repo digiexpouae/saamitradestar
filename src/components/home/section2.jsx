@@ -10,9 +10,10 @@ const section2=()=>{
 <div className="absolute bottom-0 right-0 h-12 w-12  " style={{backgroundColor:'rgba(255, 240, 241, 1)',clipPath: 'polygon(0 0, 0% 100%, 100% 0)',transform:'rotate(180deg)'}}></div>
 </div>
 <div className="md:w-[60%] lg:w-1/2">
-  <h2 className="text-4xl md:text-5xl font-semibold mb-4 upppercase"><span className="text-red-600">Tailored logistics services </span>powered <br /> by modern software.</h2>
+  <h2 className="text-4xl md:text-5xl font-semibold mb-4 upppercase"><span className="text-red-600">Your Trusted Logistics </span> <br /> Partner in the UAE</h2>
   <p className="text-base  lg:text-xl leading-tight">
-  Our connected network takes care of your fulfillment and shipping operations. Our modern software gives you the empowerment you need to drive efficiencies, reduce costs and improve customer experience.
+Saami Tradestar is a well-known logistics company. People across the UAE trust us for our seamless logistics services. As a premier shipping company, we cover everything from common transport and logistics issues, UAE cargo services to innovative warehousing and logistics solutions.
+
   </p>
 </div>
 </div>

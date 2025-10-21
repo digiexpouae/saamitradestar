@@ -6,9 +6,9 @@ import Section3 from "../components/spareparts/spareparts"
 import Getintouch from "@/common/getintouch"
 import Fadein from '../common/fadein'
 const spareparts=()=>{
-    const text="Without the speedy installation of spare parts and timely maintenance on the ground, every Telecommunication industry will quickly fall behind in the competitive race. For this reason, efficient spare-parts logistics is necessary - not only in the Telecommunication industry but also in just about every sector."
-    const description="As a third party logistics providers(3PLs) we have answered the market’s demand and services most of earth’s area and population in spare part industries. Themajor vertical industries in the spare parts logistics network are Automotive, Industrial , Electronic, Telecom and Technology."
-    const description2="In short,the spare parts logistics marketis driven by high value manufactured products and their maintenance. To meet our customers requirements for the spare parts logistics market, we begin to work with several key principles like:-"
+    const text="Our custom spare parts logistics program keeps your supply chain fast and reliable. Saami Tradestar focuses on spare parts inventory management and offers expert services, ensuring that vital equipment stays operational."
+    const description="As a third-party logistics provider (3PL), we meet market demand by servicing most of the world’s areas and populations in the spare parts industry. We work with the automotive, industrial, electronics, telecommunications, and technology sectors"
+    const description2="We ensure that each parts reach you quickly and stays tracked by combining smart spare parts inventory management, smooth distribution, and secure spare parts warehousing. Our method reduces downtime and boosts productivity. It also provides your firm with a reliable network of replacement parts."
     return(
         <div className="">
             <HeroSection image="/assets/spareparts/s-1.jpg" heading="Spare Parts Logistics"   className="bg-[#00000080]"/>
