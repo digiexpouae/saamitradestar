@@ -12,7 +12,7 @@ const section2=()=>{
 <div className="md:w-[60%] lg:w-1/2">
   <h2 className="text-4xl md:text-5xl font-semibold mb-4 upppercase"><span className="text-red-600">Your Trusted Logistics </span> <br /> Partner in  INDIA</h2>
   <p className="text-base  lg:text-xl leading-tight">
-Saami Tradestar is a well-known logistics company. People across the UAE trust us for our seamless logistics services. As a premier shipping company, we cover everything from common transport and logistics issues, UAE cargo services to innovative warehousing and logistics solutions.
+Saami Tradestar is a well-known logistics company. People across the India trust us for our seamless logistics services. As a premier shipping company, we cover everything from common transport and logistics issues, India cargo services to innovative warehousing and logistics solutions.
 
   </p>
 </div>
