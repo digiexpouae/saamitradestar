@@ -15,7 +15,7 @@ const JobCard = ({ head, text }) => {
         <h2 className="text-xl font-semibold mb-4">{head}</h2>
 
         <div className="flex flex-wrap gap-2 mb-4">
-          {["Dubai", "Full-time", "On-site", "Sales"].map((tag) => (
+          {["India", "Full-time", "On-site", "Sales"].map((tag) => (
             <span
               key={tag}
               className="px-3 py-1 text-sm border border-black rounded-full"

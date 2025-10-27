@@ -18,7 +18,7 @@ export default function Footer() {
             pioneered supply chain management solutions.
           </p>
           <div className="mt-4 flex md:flex-row flex-col text-sm w-full " style={{flexWrap:'wrap'}}>
-            <div className="flex  items-center gap-2 p-2 md:justify-center"><div className="w-4 h-4 flex items-center justify-center relative"><Image src={'/assets/footer/location.svg'} width={20} height={20} className="object-cover"/> </div><p className="text-white ">Dubai, UAE</p></div>
+            <div className="flex  items-center gap-2 p-2 md:justify-center"><div className="w-4 h-4 flex items-center justify-center relative"><Image src={'/assets/footer/location.svg'} width={20} height={20} className="object-cover"/> </div><p className="text-white ">India</p></div>
             <div className="flex  items-center gap-2 p-2 md:justify-center"><div className="w-4 h-4 flex items-center justify-center relative"><Image src={'/assets/footer/vector.svg'}   width={20} height={20} className="object-cover"/> </div><p className="text-white ">+971 4 885 9549</p></div>
             <div className="flex  items-center gap-2 p-2 md:justify-center"><div className="w-6 h-4 flex items-center justify-center relative"><Image src={'/assets/footer/email.svg'}    width={20} height={20} className="object-cover"/> </div><p className="text-white ">            info@saamitradestar.com
             </p></div>
