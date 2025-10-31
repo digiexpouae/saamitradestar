@@ -22,7 +22,7 @@ const Header = () => {
         style={{ borderRadius: "10px" }}
       >
         {/* Logo */}
-        <div className="w-36 md:w-1/3 cursor-pointer">
+        <div className="w-36 md:w-[40%] cursor-pointer">
           <Link href="/">
             <Image
               src="/assets/header/saami.png"
@@ -35,7 +35,7 @@ const Header = () => {
         </div>
 
         {/* Phone Image */}
-       <div className="hidden lg:flex  w-1/2 h-[70%] gap-6 items-center justify-center">
+       <div className="hidden lg:flex  w-1/2 h-[70%] gap-6 pt-4 items-center justify-center">
        <Link className="font-medium text-sm" href={'/'}>Home</Link>
        <Link className="font-medium text-sm" href={'/about'}>About</Link>
      {/* Services with dropdown */}
