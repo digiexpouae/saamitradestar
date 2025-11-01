@@ -22,7 +22,7 @@ const Header = () => {
         style={{ borderRadius: "10px" }}
       >
         {/* Logo */}
-        <div className="w-36 md:w-[40%] cursor-pointer">
+        <div className="w-36 md:w-[45%] cursor-pointer">
           <Link href="/">
             <Image
               src="/assets/header/saami.png"
