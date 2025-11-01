@@ -22,7 +22,7 @@ const Header = () => {
         style={{ borderRadius: "10px" }}
       >
         {/* Logo */}
-        <div className="w-36 md:w-[45%] cursor-pointer">
+        <div className="aspect-[14/2] w-[70%] md:w-[45%] cursor-pointer">
           <Link href="/">
             <Image
               src="/assets/header/saami.png"
@@ -107,11 +107,11 @@ const Header = () => {
 
         {/* Menu Button */}
         <button
-          className="lg:hidden flex items-center justify-center gap-2 hover:bg-red-800 bg-[#ED3039] rounded-full px-4 md:px-6 py-2 cursor-pointer"
+          className="lg:hidden flex items-center justify-center  gap-2 hover:bg-red-800 bg-[#ED3039] rounded-full px-4 md:px-6 py-2 cursor-pointer"
           onClick={toggleMenu}
         >
-          <span className="text-white text-sm md:text-base font-medium">Menu</span>
-          <FaBars size={12} color="white" />
+          {/* <span className="text-white text-sm md:text-base font-medium"></span> */}
+          <FaBars size={16} color="white" />
         </button>
       </div>
 
