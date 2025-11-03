@@ -6,6 +6,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+import Tracking from '../../common/tracking'
 const home=()=>{
 const maincontainer=useRef()
 
@@ -49,6 +50,7 @@ return(
 <div className=" flex items-center relative h-[100vh] w-full justify-center  " ref={containerRef}>
 <Header />
 <Text sectionRef={maincontainer}/>
+
 <motion.div
 ref={maincontainer}
   className="absolute inset-0 z-0 bg-cover bg-center flex flex-col items-center justify-center   overflow-hidden"
@@ -59,7 +61,7 @@ ref={maincontainer}
 //  viewport={{ once: true, amount: 0.3 }}
  style={{ backgroundImage: "url('/assets/section1/h-1.webp')",borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px', backgroundSize:'cover',backgroundPosition:'center',clipPath: 'circle(0% at 50% 50%)', // start hidden as circle
     transformOrigin: 'center center', }}
->
+><Tracking />
   <div className="-translate-y-10 flex flex-col items-center justify-center ">
 <h2 className="text-4xl md:text-7xl  font-semibold flex flex-col items-center" style={{color:'rgba(42, 42, 42, 1)'}}>We Make Shipping
       <span className="" style={{color:'rgba(238, 34, 61, 1)'}}>
@@ -80,7 +82,7 @@ ref={maincontainer}
     <Link href='/services'>  <span>Learn more</span></Link>
     </div>
 </button>
-
+ 
 </div>
   </div>
 <div className="absolute inset-0 bg-cover flex flex-col items-center  translate-y-[70%]">
