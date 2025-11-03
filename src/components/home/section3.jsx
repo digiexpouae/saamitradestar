@@ -20,7 +20,7 @@ export default function SaamiSection({heading1,heading2,text}) {
 
         <div className="grid md:grid-cols-2  lg:grid-cols-3 gap-6">
           {/* Mission */}
-          <div className=" relative text-start text-white p-9 md:pr-4 shadow-lg " style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
+          <div className=" relative text-start text-white p-9 md:pr-4  " style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
 <div className="w-14 h-14 mb-4"><Image src={'/assets/section1/Group 27.svg'} width={100} height={100} className="object-cover" /></div>
             <h3 className="text-4xl font-semibold mb-3">Our Mission</h3>
             <p className="text-xl leading-[1.3] pr-4">
@@ -32,7 +32,7 @@ export default function SaamiSection({heading1,heading2,text}) {
           </div>
 
           {/* Vision */}
-          <div className="relative text-start text-white p-9 md:pr-4 shadow-lg" style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
+          <div className="relative text-start text-white p-9 md:pr-4 " style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
         <div className="w-14 h-14 mb-4">    <Image src={'/assets/section1/Group 28.svg'} width={100} height={100} className="object-cover"  /></div>
             <h3 className="text-4xl font-semibold mb-3">Our Vision</h3>
             <p className="text-xl leading-[1.3] pr-4">
@@ -43,7 +43,7 @@ export default function SaamiSection({heading1,heading2,text}) {
           </div>
 
           {/* Values */}
-          <div className=" relative text-start text-white  p-9 md:pr-4 shadow-lg" style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
+          <div className=" relative text-start text-white  p-9 md:pr-4 " style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
           <div className="w-14 h-14 mb-4">  <Image src={'/assets/section1/Group 29.svg'} width={100} height={100} className="object-cover"  /></div>
             <h3 className="text-4xl font-semibold mb-3">Our Values</h3>
             <p className="text-xl leading-[1.3] pr-4">
