@@ -24,7 +24,7 @@ export default function TrackShipment() {
             onChange={(e) => setAwb(e.target.value)}
             placeholder="Tracking number"
             required
-            className="flex-1 px-2 py-2 border border-gray-300 rounded-l-lg "
+            className="flex-1 px-2 py-2 border text-white border-gray-300 rounded-l-lg "
           />
           <button
             type="submit"
