@@ -25,7 +25,7 @@ const Header = () => {
         <div className="aspect-[14/2] w-[70%] md:w-[45%] cursor-pointer">
           <Link href="/">
             <Image
-              src="/assets/header/saami.png"
+              src="/assets/saamilogo-2.png"
               alt="logo"
               width={500}
               height={50}
