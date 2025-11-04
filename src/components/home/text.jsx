@@ -230,12 +230,13 @@ const Text = ({ sectionRef }) => {
                 gsap.to(sectionRef.current, {
                   opacity: 0,
                   clipPath: "circle(0% at 50% 50%)",
+                  zIndex:20
                 });
               }
 
               // ✅ Set z-index to 0 when scroll completes
               if (progress >= 1) {
-                gsap.to(target, { zIndex: 0, ease: "none" });
+                gsap.to(target, { zIndex: 0, ease: "none" })
               } else {
                 gsap.to(target, { zIndex: 20, ease: "none" });
               }
@@ -263,6 +264,7 @@ const Text = ({ sectionRef }) => {
                   scale: 1,
                   duration: 3,
                   ease: "power2.out",
+                
                   transformOrigin: "center center",
                 });
                 gsap.to(imageref.current, { opacity: 1 - progress }, "<");
