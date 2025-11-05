@@ -28,12 +28,11 @@ const section4=()=>{
 <div className="md:flex grid grid-cols-2 md:mb-6  gap-4 p-4 md:flex-row md:items-center md:justify-center" >
   {location2.map((elem, index) => (
     <div key={index} className="flex gap-2 items-center">
-      <div className="w-10 h-10">
+      <div className="w-10 h-10 ">
         <Image
           src="/assets/warehouse/location.svg"
-          width={30}
-          height={30}
-          alt="Location Icon"
+     width={30}
+          height={30}          alt="Location Icon"
           className="object-cover w-full h-full"
         />
       </div>
@@ -58,11 +57,10 @@ const section4=()=>{
              <div className="grid grid-cols-2 md:flex  gap-4 p-4 md:items-center md:justify-center ">
   {location.map((elem, index) => (
     <div key={index} className="flex gap-2  items-center">
-      <div className="w-10 h-10">
+      <div className="w-10 h-10 aspect-[4/4] relative">
         <Image
           src="/assets/warehouse/location.svg"
-          width={30}
-          height={30}
+         fill
           alt="Location Icon"
            className="object-cover w-full h-full"
         />
@@ -81,11 +79,10 @@ const section4=()=>{
              <div className="md:flex grid grid-cols-2 md:mb-6  gap-4 p-4 md:flex-row md:items-center md:justify-center" >
   {location2.map((elem, index) => (
     <div key={index} className="flex gap-2 items-center">
-      <div className="w-10 h-10">
+      <div className="w-10 h-10 relative aspect-[4/4]">
         <Image
           src="/assets/warehouse/location.svg"
-          width={30}
-          height={30}
+        fill
           alt="Location Icon"
           className="object-cover w-full h-full"
         />
