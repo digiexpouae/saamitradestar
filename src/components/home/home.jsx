@@ -48,7 +48,7 @@ const maincontainer=useRef()
       
 return(
 <div className=" flex items-center relative h-[100vh] w-full justify-center  " ref={containerRef}>
-<Header />
+
 <Text sectionRef={maincontainer}/>
 
 <motion.div

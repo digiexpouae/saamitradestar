@@ -15,7 +15,7 @@ const Header = () => {
   const toggleServices = () => setIsServicesOpen((prev) => !prev);
 
   return (
-    <header className="fixed top-4 z-40 w-full md:w-[65%] px-2">
+    <header className="fixed top-4 z-[999] w-full md:w-[65%] px-2">
       {/* Top Bar */}
       <div
         className="bg-[#FFF8F8] px-2 md:px-6 py-2 lg:py-4 border flex justify-between items-center w-full "

@@ -161,6 +161,9 @@ useEffect(() => {
 // },[])
     return(
         <div className="overflow-hidden">
+          <div className="flex items-center justify-center w-full">
+            <Header />
+          </div>
 <Home />
 
 {/* <Section2 /> */}
