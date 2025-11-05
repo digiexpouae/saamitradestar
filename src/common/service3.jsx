@@ -28,7 +28,7 @@ const services2=forwardRef(({img,heading,text,btn,className,link},ref)=>{
   </div>
   <div className="h-full flex md:w-1/2 md:justify-end ">
     <Image src={img}
-     width={300} height={300} className="object-cover"/></div>
+     width={330} height={300} className="object-cover"/></div>
 </div></div>
 
     )

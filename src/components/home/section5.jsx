@@ -12,7 +12,7 @@ const Services2 = forwardRef(({ img, heading, text, btn, className }, ref) => {
           <Image src={img} width={300} height={300} className="object-cover" alt={heading} />
         </div>
 
-        <div className="flex flex-col md:w-1/2">
+        <div className="flex flex-col md:w-1/2 px-2 md:px-0">
           <h2 className="text-4xl text-black font-medium">{heading}</h2>
           <p className="text-[#5A5A5A] text-xl">{text}</p>
        
