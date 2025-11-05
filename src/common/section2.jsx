@@ -24,7 +24,7 @@ const warehouse=({image,heading,text,description,desccls1,description2,className
          <div className="flex md:hidden flex-col items-center w-full my-14  justify-center gap-6 mx-auto"> 
 
  <div className={`relative  text-left w-[90%] md:w-[80%] flex flex-col items-center justify-center ${cls1} `}>
-<h2 className={`text-[35px] md:text-[40px] w-full leading-[1]  text-black font-semibold ${headingcls} `}>{heading}</h2>
+<h2 className={`text-[35px] text-center md:text-[40px] w-full leading-[1]  text-black font-semibold ${headingcls} `}>{heading}</h2>
         <p className={` font-medium py-4 text-[20px]  text-[#5A5A5A] leading-[1.5] md:leading-[1.3] ${clstext} `}style={{lineClamp:6}}>{text}</p>
         </div>
         <div className={`h-full w-[90%]  md:w-[45%] ${cls4}`}><Image src={image} alt="plane" width={400} height={900} className="!h-full w-full object-cover  object-center" /></div>

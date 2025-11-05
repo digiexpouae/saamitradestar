@@ -38,13 +38,13 @@ export default function ValuesSection() {
           {data.map((elem,index)=>{
 
        return(
-          <div key={index} className=" relative text-start text-white p-8 shadow-lg " style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
+          <div key={index} className=" relative text-start text-white p-8  " style={{backgroundColor:'rgba(237, 48, 57, 1)'}}>
 <div className="w-14 h-14 mb-4"><Image src={elem.icon} width={100} height={100} className="object-cover" /></div>
             <h3 className="text-4xl font-semibold mb-3">{elem.title}</h3>
             <p className="text-base leading-[1.3]">
          {elem.description}
             </p>
-            <div className="absolute right-0 bottom-0  bg-white h-20 w-20 " style={{clipPath: 'polygon(24% 46%, 120% 46%, 100% 105%, 0px 155%, 0px 100%)'}}></div>
+            <div className="absolute -right-2 -bottom-2  bg-white h-20 w-20 " style={{clipPath: 'polygon(24% 46%, 120% 46%, 100% 105%, 0px 155%, 0px 100%)'}}></div>
 
           </div>)
             })}
