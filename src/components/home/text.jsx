@@ -300,7 +300,7 @@ const Text = ({ sectionRef }) => {
 
       <div className="absolute inset-0 h-full w-full" ref={imageref}>
         <video
-          src="/assets/SAAMI.mp4"
+          src="/assets/saami_compressed.mp4"
           playsInline
           muted
           loop
