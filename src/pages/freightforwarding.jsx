@@ -22,7 +22,7 @@ const freightforwarding=()=>{
   style={{ backgroundImage: "url('/assets/freightforwarding/plane1.webp')",borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px', backgroundSize:'cover',backgroundPosition:'center' }}
 ></div> */}
 <HeroSection image="/assets/freightforwarding/plane1.webp" heading="Freight Forwarding"   className="bg-[#00000080]"/>
-<div className="absolute inset-0 z-10 bg-[#0000004D]  flex items-center justify-center" style={{borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px',}}>  <h2 className="text-[45px] md:text-[70px] tracking-tighter absolute top-[50%] md:top-[48%] text-white font-semibold ">Freight Forwarding</h2> </div>
+{/* <div className="absolute inset-0 z-10 bg-[#0000004D]  opacity-[0] flex items-center justify-center" style={{borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px',}}>  <h2 className="text-[45px] md:text-[70px] tracking-tighter absolute top-[50%] md:top-[48%] text-white font-semibold ">Freight Forwarding</h2> </div> */}
 
 
      </div>
