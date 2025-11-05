@@ -28,7 +28,7 @@ const Openingposition = () => {
         Opening Positions
       </h2>
 
-      <p className="text-[#5A5A5A] font-medium py-4 mx-auto  max-w-3xl text-[20px] leading-[1.5] text-center md:leading-[1.3] line-clamp-6">
+      <p className="text-[#5A5A5A] px-4 md:px-0 font-medium py-4 mx-auto  max-w-3xl text-[20px] leading-[1.5] text-center md:leading-[1.3] line-clamp-6">
         Join our innovative team and shape the future of real estate. We're
         looking for passionate professionals who want to make a difference in
         people's lives.

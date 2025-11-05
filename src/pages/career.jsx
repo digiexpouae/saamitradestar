@@ -14,7 +14,7 @@ const career=()=>{
     const description3="We have opportunities in various disciplines viz Supply Chain, Technology, Engineering, Finance, IT, HR, Sales, Marketing, Legal and many more. We invite you to be a part of this committed and professionally managed Indian multinational."
   return(<div>
                     <HeroSection image="/assets/career/career.webp" heading="Career"   className="bg-[#00000080]"/>
-                 <Fadein> <Section2 cls4={'hidden'} cls3={'md:!w-[100%]'} desccls2={"!block md:!block"} heading={heading} text={text} clsheading={'text-center'} clstext={'text-start md:text-center'} className2={'!hidden'}/></Fadein>
+                 <Fadein> <Section2 cls4={'hidden'} cls3={'md:!w-[100%]'} desccls2={"!block md:!block"} heading={heading} text={text} clsheading={'text-center'} clstext={'text-center'} className2={'!hidden'}/></Fadein>
   <Fadein>    <Career /></Fadein>
   <Fadein>    <Opening /></Fadein>
   <Fadein><Getintouch /> </Fadein>
