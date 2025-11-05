@@ -117,13 +117,15 @@ const Scroll = () => {
   }, [])
 
   return (
-    <div className="relative w-full py-20 md:py-0 md:px-10 overflow-hidden">
+    <div className="relative w-full py-20 md:py-0  overflow-hidden ">
+  
       <div
-        className="relative   max-w-5xl mx-auto  w-full flex md:gap-[30px]  items-center md:justify-between justify-center"
+        className="relative md:bg-[url('/assets/Map-01.png')]  w-full  md:px-10 opacity-[0.7]"
         ref={container}
 
       >
-<div className='hidden md:block space-y-4 md:w-1/3'>
+
+<div className="max-w-5xl mx-auto w-full  flex md:gap-[30px]  items-center md:justify-between justify-center"><div className='hidden md:block  space-y-4 md:w-1/3 flex items-center justify-center flex-col '>
 <h2 className='text-6xl font-semibold '>Our<br /><span className='text-[#ED3039]'> Services</span>  </h2>
 <p className='text-gray-500 text-base'>Find The Right Service For You</p>
 <div className='flex lg:flex-row flex-col gap-4 lg:gap-2'>
@@ -185,6 +187,7 @@ const Scroll = () => {
             img={'/assets/services/s-6.png'}
           />
         </div>
+      </div>
       </div>
     </div>
   )
