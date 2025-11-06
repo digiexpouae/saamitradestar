@@ -1,4 +1,4 @@
-import Header from "@/layout/header";
+import Header from "@/layout/footer/header-2";
 // import Section2 from "../components/section2/section2";
 // import Section3 from "../components/section3/section3";
 import Text from "@/components/home/text";

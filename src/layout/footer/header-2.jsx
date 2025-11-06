@@ -3,16 +3,20 @@
   import { FaBars, FaPlus, FaTimes } from "react-icons/fa";
   import Link from "next/link";
 
-  const Header = () => {
+  const Header = ({complete}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+    const [update,setupdate]=useState(complete)
     const closeMenu = () => {
       setIsMenuOpen(false);
       setIsServicesOpen(false);
     };
     const toggleServices = () => setIsServicesOpen((prev) => !prev);
-
+  useEffect(()=>{
+  setupdate(complete)
+  console.log(complete +'complete')
+  },[complete])
     return (
       <header className="fixed top-0 z-[999] w-full">
         {/* Top Bar */}
@@ -25,8 +29,9 @@
           <div className="aspect-[12/2] w-[70%] md:w-[35%] cursor-pointer">
             <Link href="/">
               <Image
+                key={update ? "logo-red" : "logo-white"}  // ✅ forces React to recreate Image
 
-    src={ "/assets/saamilogo-2.png"}
+    src={update ? "/assets/saamilogo-2.png" : "/assets/whitelogo.png"}
                 alt="logo"
                 width={500}
                 height={50}
@@ -37,14 +42,14 @@
 
           {/* Phone Image */}
         <div className="hidden lg:flex  w-1/2 h-[70%] gap-6 pt-4 items-center justify-center">
-        <Link className={`font-medium  text-sm text-black `} href={'/'}>Home</Link>
-        <Link className={`font-medium  text-sm text-black `} href={'/about'}>About</Link>
+        <Link className={`font-medium  text-sm ${update ? "text-black" : "text-white"}`} href={'/'}>Home</Link>
+        <Link className={`font-medium  text-sm ${update ? "text-black" : "text-white"}`} href={'/about'}>About</Link>
       {/* Services with dropdown */}
       <div className="relative">
     {/* Services Link */}
     <Link
       href="/services"
-      className={`font-medium    text-sm hover:text-blue-600 transition-colors peer text-black `}
+      className={`font-medium    text-sm hover:text-blue-600 transition-colors peer ${update ? "text-black" : "text-white"}`}
     >
       Services
     </Link>
@@ -95,8 +100,8 @@
     </div>
   </div>
 
-        <Link className={`font-medium   text-sm text-black`} href={'/career'}>Career</Link>
-        <Link className={`font-medium   text-sm text-black`} style={{whiteSpace:'nowrap'}} href={'/contact'}>Contact Us</Link>
+        <Link className={`font-medium   text-sm ${update ? "text-black" : "text-white"}`} href={'/career'}>Career</Link>
+        <Link className={`font-medium   text-sm ${update ? "text-black" : "text-white"}`} style={{whiteSpace:'nowrap'}} href={'/contact'}>Contact Us</Link>
             {/* <Image
               src="/assets/header/2.png"
               alt="phone"
