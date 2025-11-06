@@ -33,8 +33,8 @@ const completeRef=useRef(complete)
             pinSpacing:true,
        onUpdate: (self) => {
   const progress = self.progress;
-   if (progress >= 1 && !completeRef.current) setcomplete(true);
-          else if (progress < 1 && completeRef.current) setcomplete(false);
+   if (progress >= 0.5 && !completeRef.current) setcomplete(true);
+          else if (progress < 0.5 && completeRef.current) setcomplete(false);
           console.log(progress + ' progress, complete=' + complete);
 
 }
