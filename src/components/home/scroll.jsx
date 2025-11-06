@@ -120,10 +120,11 @@ const Scroll = () => {
     <div className="relative w-full py-20 md:py-0  overflow-hidden ">
   
       <div
-        className="relative md:bg-[url('/assets/Map-01.png')]  w-full  md:px-10 opacity-[0.7]"
+        className="relative   w-full  md:px-10 "
         ref={container}
 
       >
+        <div className="absolute -z-10 md:bg-[url('/assets/Map-01.png')] w-full h-full "></div>
 
 <div className="max-w-5xl mx-auto w-full  flex md:gap-[30px]  items-center md:justify-between justify-center"><div className='hidden md:block  space-y-4 md:w-1/3 flex items-center justify-center flex-col '>
 <h2 className='text-6xl font-semibold '>Our<br /><span className='text-[#ED3039]'> Services</span>  </h2>
