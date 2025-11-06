@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef,useState } from "react";
 import Header from "@/layout/header";
 import Text from "./text";
 import { motion } from 'framer-motion';
@@ -7,11 +7,14 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import Tracking from '../../common/tracking'
-const home=()=>{
+const home=({complete, setcomplete})=>{
 const maincontainer=useRef()
-
+const completeRef=useRef(complete)
     const sectionRef=useRef()
     const containerRef=useRef()
+      useEffect(() => {
+    completeRef.current = complete;
+  }, [complete,setcomplete]);
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         ScrollTrigger.normalizeScroll(true);
@@ -28,7 +31,14 @@ const maincontainer=useRef()
             scrub: true,
             pin: true,
             pinSpacing:true,
-            // markers: true,   
+       onUpdate: (self) => {
+  const progress = self.progress;
+   if (progress >= 1 && !completeRef.current) setcomplete(true);
+          else if (progress < 1 && completeRef.current) setcomplete(false);
+          console.log(progress + ' progress, complete=' + complete);
+
+}
+      // markers: true,   
                // 🔧 remove later
           },
         });
@@ -45,6 +55,7 @@ const maincontainer=useRef()
           ScrollTrigger.getAll().forEach((st) => st.kill());
         };
       }, []);
+
       
 return(
 <div className=" flex items-center relative h-[100vh] w-full justify-center  " ref={containerRef}>

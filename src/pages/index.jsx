@@ -23,7 +23,7 @@ import Image from "next/image";
 import Getintouch from "@/common/getintouch";
 import Home from "@/components/home/home";
 import Footer from '../layout/footer/footer'
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 const index=()=>{
 const ref1=useRef()
 const ref2=useRef()
@@ -35,7 +35,12 @@ const container=useRef()
 const  containerRef=useRef()
 const headingref=useRef()
 const sectionRef=useRef()
+  const [complete, setcomplete] = useState(false);
+  const completeRef = useRef(complete);
 
+  useEffect(() => {
+    completeRef.current = complete; // keep ref in sync
+  }, [complete]);
 // useEffect(() => {
 //   gsap.registerPlugin(ScrollTrigger);
 //   ScrollTrigger.normalizeScroll(true);
@@ -99,14 +104,11 @@ useEffect(() => {
      pinSpacing: false, // 
       markers: true,   
       onUpdate: (self) => {
-        // When scroll progress reaches 1 → unpin permanently
-        if (self.progress >= 1) {
-          // Kill the ScrollTrigger (completely removes pin)
-          self.kill(true);
-          // Optionally reset the section position
-          gsap.set(section, { clearProps: "all" });
-        }
-      },
+  const progress = self.progress;
+  
+  console.log(self.progress+'progress')
+}
+
          // 🔧 remove later
     },
   });
@@ -159,12 +161,13 @@ useEffect(() => {
 //     }
 //   });
 // },[])
-    return(
+    return(<>
         <div className="overflow-hidden">
           <div className="flex items-center justify-center w-full">
-            <Header />
+         <Header complete={complete}  />
           </div>
-<Home />
+      <Home complete={complete} setcomplete={setcomplete} />         
+
 
 {/* <Section2 /> */}
 <Homesectio2 />
@@ -178,6 +181,7 @@ useEffect(() => {
 <Getintouch />
 
 <Fadein><Footer /></Fadein>
-</div>  )
+
+</div></>  )
 }
 export default index;
