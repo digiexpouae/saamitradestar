@@ -1,51 +1,66 @@
-  import Image from "next/image";
-  import { useEffect, useState } from "react";
-  import { FaBars, FaPlus, FaTimes } from "react-icons/fa";
-  import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { FaBars, FaPlus, FaTimes } from "react-icons/fa";
+import Link from "next/link";
 
-  const Header = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isServicesOpen, setIsServicesOpen] = useState(false);
-    const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-    const closeMenu = () => {
-      setIsMenuOpen(false);
-      setIsServicesOpen(false);
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [update, setupdate] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    setIsServicesOpen(false);
+  };
+  const toggleServices = () => setIsServicesOpen((prev) => !prev);
+
+  // 🧠 Detect scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setupdate(true);
+      } else {
+        setupdate(false);
+      }
     };
-    const toggleServices = () => setIsServicesOpen((prev) => !prev);
 
-    return (
-      <header className="fixed top-0 z-[999] w-full">
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+   <header className="fixed top-0 z-[999] w-full">
         {/* Top Bar */}
         <div
           className="relative  px-2 md:px-32 py-2 lg:py-4  flex justify-between items-center w-full "
           style={{ borderRadius: "10px" }}
         >
-          <div className="absolute inset-0 -z-[1] backdrop-blur-[10] bg-[#FFFFFF99] opacity-[0.6]"></div>
-
+          <div className={`absolute inset-0 duration-1000 ease-out  -z-[1] ${!update ? 'backdrop-blur-lg '  :'backdrop-blur-[10] bg-[#FFFFFF99] opacity-[0.6]'}`}></div>
           {/* Logo */}
           <div className="aspect-[12/2] w-[70%] md:w-[35%] cursor-pointer">
             <Link href="/">
               <Image
 
-    src={ "/assets/saamilogo-2.png"}
+    src={update ? "/assets/saamilogo-2.png" : "/assets/whitelogo.png"}
                 alt="logo"
                 width={500}
                 height={50}
-                className="object-cover"
+                className="object-cover duration-1000 ease-out"
               />
             </Link>
           </div>
 
           {/* Phone Image */}
         <div className="hidden lg:flex  w-1/2 h-[70%] gap-6 pt-4 items-center justify-center">
-        <Link className={`font-semibold  text-sm text-black `} href={'/'}>Home</Link>
-        <Link className={`font-semibold  text-sm text-black `} href={'/about'}>About</Link>
+        <Link className={`font-semibold duration-1000 ease-out  text-sm ${update ? "text-black" : "text-white"}`} href={'/'}>Home</Link>
+        <Link className={`font-semibold duration-1000 ease-out  text-sm ${update ? "text-black" : "text-white"}`} href={'/about'}>About</Link>
       {/* Services with dropdown */}
       <div className="relative">
     {/* Services Link */}
     <Link
       href="/services"
-      className={`font-semibold   text-sm hover:text-blue-600 transition-colors peer text-black `}
+      className={` font-semibold  duration-1000 ease-out  text-sm hover:text-blue-600 transition-colors peer ${update ? "text-black" : "text-white"}`}
     >
       Services
     </Link>
@@ -96,8 +111,8 @@
     </div>
   </div>
 
-        <Link className={`font-semibold   text-sm text-black`} href={'/career'}>Career</Link>
-        <Link className={`font-semibold   text-sm text-black`} style={{whiteSpace:'nowrap'}} href={'/contact'}>Contact Us</Link>
+        <Link className={`font-semibold duration-1000 ease-out  text-sm ${update ? "text-black" : "text-white"}`} href={'/career'}>Career</Link>
+        <Link className={`font-semibold duration-1000 ease-out  text-sm ${update ? "text-black" : "text-white"}`} style={{whiteSpace:'nowrap'}} href={'/contact'}>Contact Us</Link>
             {/* <Image
               src="/assets/header/2.png"
               alt="phone"
@@ -195,7 +210,7 @@
           </div>
         </nav>
       </header>
-    );
-  };
+  );
+};
 
-  export default Header;
+export default Header;

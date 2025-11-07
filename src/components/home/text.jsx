@@ -217,7 +217,7 @@ const Text = ({ sectionRef }) => {
               });
 
               // Animate reveal and image fade
-              if (progress >= 0.2 && sectionRef.current) {
+              if (progress >= 0.4 && sectionRef.current) {
                 const clipPercent = Math.min(((progress - 0.5) / 0.4) * 100, 100);
                 gsap.to(sectionRef.current, {
                   opacity: 1,
@@ -256,7 +256,7 @@ const Text = ({ sectionRef }) => {
               const frame = Math.floor(progress * (totalFrames - 1));
               animation.goToAndStop(frame, true);
 
-              if (progress >= 0.2 && sectionRef.current) {
+              if (progress >= 0.4 && sectionRef.current) {
                 const clipPercent = Math.min(((progress - 0.6) / 0.4) * 100, 100);
                 gsap.to(sectionRef.current, {
                   opacity: 1,
@@ -269,7 +269,13 @@ const Text = ({ sectionRef }) => {
                 });
                 gsap.to(imageref.current, { opacity: 1 - progress }, "<");
               }
-
+else if (progress < 0.4) {
+                gsap.to(sectionRef.current, {
+                  opacity: 0,
+                  clipPath: "circle(0% at 50% 50%)",
+                  zIndex:20
+                });
+              }
               gsap.to(svg,{yPercent:0})
               // ✅ Same z-index control for mobile
               if (progress >= 1) {

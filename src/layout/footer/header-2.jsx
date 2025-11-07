@@ -24,32 +24,32 @@
           className="relative  px-2 md:px-32 py-2 lg:py-4  flex justify-between items-center w-full "
           style={{ borderRadius: "10px" }}
         >
-          <div className={`absolute inset-0 -z-[1] ${!update ? 'backdrop-blur-lg'  :'backdrop-blur-[10] bg-[#FFFFFF99] opacity-[0.6]'}`}></div>
+          <div className={`absolute inset-0 duration-1000 ease-out -z-[1] ${!update ? 'backdrop-blur-lg'  :'backdrop-blur-[10] bg-[#FFFFFF99] opacity-[0.6]'}`}></div>
           {/* Logo */}
           <div className="aspect-[12/2] w-[70%] md:w-[35%] cursor-pointer">
             <Link href="/">
               <Image
-                key={update ? "logo-red" : "logo-white"}  // ✅ forces React to recreate Image
 
     src={update ? "/assets/saamilogo-2.png" : "/assets/whitelogo.png"}
                 alt="logo"
                 width={500}
                 height={50}
-                className="object-cover"
+                className="object-cover duration-1000 ease-out"
               />
             </Link>
           </div>
 
           {/* Phone Image */}
         <div className="hidden lg:flex  w-1/2 h-[70%] gap-6 pt-4 items-center justify-center">
-        <Link className={`font-semibold  text-sm ${update ? "text-black" : "text-white"}`} href={'/'}>Home</Link>
-        <Link className={`font-semibold  text-sm ${update ? "text-black" : "text-white"}`} href={'/about'}>About</Link>
+        <Link className={`font-semibold  text-sm duration-1000 ease-out ${update ? "text-black" : "text-white"}`} href={'/'}>Home</Link>
+        <Link className={`font-semibold  text-sm duration-1000 ease-out ${update ? "text-black" : "text-white"}`} href={'/about'}>About</Link>
       {/* Services with dropdown */}
       <div className="relative">
     {/* Services Link */}
     <Link
       href="/services"
-      className={` font-semibold    text-sm hover:text-blue-600 transition-colors peer ${update ? "text-black" : "text-white"}`}
+      className={` font-semibold    text-sm hover:text-blue-600 transition-colors peer duration-1000 ease-out
+  ${update ? "text-black" : "text-white"}`}
     >
       Services
     </Link>
@@ -100,8 +100,8 @@
     </div>
   </div>
 
-        <Link className={`font-semibold   text-sm ${update ? "text-black" : "text-white"}`} href={'/career'}>Career</Link>
-        <Link className={`font-semibold   text-sm ${update ? "text-black" : "text-white"}`} style={{whiteSpace:'nowrap'}} href={'/contact'}>Contact Us</Link>
+        <Link className={`font-semibold   text-sm duration-1000 ease-out ${update ? "text-black" : "text-white"}`} href={'/career'}>Career</Link>
+        <Link className={`font-semibold   text-sm duration-1000 ease-out ${update ? "text-black" : "text-white"}`} style={{whiteSpace:'nowrap'}} href={'/contact'}>Contact Us</Link>
             {/* <Image
               src="/assets/header/2.png"
               alt="phone"
@@ -156,7 +156,7 @@
             {/* Services Dropdown */}
             <div className="flex flex-col items-center gap-2 relative w-full">
               <div
-                className="flex items-center gap-2 cursor-pointer text-2xl md:text-3xl"
+                className="flex items-center gap-2 cursor-pointer text-2xl md:text-3xl duration-1000 ease-out"
                 type="button"
               >
                 <Link href="/services">    Services   </Link> <button  className="cursor-pointer" onClick={toggleServices}> <FaPlus size={20} /></button>
