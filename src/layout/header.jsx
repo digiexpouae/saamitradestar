@@ -14,20 +14,27 @@ const Header = () => {
     setIsServicesOpen(false);
   };
   const toggleServices = () => setIsServicesOpen((prev) => !prev);
+useEffect(() => {
+  let lastState = false; // Track last applied state
 
-  // 🧠 Detect scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setupdate(true);
-      } else {
-        setupdate(false);
-      }
-    };
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
+    const triggerHeight = window.innerHeight * 0.6; // 80vh in pixels
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    // Add a small buffer / hysteresis zone
+    if (scrollY > triggerHeight && !lastState) {
+      setupdate(true);
+      lastState = true;
+    } else if (scrollY < triggerHeight && lastState) {
+      setupdate(false);
+      lastState = false;
+    }
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
+
 
   return (
    <header className="fixed top-0 z-[999] w-full">
