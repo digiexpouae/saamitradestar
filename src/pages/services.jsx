@@ -16,7 +16,7 @@ return(<div>
 `} img={'/assets/services/service-1.png'}  /></Fadein>
 <Fadein> <Section2 btn={true} link="/warehousing" className={'md:mb-16 max-w-4xl mx-auto md:px-4'} heading={<>Warehousing & Distribution</>} text={`One of the most important element of supply chain management is warehousing.`} img={'/assets/services/s-2.png'}  /></Fadein>
 <Fadein> <Section3 btn={true}  link="/transportation" className={'md:mb-16 max-w-4xl mx-auto md:px-4'} heading={'Transportation Services'} 
-text={`With advancements in technology and the global trading, wenow have faster `} img={'/assets/services/s-3.png'}  /></Fadein>
+text={`With advanced technology and global reach, we ensure your shipments move safely, efficiently, and on time.`} img={'/assets/services/s-3.png'}  /></Fadein>
 <Fadein> <Section2 btn={true} link="/spareparts" className={'md:mb-16 max-w-4xl mx-auto md:px-4'} heading={'Sparepart Logistics'}
  text={`Without the speedy installation of spare parts and timely maintenance on the ground.`} img={'/assets/services/s-4.png'}  /></Fadein>
 

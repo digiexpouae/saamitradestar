@@ -159,7 +159,7 @@ const Scroll = () => {
             btn={true}
             ref={ref3}
             heading={'Transportation Services'}
-            text={`With advancements in technology and the global trading, we now have faster `}
+            text={`With advanced technology and global reach, we ensure your shipments move safely, efficiently, and on time. `}
             className={'md:absolute inset-0 '}
             img={'/assets/services/s-3.png'}
           />

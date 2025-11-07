@@ -19,7 +19,7 @@ export default function ServicesTable({className}) {
       },
       {
         title: "Transportation Services",
-        desc: "With advancements in technology and the global trading, we now have faster solutions.",
+        desc: "With advanced technology and global reach, we ensure your shipments move safely, efficiently, and on time.",
       },
      
     ];
@@ -67,7 +67,7 @@ export default function ServicesTable({className}) {
         },
         {
           title: "Transportation Services",
-          desc: "With advancements in technology and the global trading, we now have faster solutions.",
+          desc: "With advanced technology and global reach, we ensure your shipments move safely, efficiently, and on time.",
           img:'/assets/services/t-2.webp'
         },
        

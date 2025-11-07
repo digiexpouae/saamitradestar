@@ -9,7 +9,7 @@ const customer=()=>{
     const description2="Saami Tradestar manages import customs clearance to help you get your customs clearance certificate. We also offer reliable online support for customs clearance."
     return(
         <div>
-            <HeroSection image="/assets/customer/c-1.jpg" heading="Customer Service"   className="bg-[#00000080]"/>
+            <HeroSection image="/assets/customer/c-1.jpg" heading="Custom Clearance"   className="bg-[#00000080]"/>
             <Fadein> <Section2  heading="Custom Clearance" text="" className=" " clsheading={'text-center'} clstext={'text-center'} cls4={'  hidden'} cls3={'md:w-full'}   /></Fadein>
             <Fadein> <Section3 /></Fadein>
             <Fadein><Getintouch /> </Fadein>
