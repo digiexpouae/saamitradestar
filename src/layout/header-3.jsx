@@ -106,7 +106,7 @@ const Header = () => {
 
       {/* Sidebar menu */}
       <nav
-        className={`fixed top-0 right-0 h-full bg-white transition-all duration-500 ease-in-out bg-opacity-95 z-30
+        className={`fixed top-0 right-0 h-[100vh] bg-white transition-all duration-500 ease-in-out bg-opacity-95 z-30
           ${isMenuOpen ? "translate-x-0" : "translate-x-full"} w-4/5 sm:w-1/2 lg:w-1/3`}
       >
         <button onClick={toggleMenu} className="absolute top-8 left-6 cursor-pointer z-40" aria-label="Close menu">
