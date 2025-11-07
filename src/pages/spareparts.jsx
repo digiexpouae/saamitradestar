@@ -11,7 +11,7 @@ const spareparts=()=>{
     const description2="We ensure that each parts reach you quickly and stays tracked by combining smart spare parts inventory management, smooth distribution, and secure spare parts warehousing. Our method reduces downtime and boosts productivity. It also provides your firm with a reliable network of replacement parts."
     return(
         <div className="">
-            <HeroSection image="/assets/spareparts/s-1.jpg" heading="Spare Parts Logistics"   className="bg-[#00000080]"/>
+            <HeroSection image="/assets/spareparts.jpg" heading="Spare Parts Logistics"   className="bg-[#00000080]"/>
           
             <Fadein> <Section2 image="/assets/spareparts/s-1.png" heading="Spare Part Logistics" clstext={'font-semibold text-[#5A5A5A]'} desccls={'font-semibold text-[#5A5A5A]'} desccls1={'font-semibold text-[#5A5A5A]'} desccls2={'font-semibold text-[#5A5A5A]'} text={text} clsheading={'md:text-center font-semibold text-[#5A5A5A]'} classNamemain={''} clstext={'text-center font-semibold text-[#5A5A5A]'} description={description } description2={description2} className2={'!hidden'} /></Fadein>
             <Fadein> <Section3  /></Fadein>

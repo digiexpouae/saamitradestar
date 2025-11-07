@@ -1,7 +1,7 @@
 import Image from "next/image"
 const section2=({heading,text,classNamep})=>{
     return(
-        <div className="py-10">
+        <div className="md:py-10">
             {/* Desktop */}
           <div className=" max-w-5xl mx-auto  p-6 md:p-10 m-auto  rounded-2xl gap-10 hidden md:flex flex-col md:flex-row  justify-between ">
               <div className=" w-1/2 text-center md:text-left"><h2 className="text-[30px] md:text-5xl  tracking-tighter font-semibold leading-[1.2] mb-4">{heading}</h2>

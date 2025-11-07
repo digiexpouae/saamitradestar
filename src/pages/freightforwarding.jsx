@@ -27,9 +27,9 @@ const freightforwarding=()=>{
 
      </div>
      <Fadein> <Freightforwarding /></Fadein>
-     <Fadein> <Section2 heading={'Air Freight'}   className={'md:mb-16 max-w-4xl mx-auto md:px-4'}  btn={false} text={text1} img={'/assets/freightforwarding/f-1.png' }/></Fadein>
-     <Fadein> <Section3 heading={'Train Freight'} className={'md:mb-16 max-w-4xl mx-auto md:px-4'}  btn={false} text={text2} img={'/assets/freightforwarding/f-2.png' }/></Fadein>
-     <Fadein> <Section2 heading={'Truck Freight'} className={'md:mb-16 max-w-4xl mx-auto md:px-4'} btn={false} text={text3} img={'/assets/freightforwarding/f-3.png' }/></Fadein>
+     <Fadein> <Section3 heading={'Air Freight'}   className={'md:mb-16 max-w-4xl mx-auto md:px-4'}  btn={false} text={text1} img={'/assets/freightforwarding/f-1.png' }/></Fadein>
+     <Fadein> <Section2 heading={'Train Freight'} className={'md:mb-16 max-w-4xl mx-auto md:px-4'}  btn={false} text={text2} img={'/assets/freightforwarding/f-2.png' }/></Fadein>
+     <Fadein> <Section3 heading={'Truck Freight'} className={'md:mb-16 max-w-4xl mx-auto md:px-4'} btn={false} text={text3} img={'/assets/freightforwarding/f-3.png' }/></Fadein>
 
      <Getintouch />
      <Fadein> <Footer /></Fadein>

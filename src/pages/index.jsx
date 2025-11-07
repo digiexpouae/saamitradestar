@@ -174,10 +174,11 @@ useEffect(() => {
 
 
 
- <Fadein><Section6 /></Fadein> 
+
 <div className="relative">
 <Scrollsection /></div>
 <Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<> Saami <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'}/> </Fadein>
+ <Fadein><Section6 /></Fadein> 
 <Getintouch />
 
 <Fadein><Footer /></Fadein>

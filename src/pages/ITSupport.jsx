@@ -16,7 +16,7 @@ const ITSupport=()=>{
         <div> 
             <HeroSection image="/assets/ITSupport/IT-1.jpg" heading="IT Support"   className="bg-[#00000080]"/>
             <Fadein> <Section  /> </Fadein> 
-            <Fadein> <Section2  heading={<>Warehouse <br /> management technologies</>}   text={text} /></Fadein>
+            <Fadein> <Section2  heading={<>Warehouse <br /> Management Technologies</>}   text={text} /></Fadein>
             <Fadein> <Section4 /></Fadein>
             {/* <Fadein> <Section3  heading="E-commerce Initiatives" headingcls={'!text-[30px]'} className2={'!hidden'} className="md:h-[35vh] " cls4={'  hidden'} cls3={'md:w-full'} description={description} clstext={'hidden'} description2={description2} desccls={'font-semibold'}  /></Fadein> */}
                 <Fadein><Section2 classNamep={'flex flex-col gap-4'}   heading={<>E-commerce Initiatives</>}  text={text2}  /> </Fadein>
