@@ -262,8 +262,8 @@ const Text = ({ sectionRef }) => {
                   opacity: 1,
                   clipPath: `circle(${clipPercent}% at 50% 50%)`,
                   scale: 1,
-                  duration: 3,
-                  ease: "power2.out",
+                  duration: 1,
+            
                 
                   transformOrigin: "center center",
                 });
