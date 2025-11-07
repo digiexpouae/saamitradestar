@@ -1,5 +1,5 @@
 import Trackingui from '../components/globalsearch/trackingui'
-import Header from '../layout/header'
+import Header from '../layout/header-3'
 import Footer from '../layout/footer/footer'
 const tracking=()=>{
     return (
