@@ -94,52 +94,61 @@ export default function ApplyForm({ className }) {
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium">Phone Number*</label>
-              <div className="flex">
-                <select 
-                  name="countryCode"
-                  value={formData.countryCode}
-                  onChange={handleChange}
-                  className="border rounded-l-full px-2"
-                >
-         <option value="+1">+1</option>
-  <option value="+44">+44</option>
-  <option value="+61">+61</option>
-  <option value="+64">+64</option>
-  <option value="+91">+91</option>
-  <option value="+92">+92</option>
-  <option value="+971">+971</option>
-  <option value="+974">+974</option>
-  <option value="+966">+966</option>
-  <option value="+20">+20</option>
-  <option value="+27">+27</option>
-  <option value="+60">+60</option>
-  <option value="+62">+62</option>
-  <option value="+63">+63</option>
-  <option value="+65">+65</option>
-  <option value="+81">+81</option>
-  <option value="+82">+82</option>
-  <option value="+86">+86</option>
-  <option value="+33">+33</option>
-  <option value="+34">+34</option>
-  <option value="+39">+39</option>
-  <option value="+49">+49</option>
-  <option value="+55">+55</option>
-  <option value="+52">+52</option>
-  <option value="+234">+234</option>
-                </select>
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Mobile number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full border rounded-r-full px-4 py-2"
-                  required
-                />
-              </div>
-            </div>
+               <div>
+  <label className="block text-sm font-medium">Phone Number*</label>
+  <div className="flex">
+    {/* Wrapper for select to position arrow */}
+    <div className="relative">
+      <select
+        name="countryCode"
+        value={formData.countryCode}
+        onChange={handleChange}
+        className="appearance-none border rounded-l-full px-4 pr-6  py-2 bg-white"
+      >
+        <option value="+1">+1</option>
+        <option value="+44">+44</option>
+        <option value="+61">+61</option>
+        <option value="+64">+64</option>
+        <option value="+91">+91</option>
+        <option value="+92">+92</option>
+        <option value="+971">+971</option>
+        <option value="+974">+974</option>
+        <option value="+966">+966</option>
+        <option value="+20">+20</option>
+        <option value="+27">+27</option>
+        <option value="+60">+60</option>
+        <option value="+62">+62</option>
+        <option value="+63">+63</option>
+        <option value="+65">+65</option>
+        <option value="+81">+81</option>
+        <option value="+82">+82</option>
+        <option value="+86">+86</option>
+        <option value="+33">+33</option>
+        <option value="+34">+34</option>
+        <option value="+39">+39</option>
+        <option value="+49">+49</option>
+        <option value="+55">+55</option>
+        <option value="+52">+52</option>
+        <option value="+234">+234</option>
+      </select>
+
+      {/* Custom arrow */}
+      <div className="pointer-events-none absolute text-[12px] right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+        ▼
+      </div>
+    </div>
+
+    <input
+      type="text"
+      name="phone"
+      placeholder="Mobile number"
+      value={formData.phone}
+      onChange={handleChange}
+      className="w-full border rounded-r-full px-4 py-2"
+      required
+    />
+  </div>
+</div>
           </div>
 
           {/* Message */}
