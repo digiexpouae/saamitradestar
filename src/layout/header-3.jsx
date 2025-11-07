@@ -155,8 +155,8 @@ const Header = () => {
             </div>
           </div>
 
-          <Link href="/franchise" onClick={closeMenu} className="text-2xl md:text-3xl">
-            Franchise
+          <Link href="/career" onClick={closeMenu} className="text-2xl md:text-3xl">
+       Career
           </Link>
           <Link href="/contact" onClick={closeMenu} className="text-2xl md:text-3xl">
             Contact
