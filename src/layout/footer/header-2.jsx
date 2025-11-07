@@ -78,7 +78,7 @@ const Header = ({ complete }) => {
           <div className="relative">
             <Link
               href="/services"
-              className={`font-semibold text-sm hover:text-blue-600 transition-colors duration-300 ${
+              className={`font-semibold duration-1000 ease-out text-sm  transition-colors peer ${
                 update ? "text-black" : "text-white"
               }`}
             >
