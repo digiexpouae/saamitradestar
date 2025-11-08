@@ -86,7 +86,8 @@ export default function ApplyForm({ className }) {
   };
 
   return (
-    <div className={`flex justify-center items-center h-auto ${className}`}>
+    <div className={` flex justify-center items-start 
+             h-auto ${className}`} >
       <div className="bg-white shadow-md rounded-2xl px-5 md:px-20 py-10 w-full max-w-2xl">
         <h2 className="text-3xl font-bold text-center mb-2">Apply Now</h2>
 

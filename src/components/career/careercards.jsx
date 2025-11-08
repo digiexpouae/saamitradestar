@@ -37,17 +37,18 @@ const JobCard = ({ head, text }) => {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 z-[999] backdrop-blur-sm bg-black/40 flex overflow-auto justify-center ">
+          <div className="fixed inset-0 z-[999]  overflow-y-scroll touch-pan-y overscroll-contain backdrop-blur-sm bg-black/40 flex overflow-hidden justify-center ">
             <div className="relative  rounded-2xl h-full flex flex-col items-center md:justify-center w-[100%] lg:justify-start md:max-w-xl shadow-lg">
               {/* Close Button */}
               <button
                 onClick={() => setIsModalOpen(false)}
-                className=" cursor-pointer absolute top-6 right-10 text-gray-600 hover:text-gray-900"
+                className=" cursor-pointer absolute   top-6 right-10 z-[999] text-gray-600 hover:text-gray-900"
               >
                 <FaTimes size={20} />
               </button>
 
               {/* Apply Form */}
+              
               <ApplyForm />
             </div>
           </div>
