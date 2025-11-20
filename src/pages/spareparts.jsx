@@ -13,7 +13,7 @@ const spareparts=()=>{
         <div className="">
             <HeroSection image="/assets/spareparts.jpg" heading="Spare Parts Logistics"   className="bg-[#00000080]"/>
           
-            <Fadein> <Section2 image="/assets/spareparts-2.png" heading="Spare Part Logistics" clstext={'font-semibold text-[#5A5A5A]'} desccls={'font-semibold text-[#5A5A5A]'} desccls1={'font-semibold text-[#5A5A5A]'} desccls2={'font-semibold text-[#5A5A5A]'} text={text} clsheading={'md:text-center font-semibold text-[#5A5A5A]'} classNamemain={''} clstext={'text-center font-semibold text-[#5A5A5A]'} description={description } description2={description2} className2={'!hidden'} /></Fadein>
+            <Fadein> <Section2 image="/assets/spareparts/spareparts.png" heading="Spare Part Logistics" clstext={'font-semibold text-[#5A5A5A]'} desccls={'font-semibold text-[#5A5A5A]'} desccls1={'font-semibold text-[#5A5A5A]'} desccls2={'font-semibold text-[#5A5A5A]'} text={text} clsheading={'md:text-center font-semibold text-[#5A5A5A]'} classNamemain={''} clstext={'text-center font-semibold text-[#5A5A5A]'} description={description } description2={description2} className2={'!hidden'} /></Fadein>
             <Fadein> <Section3  /></Fadein>
             <Fadein><Getintouch /></Fadein>
             <Fadein> <Footer /></Fadein>

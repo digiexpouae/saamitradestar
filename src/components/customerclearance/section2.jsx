@@ -23,13 +23,13 @@ return(
 </div>
 </div>
 <div className="w-1/2">
-    <Image src={'/assets/spareparts/s-1.png'} alt="plane" width={500} height={600} className=" object-cover " />
+    <Image src={'/assets/customer/customer.png'} alt="plane" width={500} height={600} className=" object-cover " />
 </div>
     </div>
     {/* mobile */}
     <div className=" flex md:hidden gap-6  mb-10 max-w-5xl px-4 mx-auto items-center py-10 flex-col justify-center mx-auto">
     <div>
-    <Image src={'/assets/spareparts/s-1.png'} alt="plane" width={400} height={600} className=" object-cover  " />
+    <Image src={'/assets/customer/customer.png'} alt="plane" width={400} height={600} className=" object-cover  " />
 </div>
 
 <div className="">
