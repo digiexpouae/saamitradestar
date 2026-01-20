@@ -15,7 +15,7 @@ export default function TrackingPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!id) return; // wait until router is ready
+        if (!router.isReady) return; // wait until router is ready
 
         const fetchData = async () => {
             try {
@@ -36,7 +36,7 @@ export default function TrackingPage() {
         };
 
         fetchData();
-    }, [id]);
+    }, [router.isReady, id]);
 
     return (
         <div>
