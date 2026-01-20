@@ -1,22 +1,31 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function TrackShipment() {
+  const router = useRouter();
   const [awb, setAwb] = useState('');
+  const [data, setData] = useState([]);
+
+
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Tracking AWB: ${awb}`);
-  };
 
+
+    router.push(`/tracking/${awb}`);
+  };
   return (
     <div className="absolute z-30 bottom-10 md:bottom-50 right-0 flex items-center justify-center ">
       <div className="bg-[#00000080] rounded-tl-2xl rounded-bl-2xl shadow-lg p-2 md:p-4  md:py-8 w-full max-w-md">
         <h1 className="text-2xl font-bold text-white mb-6">
           Track Shipment
         </h1>
-<p className="text-white ">Airway Bill no:</p>
+        <p className="text-white ">Airway Bill no:</p>
         <form onSubmit={handleSubmit} className="flex">
           <input
             type="text"

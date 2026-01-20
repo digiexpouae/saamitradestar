@@ -1,18 +1,53 @@
-import Trackingui from '../components/globalsearch/trackingui'
-import Header from '../layout/header-3'
-import Footer from '../layout/footer/footer'
-const tracking=()=>{
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Trackingui from '.././components/globalsearch/trackingui'
+import Header from '.././layout/header-3';
+import Footer from '.././layout/footer/footer';
+
+export default function TrackingPage() {
+    // const router = useRouter();
+    // const { id } = router.query; // ✅ receive from URL
+
+    // const [trackingData, setTrackingData] = useState([]);
+    // const [customerData, setCustomerData] = useState([]);
+    // const [loading, setLoading] = useState(true);
+
+    // useEffect(() => {
+    //     if (!id) return; // wait until router is ready
+
+    //     const fetchData = async () => {
+    //         try {
+    //             const res = await fetch(`https://trackapi.saamitradestar.com/products?C_NO=${id}`);
+    //             const res2 = await fetch(`https://trackapi.saamitradestar.com/customers?Cust_NO=${id}`);
+    //             console.log("customer", res2)
+    //             const data = await res.json();
+    //             const data2 = await res2.json();
+    //             setTrackingData(data || []);
+    //             setCustomerData(data2 || []);
+    //         } catch (err) {
+    //             console.error(err);
+    //             setTrackingData([]);
+    //             setCustomerData([]);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     };
+
+    //     fetchData();
+    // }, [id]);
     return (
-            <div>
-         
-    <div className='flex items-center justify-center w-full h-[20vh] '>
-        <Header />
- </div> 
-      
-                  <Trackingui />
-                   
+        <div>
+            <div className="flex items-center justify-center w-full h-[20vh]">
+                <Header />
+            </div>
+
+
+            <Trackingui />
+
+
             <Footer />
         </div>
-    )
-}   
-export default tracking
+    );
+}
