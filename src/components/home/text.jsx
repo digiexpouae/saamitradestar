@@ -309,6 +309,7 @@ else if (progress < 0.4) {
           src="/assets/SaamiCompressed_two.mp4"
           playsInline
           muted
+                poster="/assets/placeholder_globe.JPG"   
           loop
           autoPlay
           className="absolute inset-0 h-full w-full object-cover"
