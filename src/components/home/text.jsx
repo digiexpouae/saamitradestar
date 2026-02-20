@@ -306,7 +306,7 @@ else if (progress < 0.4) {
 
       <div className="absolute inset-0 h-full w-full" ref={imageref}>
         <video
-          src="/assets/saami_compressed.mp4"
+          src="/assets/SaamiCompressed_two.mp4"
           playsInline
           muted
           loop

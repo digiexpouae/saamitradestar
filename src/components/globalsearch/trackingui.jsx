@@ -184,6 +184,14 @@ export default function GlobalSearch({ data, id, customerData }) {
                   {item?.Status_date ? new Date(item.Status_date).toLocaleString() : "—"}
                 </p>
                 <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
+                                    <p><span className="font-semibold">Status:</span> 
+  {item.STATUS_CODE === "Manifest"
+    ? `Forwarded to ${item.Place_name}`
+    : item.STATUS_CODE === "DRS"
+       ? `Forwarded to ${id || "—"}`
+      : "—"}
+</p>
+
                   <p><span className="font-semibold">Received By:</span> {item.Received_By || "—"}</p>
                   <p><span className="font-semibold">Remark:</span> {item.remark || "—"}</p>
                   <p><span className="font-semibold">Reference:</span> {item.jobname || "—"}</p>
@@ -203,6 +211,8 @@ export default function GlobalSearch({ data, id, customerData }) {
               <tr>
                 <th className="p-3 border">Branch</th>
                 <th className="p-3 border">Date & Time</th>
+                   <th className="p-3 border">Status</th>
+
                 <th className="p-3 border">Received By</th>
                 <th className="p-3 border">Remark</th>
                 <th className="p-3 border">Reference</th>
@@ -225,7 +235,17 @@ export default function GlobalSearch({ data, id, customerData }) {
                         hour12: true
                       })
                       : "—"}
-                  </td>                    <td className="p-3">{item.Received_By || "—"}</td>
+                  </td>           
+  <td className="p-3">
+  {item.STATUS_CODE === "Manifest"
+    ? `Forwarded to ${item.Place_name}`
+    : item.STATUS_CODE === "DRS"
+       ? `Forwarded to ${id || "—"}`
+      : "—"}
+</td>
+
+                  
+                           <td className="p-3">{item.Received_By || "—"}</td>
                   <td className="p-3">{item.remark || "—"}</td>
                   <td className="p-3">{item.jobname || "—"}</td>
                 </tr>
