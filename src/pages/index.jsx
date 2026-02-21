@@ -85,59 +85,59 @@ const sectionRef=useRef()
 // }, []);
 
 
-useEffect(() => {
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.normalizeScroll(true);
-  const section = sectionRef.current;
-  const container = containerRef.current;
-  if (!section || !container) return;
-  const containertwo=document.querySelector('.container2')
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: container,   // ✅ use .current
-      start: "top top",
-      end: "+=" + container.offsetHeight * 2,
-       endTrigger:containertwo,       // how long to scroll while pinned
-      scrub: 2,
-      pin: true,
-     once:true,
-     pinSpacing: false, // 
-      markers: true,   
-      onUpdate: (self) => {
-  const progress = self.progress;
+// useEffect(() => {
+//   gsap.registerPlugin(ScrollTrigger);
+//   ScrollTrigger.normalizeScroll(true);
+//   const section = sectionRef.current;
+//   const container = containerRef.current;
+//   if (!section || !container) return;
+//   const containertwo=document.querySelector('.container2')
+//   const tl = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: container,   // ✅ use .current
+//       start: "top top",
+//       end: "+=" + container.offsetHeight * 2,
+//        endTrigger:containertwo,       // how long to scroll while pinned
+//       scrub: 2,
+//       pin: true,
+//      once:true,
+//      pinSpacing: false, // 
+//       markers: true,   
+//       onUpdate: (self) => {
+//   const progress = self.progress;
   
-  console.log(self.progress+'progress')
-}
+//   console.log(self.progress+'progress')
+// }
 
-         // 🔧 remove later
-    },
-  });
+//          // 🔧 remove later
+//     },
+//   });
 
-  // 👇 Example animation: fade in + move upward
-  tl.to(section, {
-    opacity: 1,
-    y: -200,
-    duration: 4,
-    ease: "power2.out",
-  });
-  window.scrollTo({ top: 0, behavior: "instant" });
+//   // 👇 Example animation: fade in + move upward
+//   tl.to(section, {
+//     opacity: 1,
+//     y: -200,
+//     duration: 4,
+//     ease: "power2.out",
+//   });
+//   window.scrollTo({ top: 0, behavior: "instant" });
 
-  return () => {
-    tl.kill();
-    ScrollTrigger.getAll().forEach(st => st.kill());
-  };
-}, []);
+//   return () => {
+//     tl.kill();
+//     ScrollTrigger.getAll().forEach(st => st.kill());
+//   };
+// }, []);
 
-  const fadeVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        // duration: 4,
-        // ease: 'easein',
-      },
-    },
-  };
+//   const fadeVariants = {
+//     hidden: { opacity: 0 },
+//     visible: {
+//       opacity: 1,
+//       transition: {
+//         // duration: 4,
+//         // ease: 'easein',
+//       },
+//     },
+//   };
   
 // useEffect(()=>{
 //   gsap.registerPlugin(ScrollTrigger);

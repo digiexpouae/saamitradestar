@@ -13,9 +13,11 @@ const completeRef=useRef(complete)
     const sectionRef=useRef()
     const containerRef=useRef()
       useEffect(() => {
+
     completeRef.current = complete;
   }, [complete,setcomplete]);
     useEffect(() => {
+
         gsap.registerPlugin(ScrollTrigger);
         ScrollTrigger.normalizeScroll(true);
         const section = sectionRef.current;
@@ -54,7 +56,7 @@ const completeRef=useRef(complete)
         return () => {
           ScrollTrigger.getAll().forEach((st) => st.kill());
         };
-      }, []);
+}, []);
 
       
 return(
@@ -72,7 +74,8 @@ ref={maincontainer}
 //  viewport={{ once: true, amount: 0.3 }}
  style={{ backgroundImage: "url('/assets/section1/h-1.webp')",borderBottomLeftRadius:'65px',borderBottomRightRadius:'65px', backgroundSize:'cover',backgroundPosition:'center',clipPath: 'circle(0% at 50% 50%)', // start hidden as circle
     transformOrigin: 'center center', }}
-><Tracking />
+>
+<Tracking />
   <div className="-translate-y-10 flex flex-col items-center justify-center ">
 <h2 className="text-4xl md:text-7xl  font-semibold flex flex-col items-center" style={{color:'rgba(42, 42, 42, 1)'}}>We Make Shipping
       <span className="" style={{color:'rgba(238, 34, 61, 1)'}}>
