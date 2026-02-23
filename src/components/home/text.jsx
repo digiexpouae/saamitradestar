@@ -146,18 +146,15 @@ else if (progress < 0.4) {
 }, []);
 
   return (
-    <>
-
-   
-      <div
+    <> <div
         className="absolute inset-0 z-20 xl:h-[100vw] w-[100vw]"
         ref={container}
       ></div>
-{!imageref ?(
+{/* {!imageref ?(
 
  <div className="absolute inset-0 z-30 h-full w-full">
       <Image src="/assets/placeholder_globe.JPG"  className="object-cover" fill />
-    </div>):(
+    </div>):( */}
       <div className="absolute inset-0 h-full w-full" ref={imageref}>
         <video
           src="/assets/SaamiCompressed_two.mp4"
@@ -168,7 +165,9 @@ else if (progress < 0.4) {
           autoPlay
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
-      </div>)}
+      </div>
+      
+      {/* )} */}
     </>
   );
 };
