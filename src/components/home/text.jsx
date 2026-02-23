@@ -177,6 +177,7 @@ const Text = ({ sectionRef }) => {
 
 
       >
+
         {/* ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'} */}
         <Image
           src="/assets/placeholder_globe.webp"
@@ -189,6 +190,8 @@ const Text = ({ sectionRef }) => {
 
         />
       </div >
+      <p className="text-red-800 font-bold text-6xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sami Trade Star</p>
+
 
       {/* <div
         className="absolute inset-0 opacity-0 z-20 xl:h-[100vw] w-[100vw]"
