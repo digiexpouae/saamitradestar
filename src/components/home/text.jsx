@@ -172,7 +172,12 @@ const Text = ({ sectionRef }) => {
       {/* {lottieReady && ( */}
 
 
-      <div className={`absolute  inset-0 transition-opacity  duration-500 ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'}`}>
+      <div className={`absolute  inset-0 transition-opacity  duration-500 `}
+
+
+
+      >
+        {/* ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'} */}
         <Image
           src="/assets/placeholder_globe.webp"
           alt="Background"
@@ -183,13 +188,13 @@ const Text = ({ sectionRef }) => {
           sizes="100vw"
 
         />
-      </div>
+      </div >
 
-      <div
+      {/* <div
         className="absolute inset-0 opacity-0 z-20 xl:h-[100vw] w-[100vw]"
         ref={container}
 
-        style={{ contentVisibility: 'auto', contain: 'strict' }}></div>
+        style={{ contentVisibility: 'auto', contain: 'strict' }}></div> */}
       {/* )} */}
 
 
