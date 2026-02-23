@@ -16,7 +16,7 @@ Mr. Fohad A. Latiwala.</h2>
   <video
           src="/assets/saami_compressed.mp4"
           playsInline
-            poster="/assets/placeholder_globe.JPG"   
+            poster="/assets/placeholder_globe.webp"   
           muted
           loop
         

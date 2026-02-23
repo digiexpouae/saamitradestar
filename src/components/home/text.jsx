@@ -1,6 +1,6 @@
 
 
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Lottie from "lottie-web";
@@ -9,11 +9,28 @@ const Text = ({ sectionRef }) => {
   const container = useRef(null);
   const animationRef = useRef(null);
   const imageref = useRef(null);
+const [isVideoReady, setIsVideoReady] = useState(false);
+const  videoRef=useRef(null)
+useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
-  useLayoutEffect(() => {
+    // If video is already loaded or playing
+    if (video.readyState >= 3) {
+      console.log("Video already ready on mount");
+      setIsVideoReady(true);
+    }
+
+    // Force play in case autoPlay is blocked by browser
+    video.play().catch(e => console.log("Auto-play prevented, waiting for interaction:", e));
+  }, []);
+
+  useEffect(() => {
+        console.log("video",isVideoReady)
+    if (!isVideoReady) return;
+
 let animation;
 let ctx;
-      const initLottie = () => {
     gsap.registerPlugin(ScrollTrigger);
     const target = container.current;
     if (!target) return;
@@ -131,10 +148,6 @@ else if (progress < 0.4) {
 
     animation.addEventListener("DOMLoaded", onReady);
   })
-}
-  requestAnimationFrame(() => {
-    requestAnimationFrame(initLottie);
-  })   
 
     
     return () => {
@@ -143,10 +156,11 @@ else if (progress < 0.4) {
     };
 
 
-}, []);
+}, [isVideoReady]);
 
   return (
-    <> <div
+    <>
+ <div
         className="absolute inset-0 z-20 xl:h-[100vw] w-[100vw]"
         ref={container}
       ></div>
@@ -155,18 +169,24 @@ else if (progress < 0.4) {
  <div className="absolute inset-0 z-30 h-full w-full">
       <Image src="/assets/placeholder_globe.JPG"  className="object-cover" fill />
     </div>):( */}
-      <div className="absolute inset-0 h-full w-full" ref={imageref}>
+    <div className="absolute inset-0 h-full w-full" ref={imageref}>
         <video
+        ref={videoRef}
+
           src="/assets/SaamiCompressed_two.mp4"
           playsInline
           muted
-                poster="/assets/placeholder_globe.JPG"   
-          loop
-          autoPlay
+        poster="/assets/placeholder_globe.webp"   
+loop
+
+          // FALLBACK for fast cache
+          onLoadedMetadata={() => setIsVideoReady(true)}
+          autoPlay  
+        onLoadedData={() =>setIsVideoReady(true)}
+fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
         ></video>
       </div>
-      
       {/* )} */}
     </>
   );
