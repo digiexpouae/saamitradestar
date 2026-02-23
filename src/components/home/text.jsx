@@ -177,7 +177,7 @@ const Text = ({ sectionRef }) => {
       <Image src="/assets/placeholder_globe.JPG"  className="object-cover" fill />
     </div>):( */}
 
-      <div className={`absolute  inset-0 transition-opacity z-20 duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`absolute  inset-0 transition-opacity  duration-500 ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'}`}>
         <Image
           src="/assets/placeholder_globe.webp"
           alt="Background"
