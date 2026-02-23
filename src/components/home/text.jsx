@@ -10,6 +10,7 @@ const Text = ({ sectionRef }) => {
   const animationRef = useRef(null);
   const imageref = useRef(null);
 const [isVideoReady, setIsVideoReady] = useState(false);
+const [isLoaded,setIsLoaded]=useState(false)
 const  videoRef=useRef(null)
 useEffect(() => {
     const video = videoRef.current;
@@ -18,6 +19,7 @@ useEffect(() => {
     // If video is already loaded or playing
     if (video.readyState >= 3) {
       console.log("Video already ready on mount");
+      setIsLoaded(true)
       setIsVideoReady(true);
     }
 
@@ -25,7 +27,10 @@ useEffect(() => {
     video.play().catch(e => console.log("Auto-play prevented, waiting for interaction:", e));
   }, []);
 
-  useEffect(() => {
+ 
+ 
+ 
+useEffect(() => {
         console.log("video",isVideoReady)
     if (!isVideoReady) return;
 
@@ -158,6 +163,7 @@ else if (progress < 0.4) {
 
 }, [isVideoReady]);
 
+
   return (
     <>
  <div
@@ -169,6 +175,20 @@ else if (progress < 0.4) {
  <div className="absolute inset-0 z-30 h-full w-full">
       <Image src="/assets/placeholder_globe.JPG"  className="object-cover" fill />
     </div>):( */}
+
+    <div className={`absolute  inset-0 transition-opacity duration-500 ${isLoaded ? 'opacity-0' : 'opacity-100'}`}>
+        <Image
+          src="/assets/placeholder_globe.webp"  
+          alt="Background"
+          className="object-cover"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="110vw"
+
+        />
+      </div>
+ 
     <div className="absolute inset-0 h-full w-full" ref={imageref}>
         <video
         ref={videoRef}
@@ -178,13 +198,16 @@ else if (progress < 0.4) {
           muted
         poster="/assets/placeholder_globe.webp"   
 loop
+// onCanPlayThrough={()=>handleVideoLoad()}
 
           // FALLBACK for fast cache
-          onLoadedMetadata={() => setIsVideoReady(true)}
+          onLoadedMetadata={() => {  setIsVideoReady(true);
+  setIsLoaded(true);}}
           autoPlay  
-        onLoadedData={() =>setIsVideoReady(true)}
+        onLoadedData={() =>{  setIsVideoReady(true);
+  setIsLoaded(true);}}
 fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full object-cover  ${isLoaded ? 'opacity-100':'opacity-0'}`}
         ></video>
       </div>
       {/* )} */}
