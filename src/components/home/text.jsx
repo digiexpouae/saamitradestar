@@ -191,14 +191,12 @@ const Text = ({ sectionRef }) => {
 
         style={{ contentVisibility: 'auto', contain: 'strict' }}></div>
       {/* )} */}
-      {/* {!imageref ?(
-
- <div className="absolute inset-0 z-30 h-full w-full">
-      <Image src="/assets/placeholder_globe.JPG"  className="object-cover" fill />
-    </div>):( */}
 
 
-      <div className={`absolute inset-0 h-full w-full ${isLoaded ? 'opacity-100' : 'opacity-0'}`} ref={imageref}>
+
+      {/* video */}
+
+      {/* <div className={`absolute inset-0 h-full w-full ${isLoaded ? 'opacity-100' : 'opacity-0'}`} ref={imageref}>
         <video
           ref={videoRef}
 
@@ -222,8 +220,8 @@ const Text = ({ sectionRef }) => {
           fetchPriority="high"
           className={`absolute inset-0 h-full w-full object-cover  ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         ></video>
-      </div>
-      {/* )} */}
+      </div> */}
+
     </>
   );
 };
