@@ -171,14 +171,15 @@ const Text = ({ sectionRef }) => {
     <>
       {/* {lottieReady && ( */}
 
+      <h1 className="text-red-800 font-bold text-6xl absolute top-1/2 left-1/2 opacity-30 z-30 -translate-x-1/2 -translate-y-1/2" >Sami Trade Star</h1>
 
-      <div className={`absolute  inset-0 transition-opacity  duration-500 `}
+      <div className={`absolute  inset-0 transition-opacity  duration-500    ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'}`}
 
 
 
       >
 
-        {/* ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'} */}
+
         <Image
           src="/assets/placeholder_globe.webp"
           alt="Background"
@@ -190,21 +191,19 @@ const Text = ({ sectionRef }) => {
 
         />
       </div >
-      <p className="text-red-800 font-bold text-6xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">Sami Trade Star</p>
 
 
-      {/* <div
-        className="absolute inset-0 opacity-0 z-20 xl:h-[100vw] w-[100vw]"
+      <div
+        className="absolute inset-0  z-20 xl:h-[100vw] w-[100vw]"
         ref={container}
 
-        style={{ contentVisibility: 'auto', contain: 'strict' }}></div> */}
-      {/* )} */}
+        style={{ contentVisibility: 'auto', contain: 'strict' }}></div>
 
 
 
       {/* video */}
 
-      {/* <div className={`absolute inset-0 h-full w-full ${isLoaded ? 'opacity-100' : 'opacity-0'}`} ref={imageref}>
+      <div className={`absolute inset-0 h-full w-full ${isLoaded ? 'opacity-100' : 'opacity-0'}`} ref={imageref}>
         <video
           ref={videoRef}
 
@@ -228,7 +227,7 @@ const Text = ({ sectionRef }) => {
           fetchPriority="high"
           className={`absolute inset-0 h-full w-full object-cover  ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         ></video>
-      </div> */}
+      </div>
 
     </>
   );
