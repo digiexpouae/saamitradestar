@@ -12,6 +12,9 @@ const Text = ({ sectionRef }) => {
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false)
   const videoRef = useRef(null)
+
+
+
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
@@ -166,16 +169,8 @@ const Text = ({ sectionRef }) => {
 
   return (
     <>
-      <div
-        className="absolute inset-0 z-20 xl:h-[100vw] w-[100vw]"
-        ref={container}
+      {/* {lottieReady && ( */}
 
-        style={{ contentVisibility: 'auto', contain: 'strict' }}></div>
-      {/* {!imageref ?(
-
- <div className="absolute inset-0 z-30 h-full w-full">
-      <Image src="/assets/placeholder_globe.JPG"  className="object-cover" fill />
-    </div>):( */}
 
       <div className={`absolute  inset-0 transition-opacity  duration-500 ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'}`}>
         <Image
@@ -190,7 +185,20 @@ const Text = ({ sectionRef }) => {
         />
       </div>
 
-      <div className="absolute inset-0 h-full w-full" ref={imageref}>
+      <div
+        className="absolute inset-0 opacity-0 z-20 xl:h-[100vw] w-[100vw]"
+        ref={container}
+
+        style={{ contentVisibility: 'auto', contain: 'strict' }}></div>
+      {/* )} */}
+      {/* {!imageref ?(
+
+ <div className="absolute inset-0 z-30 h-full w-full">
+      <Image src="/assets/placeholder_globe.JPG"  className="object-cover" fill />
+    </div>):( */}
+
+
+      <div className={`absolute inset-0 h-full w-full ${isLoaded ? 'opacity-100' : 'opacity-0'}`} ref={imageref}>
         <video
           ref={videoRef}
 
