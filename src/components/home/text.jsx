@@ -169,7 +169,8 @@ else if (progress < 0.4) {
  <div
         className="absolute inset-0 z-20 xl:h-[100vw] w-[100vw]"
         ref={container}
-      ></div>
+     
+     style={{  contentVisibility: 'auto' , contain: 'strict' }}></div>
 {/* {!imageref ?(
 
  <div className="absolute inset-0 z-30 h-full w-full">
@@ -184,7 +185,7 @@ else if (progress < 0.4) {
           fill
           priority
           fetchPriority="high"
-          sizes="110vw"
+      sizes="100vw"
 
         />
       </div>
