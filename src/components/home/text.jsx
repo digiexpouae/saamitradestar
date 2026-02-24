@@ -1,5 +1,4 @@
 
-
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
@@ -171,7 +170,7 @@ const Text = ({ sectionRef }) => {
     <>
       {/* {lottieReady && ( */}
 
-      <h1 className="text-red-200 font-bold text-2xl absolute top-0 left-1/2 opacity-[0.1] z-30 -translate-x-1/2 -translate-y-1/2" >Sami Trade Star</h1>
+      <h1 className="text-red-200 font-bold text-2xl absolute top-50 left-1/2 opacity-[0.1] z-30 -translate-x-1/2 -translate-y-1/2" >Sami Trade Star</h1>
 
       <div className={`absolute  inset-0 transition-opacity  duration-500    ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'}`}
 
