@@ -174,7 +174,8 @@ const Text = ({ sectionRef }) => {
     <>
       {/* {lottieReady && ( */}
 
-      {!hideText && <h1 className="text-red-800 font-bold text-2xl absolute top-1/2 left-1/2 opacity-100 z-30 -translate-x-1/2 -translate-y-1/2" >Sami Trade Star</h1>}
+      {!hideText && <div className="absolute  top-1/2 lg:top-[70%] left-1/2 opacity-100 z-30 w-full -translate-x-1/2 -translate-y-1/2"> <h1 className="text-white text-center font-bold text-2xl md:text-4xl md:leading-[1.7]" >Reliable Logistics Solutions<br /> <span className="text-3xl md:text-5xl uppercase">Delivered with Precision.</span></h1>
+        <p className="text-white text-lg text-center ">Seamless air, sea, and land freight services connecting your business to the world.</p> </div>}
 
       <div className={`absolute  inset-0 transition-opacity  duration-500    ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'}`}
 

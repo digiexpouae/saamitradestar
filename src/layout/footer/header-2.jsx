@@ -48,6 +48,7 @@ const Header = ({ complete }) => {
               alt="logo"
               width={500}
               height={50}
+              priority
               className="object-cover duration-1000 ease-out"
             />
           </Link>
@@ -58,17 +59,15 @@ const Header = ({ complete }) => {
           className="hidden lg:flex w-1/2 h-[70%] gap-6 pt-4 items-center justify-center"
         >
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${
-              update ? "text-black" : "text-white"
-            }`}
+            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
+              }`}
             href={"/"}
           >
             Home
           </Link>
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${
-              update ? "text-black" : "text-white"
-            }`}
+            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
+              }`}
             href={"/about"}
           >
             About
@@ -78,9 +77,8 @@ const Header = ({ complete }) => {
           <div className="relative">
             <Link
               href="/services"
-              className={`font-semibold duration-1000 ease-out text-sm  transition-colors peer ${
-                update ? "text-black" : "text-white"
-              }`}
+              className={`font-semibold duration-1000 ease-out text-sm  transition-colors peer ${update ? "text-black" : "text-white"
+                }`}
             >
               Services
             </Link>
@@ -107,17 +105,15 @@ const Header = ({ complete }) => {
           </div>
 
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${
-              update ? "text-black" : "text-white"
-            }`}
+            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
+              }`}
             href={"/career"}
           >
             Career
           </Link>
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${
-              update ? "text-black" : "text-white"
-            }`}
+            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
+              }`}
             style={{ whiteSpace: "nowrap" }}
             href={"/contact"}
           >
@@ -135,63 +131,61 @@ const Header = ({ complete }) => {
       </div>
 
       {/* Overlay */}
-     {isMenuOpen && <div className="fixed inset-0 bg-black opacity-40 z-20" onClick={closeMenu} />}
+      {isMenuOpen && <div className="fixed inset-0 bg-black opacity-40 z-20" onClick={closeMenu} />}
 
       {/* Sidebar menu */}
       <nav
-  className={`fixed top-0 right-0 h-[100vh] w-4/5 sm:w-1/2 lg:w-1/3 bg-white transition-all duration-500 ease-in-out z-30 ${
-    isMenuOpen ? "translate-x-0" : "translate-x-full"
-  }`}
->
-  {/* Close button */}
-  <button
-    onClick={toggleMenu}
-    className="absolute top-8 left-6 cursor-pointer z-40"
-    aria-label="Close menu"
-  >
-    <FaTimes size={24} color="black" />
-  </button>
-
-  {/* Nav items */}
-  <div className="flex flex-col items-center text-center p-20 h-full text-black font-medium gap-6 md:gap-8">
-    <Link href="/" onClick={closeMenu} className="text-2xl md:text-3xl">
-      Home
-    </Link>
-    <Link href="/about" onClick={closeMenu} className="text-2xl md:text-3xl">
-      About
-    </Link>
-
-    {/* Mobile Services Dropdown */}
-    <div className="flex flex-col items-center gap-2 relative w-full">
-      <div className="flex items-center gap-2 cursor-pointer text-2xl md:text-3xl">
-        <Link href="/services">Services</Link>
-        <button className="cursor-pointer" onClick={toggleServices}>
-          <FaPlus size={20} />
-        </button>
-      </div>
-
-      <div
-        className={`transition-all duration-1000 ease-in-out overflow-hidden flex flex-col items-center gap-2 mt-2 text-base md:text-lg font-medium ${
-          isServicesOpen ? "max-h-96" : "max-h-0"
-        }`}
+        className={`fixed top-0 right-0 h-[100vh] w-4/5 sm:w-1/2 lg:w-1/3 bg-white transition-all duration-500 ease-in-out z-30 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
-        <Link href="/freightforwarding" onClick={closeMenu}>Freight Forwarding</Link>
-        <Link href="/warehousing" onClick={closeMenu}>Warehousing & Distribution</Link>
-        <Link href="/transportation" onClick={closeMenu}>Transportation</Link>
-        <Link href="/spareparts" onClick={closeMenu}>Spare Part Logistics</Link>
-        <Link href="/customerclearance" onClick={closeMenu}>Customer Clearance</Link>
-        <Link href="/ITSupport" onClick={closeMenu}>IT Support</Link>
-      </div>
-    </div>
+        {/* Close button */}
+        <button
+          onClick={toggleMenu}
+          className="absolute top-8 left-6 cursor-pointer z-40"
+          aria-label="Close menu"
+        >
+          <FaTimes size={24} color="black" />
+        </button>
 
-    <Link href="/career" onClick={closeMenu} className="text-2xl md:text-3xl">
-      Career
-    </Link>
-    <Link href="/contact" onClick={closeMenu} className="text-2xl md:text-3xl">
-      Contact
-    </Link>
-  </div>
-</nav>
+        {/* Nav items */}
+        <div className="flex flex-col items-center text-center p-20 h-full text-black font-medium gap-6 md:gap-8">
+          <Link href="/" onClick={closeMenu} className="text-2xl md:text-3xl">
+            Home
+          </Link>
+          <Link href="/about" onClick={closeMenu} className="text-2xl md:text-3xl">
+            About
+          </Link>
+
+          {/* Mobile Services Dropdown */}
+          <div className="flex flex-col items-center gap-2 relative w-full">
+            <div className="flex items-center gap-2 cursor-pointer text-2xl md:text-3xl">
+              <Link href="/services">Services</Link>
+              <button className="cursor-pointer" onClick={toggleServices}>
+                <FaPlus size={20} />
+              </button>
+            </div>
+
+            <div
+              className={`transition-all duration-1000 ease-in-out overflow-hidden flex flex-col items-center gap-2 mt-2 text-base md:text-lg font-medium ${isServicesOpen ? "max-h-96" : "max-h-0"
+                }`}
+            >
+              <Link href="/freightforwarding" onClick={closeMenu}>Freight Forwarding</Link>
+              <Link href="/warehousing" onClick={closeMenu}>Warehousing & Distribution</Link>
+              <Link href="/transportation" onClick={closeMenu}>Transportation</Link>
+              <Link href="/spareparts" onClick={closeMenu}>Spare Part Logistics</Link>
+              <Link href="/customerclearance" onClick={closeMenu}>Customer Clearance</Link>
+              <Link href="/ITSupport" onClick={closeMenu}>IT Support</Link>
+            </div>
+          </div>
+
+          <Link href="/career" onClick={closeMenu} className="text-2xl md:text-3xl">
+            Career
+          </Link>
+          <Link href="/contact" onClick={closeMenu} className="text-2xl md:text-3xl">
+            Contact
+          </Link>
+        </div>
+      </nav>
 
 
     </header>
