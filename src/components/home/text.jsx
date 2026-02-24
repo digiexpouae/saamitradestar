@@ -11,7 +11,7 @@ const Text = ({ sectionRef }) => {
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false)
   const videoRef = useRef(null)
-
+  const [hideText, setHideText] = useState(false);
 
 
   useEffect(() => {
@@ -82,6 +82,7 @@ const Text = ({ sectionRef }) => {
 
                 // Animate reveal and image fade
                 if (progress >= 0.4 && sectionRef.current) {
+                  setHideText(true);
                   const clipPercent = Math.min(((progress - 0.5) / 0.4) * 100, 100);
                   gsap.to(sectionRef.current, {
                     opacity: 1,
@@ -91,6 +92,7 @@ const Text = ({ sectionRef }) => {
                   });
                   gsap.to(imageref.current, { opacity: 1 - progress }, "<");
                 } else if (progress < 0.4) {
+                  setHideText(false);
                   gsap.to(sectionRef.current, {
                     opacity: 0,
                     clipPath: "circle(0% at 50% 50%)",
@@ -121,6 +123,7 @@ const Text = ({ sectionRef }) => {
                 animation.goToAndStop(frame, true);
 
                 if (progress >= 0.4 && sectionRef.current) {
+                  setHideText(true);
                   const clipPercent = Math.min(((progress - 0.6) / 0.4) * 100, 100);
                   gsap.to(sectionRef.current, {
                     opacity: 1,
@@ -134,6 +137,7 @@ const Text = ({ sectionRef }) => {
                   gsap.to(imageref.current, { opacity: 1 - progress }, "<");
                 }
                 else if (progress < 0.4) {
+                  setHideText(false);
                   gsap.to(sectionRef.current, {
                     opacity: 0,
                     clipPath: "circle(0% at 50% 50%)",
@@ -170,7 +174,7 @@ const Text = ({ sectionRef }) => {
     <>
       {/* {lottieReady && ( */}
 
-      <h1 className="text-red-200 font-bold text-2xl absolute top-50 left-1/2 opacity-[0.1] z-30 -translate-x-1/2 -translate-y-1/2" >Sami Trade Star</h1>
+      {!hideText && <h1 className="text-red-800 font-bold text-2xl absolute top-1/2 left-1/2 opacity-100 z-30 -translate-x-1/2 -translate-y-1/2" >Sami Trade Star</h1>}
 
       <div className={`absolute  inset-0 transition-opacity  duration-500    ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-30'}`}
 
