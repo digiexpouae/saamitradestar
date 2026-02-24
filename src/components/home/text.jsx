@@ -209,7 +209,6 @@ const Text = ({ sectionRef }) => {
           src="/assets/SaamiCompressed_two.mp4"
           playsInline
           muted
-          poster="/assets/placeholder_globe.webp"
           loop
           // onCanPlayThrough={()=>handleVideoLoad()}
 
