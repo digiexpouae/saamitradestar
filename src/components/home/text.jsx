@@ -177,11 +177,7 @@ const Text = ({ sectionRef }) => {
       {!hideText && <div className="absolute  top-1/2 lg:top-[70%] left-1/2 opacity-100 z-30 w-full -translate-x-1/2 -translate-y-1/2"> <h1 className="text-white text-center font-bold text-2xl md:text-4xl md:leading-[1.7]" >Reliable Logistics Solutions<br /> <span className="text-3xl md:text-5xl uppercase">Delivered with Precision.</span></h1>
         <p className="text-white text-lg text-center ">Seamless air, sea, and land freight services connecting your business to the world.</p> </div>}
 
-      <div className={`absolute  inset-0 transition-opacity duration-500    ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-20'}`}
-
-
-
-      >
+      <div className={`absolute  inset-0 transition-opacity duration-500    ${isLoaded ? 'opacity-0 z-0' : 'opacity-100 z-20'}`}>
 
 
         <Image
@@ -190,10 +186,7 @@ const Text = ({ sectionRef }) => {
           className="object-cover"
           fill
           priority
-          fetchPriority="high"
-          sizes="100vw"
-
-        />
+          sizes="100vw" />
       </div >
 
 
