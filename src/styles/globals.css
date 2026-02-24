@@ -1,44 +1,66 @@
 @import "tailwindcss";
-body{
+
+/* Normal Variable Font */
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  /* variable font supports this range */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic Variable Font */
+@font-face {
+  font-family: 'Urbanist';
+  src: url('/fonts/Urbanist-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+body {
   font-family: "Urbanist", sans-serif;
   overflow-x: hidden;
   background-color: white;
 }
-.urbanist-uniquifier {
-  font-family: "Urbanist", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-}
+
 @keyframes scroll-left {
   0% {
-    transform: translateX(-100%); /* Start from initial position */
+    transform: translateX(-100%);
+    /* Start from initial position */
   }
+
   100% {
-    transform: translateX(50%); /* Move to left by 50% to show the next set of text */
+    transform: translateX(50%);
+    /* Move to left by 50% to show the next set of text */
   }
 }
 
 @keyframes scroll-right {
   0% {
-    transform: translateX(-50%); /* Start from initial position */
+    transform: translateX(-50%);
+    /* Start from initial position */
   }
+
   100% {
-    transform: translateX(90%); /* Move to left by 50% to show the next set of text */
+    transform: translateX(90%);
+    /* Move to left by 50% to show the next set of text */
   }
 }
 
 
 .animate-scroll-left {
   display: flex;
-  animation: scroll-left 2s linear infinite; 
-  
+  animation: scroll-left 2s linear infinite;
+
   /* Infinite loop with smooth continuous movement */
 }
 
-.animate-scroll-right{
+.animate-scroll-right {
   display: flex;
-  animation: scroll-right 2s linear infinite; /* Infinite loop with smooth continuous movement */
+  animation: scroll-right 2s linear infinite;
+  /* Infinite loop with smooth continuous movement */
 }
 
 
@@ -47,27 +69,33 @@ body{
 } */
 
 ul li::marker {
-  font-size: 0.5em; /* increase or decrease bullet size */
-  color: black;       /* optional: change bullet color */
+  font-size: 0.5em;
+  /* increase or decrease bullet size */
+  color: black;
+  /* optional: change bullet color */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
-/* From Uiverse.io by adamgiebl */ 
-/* From Uiverse.io by kleenpulse */ 
-/* From Uiverse.io by FColombati */ 
+
+/* From Uiverse.io by adamgiebl */
+/* From Uiverse.io by kleenpulse */
+/* From Uiverse.io by FColombati */
 .button {
   all: unset;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   position: relative;
   border-radius: 100em;
- 
+
 
 
 }
@@ -93,7 +121,7 @@ ul li::marker {
   border-radius: inherit;
   transition: box-shadow 300ms ease;
   will-change: box-shadow;
- 
+
 }
 
 .button:hover .button-outer {
@@ -109,7 +137,7 @@ ul li::marker {
   z-index: 1;
   border-radius: inherit;
   padding: .7em 2em;
- 
+
   transition:
     box-shadow 300ms ease,
     clip-path 250ms ease,
@@ -119,30 +147,39 @@ ul li::marker {
   overflow: clip;
   clip-path: inset(0 0 0 0 round 100em);
   box-shadow:
-        /* 1 */
+    /* 1 */
     0 0 0 0 inset rgba(5, 5, 5, 0.1),
-    /* 2 */ -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
-    /* 3 */ 0 0 0 0 inset rgba(5, 5, 5, 0.1),
-    /* 4 */ 0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
-    /* 5 */ 0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
-    /* 6 */ 0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
-    /* 7 */ -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
+    /* 2 */
+    -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
+    /* 3 */
+    0 0 0 0 inset rgba(5, 5, 5, 0.1),
+    /* 4 */
+    0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
+    /* 5 */
+    0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
+    /* 6 */
+    0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+    /* 7 */
+    -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
 }
 
 .button:hover .button-inner {
-  clip-path: inset(
-    clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px)
-      clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 100em
-  );
+  clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 100em);
   box-shadow:
-        /* 1 */
+    /* 1 */
     0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
-    /* 2 */ -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
-    /* 3 */ 0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
-    /* 4 */ 0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
-    /* 5 */ 0 0 0 0 inset rgba(255, 255, 255, 1),
-    /* 6 */ 0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
-    /* 7 */ -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
+    /* 2 */
+    -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
+    /* 3 */
+    0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
+    /* 4 */
+    0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
+    /* 5 */
+    0 0 0 0 inset rgba(255, 255, 255, 1),
+    /* 6 */
+    0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+    /* 7 */
+    -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
 }
 
 .button .button-inner span {
@@ -151,11 +188,9 @@ ul li::marker {
   letter-spacing: -0.05em;
   font-weight: 500;
 
-  background-image: linear-gradient(
-    135deg,
-    rgba(25, 25, 25, 1),
-    rgba(75, 75, 75, 1)
-  );
+  background-image: linear-gradient(135deg,
+      rgba(25, 25, 25, 1),
+      rgba(75, 75, 75, 1));
   -webkit-background-clip: text;
   background-clip: text;
   transition: transform 250ms ease;
@@ -175,18 +210,26 @@ ul li::marker {
 .button:active .button-inner {
   transform: scale(0.975);
 }
-.globe-spin{
+
+.globe-spin {
   animation: spin 8s linear infinite;
   /* transform-style: preserve-3d; */
 
 
 }
+
 @keyframes spin {
+
   /* from { background-position: 0 0; }
   to { background-position: -800px 0; }  */
-from{rotate:transformY(0deg)}
-from{rotate:transformY(360deg)}
-  
+  from {
+    rotate: transformY(0deg)
+  }
+
+  from {
+    rotate: transformY(360deg)
+  }
+
 }
 
 .sphere-root {
@@ -270,9 +313,7 @@ main.sphere-main {
   transform-origin: 50% 50%;
   backface-visibility: hidden;
   transition: transform 300ms;
-  transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg)))
-    rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg)))
-    translateZ(var(--radius));
+  transform: rotateY(calc(var(--rot-y) * (var(--offset-x) + ((var(--item-size-x) - 1) / 2)) + var(--rot-y-delta, 0deg))) rotateX(calc(var(--rot-x) * (var(--offset-y) - ((var(--item-size-y) - 1) / 2)) + var(--rot-x-delta, 0deg))) translateZ(var(--radius));
 }
 
 .item__image {
@@ -388,6 +429,6 @@ main.sphere-main {
   bottom: 0;
 }
 
-.container svg{
+.container svg {
   will-change: transform;
 }

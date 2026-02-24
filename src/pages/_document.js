@@ -5,10 +5,11 @@ export default function Document() {
       <Head >
         <link rel="preload" as="image" href="/assets/placeholder_globe.webp" fetchpriority="high" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> */}
 
-        <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />      </Head >
+        {/* <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700&display=swap" rel="stylesheet" />   */}
+      </Head >
       <body className="antialiased">
 
         <Main />
