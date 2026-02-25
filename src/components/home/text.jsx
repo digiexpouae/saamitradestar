@@ -21,7 +21,6 @@ const Text = ({ sectionRef }) => {
     // If video is already loaded or playing
     if (video.readyState >= 3) {
       console.log("Video already ready on mount");
-      setIsLoaded(true)
       setIsVideoReady(true);
     }
 
@@ -30,12 +29,19 @@ const Text = ({ sectionRef }) => {
   }, []);
 
 
+  useEffect(() => {
+    if (isVideoReady) {
+      setTimeout(() => {
+        setIsLoaded(true)
+      }, 300)
 
+    }
+
+  }, [isVideoReady])
 
   useEffect(() => {
     console.log("video", isVideoReady)
     if (!isVideoReady) return;
-
     let animation;
     let ctx;
     gsap.registerPlugin(ScrollTrigger);
@@ -177,12 +183,24 @@ const Text = ({ sectionRef }) => {
       {!hideText && <div className="absolute  top-1/2 lg:top-[70%] left-1/2 opacity-100 z-30 w-full -translate-x-1/2 -translate-y-1/2"> <h1 className="text-white text-center font-bold text-2xl md:text-4xl md:leading-[1.7]" >Reliable Logistics Solutions<br /> <span className="text-3xl md:text-5xl uppercase">Delivered with Precision.</span></h1>
         <p className="text-white text-lg text-center ">Seamless air, sea, and land freight services connecting your business to the world.</p> </div>}
 
+      <div className={`absolute inset-0 h-full w-full z-10 `} ref={imageref}>
+        <video
+          ref={videoRef}
+          src="/assets/SaamiCompressed_two.mp4"
+          playsInline
+          muted
+          loop
+          // onCanPlayThrough={()=>handleVideoLoad()}
+
+          // FALLBACK for fast cache
+
+          className={`h-full w-full object-cover `}
+
+        ></video>
+      </div>
       <div
-        className="absolute inset-0  "
-        style={{
-          opacity: isLoaded ? 0 : 1,
-          transition: "opacity 1000ms ease"
-        }}
+        className={`absolute inset-0  z-0 ${isLoaded && 'opacity-0'}`}
+
       >
 
         <Image
@@ -198,39 +216,21 @@ const Text = ({ sectionRef }) => {
       </div >
 
 
+
+
       <div
         className="absolute inset-0  z-20 xl:h-[100vw] w-[100vw]"
         ref={container}
 
-        style={{ contentVisibility: 'auto', contain: 'strict' }}></div>
+        style={{
+          contentVisibility: 'auto', contain: 'strict', willChange: 'opacity', transition: "opacity 200ms ease",
+        }}></div>
 
 
 
       {/* video */}
 
-      <div className={`absolute inset-0 h-full w-full z-10 `} ref={imageref}>
-        <video
-          ref={videoRef}
-          src="/assets/SaamiCompressed_two.mp4"
-          playsInline
-          muted
-          loop
-          // onCanPlayThrough={()=>handleVideoLoad()}
 
-          // FALLBACK for fast cache
-          onPlaying={() => {
-            setIsVideoReady(true);
-            setTimeout(() => {
-              setIsLoaded(true);
-            }, 80);
-          }}
-          className={`absolute inset-0 h-full w-full object-cover `}
-          style={{
-            opacity: isLoaded ? 1 : 0, willChange: "opacity", transition: "opacity 100ms", transform: "translateZ(0)"
-
-          }}
-        ></video>
-      </div>
 
     </>
   );
