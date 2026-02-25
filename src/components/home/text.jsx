@@ -12,36 +12,29 @@ const Text = ({ sectionRef }) => {
   const [isLoaded, setIsLoaded] = useState(false)
   const videoRef = useRef(null)
   const [hideText, setHideText] = useState(false);
+  const [isLottieReady, setIsLottieReady] = useState(false);
+
+
+  // useEffect(() => {
+  //   const video = videoRef.current;
+  //   if (!video) return;
+
+  //   // If video is already loaded or playing
+  //   if (video.readyState >= 3) {
+  //     console.log("Video already ready on mount");
+  //     setIsVideoReady(true);
+  //   }
+
+  //   // Force play in case autoPlay is blocked by browser
+  //   video.play().catch(e => console.log("Auto-play prevented, waiting for interaction:", e));
+  // }, []);
 
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
 
-    // If video is already loaded or playing
-    if (video.readyState >= 3) {
-      console.log("Video already ready on mount");
-      setIsVideoReady(true);
-    }
-
-    // Force play in case autoPlay is blocked by browser
-    video.play().catch(e => console.log("Auto-play prevented, waiting for interaction:", e));
-  }, []);
-
-
-  useEffect(() => {
-    if (isVideoReady) {
-      setTimeout(() => {
-        setIsLoaded(true)
-      }, 300)
-
-    }
-
-  }, [isVideoReady])
-
-  useEffect(() => {
-    console.log("video", isVideoReady)
     if (!isVideoReady) return;
+    console.log('animation works', isVideoReady)
+
     let animation;
     let ctx;
     gsap.registerPlugin(ScrollTrigger);
@@ -61,10 +54,13 @@ const Text = ({ sectionRef }) => {
       animationRef.current = animation;
 
       const onReady = () => {
+        setIsLottieReady(true); // ← HERE (after SVG is injected)
+
         const totalFrames = animation.totalFrames;
         if (!totalFrames) return;
         const svg = target.querySelector("svg");
         if (!svg) return;
+
 
         ScrollTrigger.matchMedia({
           // === DESKTOP ===
@@ -164,8 +160,8 @@ const Text = ({ sectionRef }) => {
       };
 
       animation.addEventListener("DOMLoaded", onReady);
-    })
 
+    })
 
     return () => {
       ctx?.revert();
@@ -174,8 +170,11 @@ const Text = ({ sectionRef }) => {
 
 
   }, [isVideoReady]);
-
-
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoaded(true)
+    }, 500)
+  }, [isLottieReady])
   return (
     <>
       {/* {lottieReady && ( */}
@@ -183,7 +182,7 @@ const Text = ({ sectionRef }) => {
       {!hideText && <div className="absolute  top-1/2 lg:top-[70%] left-1/2 opacity-100 z-30 w-full -translate-x-1/2 -translate-y-1/2"> <h1 className="text-white text-center font-bold text-2xl md:text-4xl md:leading-[1.7]" >Reliable Logistics Solutions<br /> <span className="text-3xl md:text-5xl uppercase">Delivered with Precision.</span></h1>
         <p className="text-white text-lg text-center ">Seamless air, sea, and land freight services connecting your business to the world.</p> </div>}
 
-      <div className={`absolute inset-0 h-full w-full z-10 `} ref={imageref}>
+      <div className={`absolute inset-0 h-full w-full `} ref={imageref}>
         <video
           ref={videoRef}
           src="/assets/SaamiCompressed_two.mp4"
@@ -191,15 +190,16 @@ const Text = ({ sectionRef }) => {
           muted
           loop
           // onCanPlayThrough={()=>handleVideoLoad()}
-
+          autoPlay
           // FALLBACK for fast cache
-
-          className={`h-full w-full object-cover `}
+          onPlaying={() => setIsVideoReady(true)}
+          className={`h-full w-full object-cover  `}
 
         ></video>
       </div>
+
       <div
-        className={`absolute inset-0  z-0 ${isLoaded && 'opacity-0'}`}
+        className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${isLoaded && 'opacity-0'}`}
 
       >
 
@@ -217,14 +217,12 @@ const Text = ({ sectionRef }) => {
 
 
 
-
       <div
         className="absolute inset-0  z-20 xl:h-[100vw] w-[100vw]"
         ref={container}
 
-        style={{
-          contentVisibility: 'auto', contain: 'strict', willChange: 'opacity', transition: "opacity 200ms ease",
-        }}></div>
+
+      ></div >
 
 
 
