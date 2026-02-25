@@ -54,6 +54,10 @@ const Text = ({ sectionRef }) => {
       animationRef.current = animation;
 
       const onReady = () => {
+        setIsLottieReady(true); // ← HERE (after SVG is injected)
+
+
+
 
         const totalFrames = animation.totalFrames;
         if (!totalFrames) return;
@@ -156,9 +160,9 @@ const Text = ({ sectionRef }) => {
             });
           },
         });
-        setIsLottieReady(true); // ← HERE (after SVG is injected)
 
-      };
+
+      }
 
       animation.addEventListener("DOMLoaded", onReady);
 
@@ -175,7 +179,7 @@ const Text = ({ sectionRef }) => {
     setTimeout(() => {
       setIsLoaded(true)
     }, 500)
-  }, [isLottieReady])
+  }, [isVideoReady])
   return (
     <>
       {/* {lottieReady && ( */}
@@ -192,7 +196,13 @@ const Text = ({ sectionRef }) => {
         // onCanPlayThrough={()=>handleVideoLoad()}
         autoPlay
         // FALLBACK for fast cache
-        onPlaying={() => setIsVideoReady(true)}
+        onPlaying={() => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              setIsVideoReady(true);
+            });
+          });
+        }}
         className={` absolute inset-0 h-full w-full transition-opacity duration-200 ease-in-out object-cover ${isLoaded ? 'opacity-100' : 'opacity-0'} `}
 
       ></video>
@@ -214,13 +224,13 @@ const Text = ({ sectionRef }) => {
         />
       </div >
 
-      {/* 
+
       <div
         className="absolute inset-0  z-20 xl:h-[100vw]   transition-opacity duration-500 ease-in  w-[100vw]"
         ref={container}
 
 
-      ></div > */}
+      ></div >
 
 
 
