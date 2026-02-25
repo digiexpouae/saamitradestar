@@ -177,12 +177,13 @@ const Text = ({ sectionRef }) => {
       {!hideText && <div className="absolute  top-1/2 lg:top-[70%] left-1/2 opacity-100 z-30 w-full -translate-x-1/2 -translate-y-1/2"> <h1 className="text-white text-center font-bold text-2xl md:text-4xl md:leading-[1.7]" >Reliable Logistics Solutions<br /> <span className="text-3xl md:text-5xl uppercase">Delivered with Precision.</span></h1>
         <p className="text-white text-lg text-center ">Seamless air, sea, and land freight services connecting your business to the world.</p> </div>}
 
-      <div className={`absolute  inset-0 transition-opacity duration-500 ease-in    ${isLoaded ? 'opacity-0 ' : 'opacity-100 '}`}
-
-
-
+      <div
+        className="absolute inset-0  "
+        style={{
+          opacity: isLoaded ? 0 : 1,
+          transition: "opacity 1000ms ease"
+        }}
       >
-
 
         <Image
           src="/assets/placeholder_globe.webp"
@@ -207,10 +208,9 @@ const Text = ({ sectionRef }) => {
 
       {/* video */}
 
-      <div className={`absolute inset-0 h-full w-full `} ref={imageref}>
+      <div className={`absolute inset-0 h-full w-full z-10 `} ref={imageref}>
         <video
           ref={videoRef}
-
           src="/assets/SaamiCompressed_two.mp4"
           playsInline
           muted
@@ -218,17 +218,17 @@ const Text = ({ sectionRef }) => {
           // onCanPlayThrough={()=>handleVideoLoad()}
 
           // FALLBACK for fast cache
-          onLoadedMetadata={() => {
+          onPlaying={() => {
             setIsVideoReady(true);
-            setIsLoaded(true);
+            setTimeout(() => {
+              setIsLoaded(true);
+            }, 80);
           }}
-          autoPlay
-          onLoadedData={() => {
-            setIsVideoReady(true);
-            setIsLoaded(true);
+          className={`absolute inset-0 h-full w-full object-cover `}
+          style={{
+            opacity: isLoaded ? 1 : 0, willChange: "opacity", transition: "opacity 100ms", transform: "translateZ(0)"
+
           }}
-          fetchPriority="high"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-100 ease-in ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         ></video>
       </div>
 
