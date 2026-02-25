@@ -15,19 +15,19 @@ const Text = ({ sectionRef }) => {
   const [isLottieReady, setIsLottieReady] = useState(false);
 
 
-  // useEffect(() => {
-  //   const video = videoRef.current;
-  //   if (!video) return;
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
 
-  //   // If video is already loaded or playing
-  //   if (video.readyState >= 3) {
-  //     console.log("Video already ready on mount");
-  //     setIsVideoReady(true);
-  //   }
+    // If video is already loaded or playing
+    if (video.readyState >= 3) {
+      console.log("Video already ready on mount");
+      setIsLoaded(true);
+    }
 
-  //   // Force play in case autoPlay is blocked by browser
-  //   video.play().catch(e => console.log("Auto-play prevented, waiting for interaction:", e));
-  // }, []);
+    // Force play in case autoPlay is blocked by browser
+    video.play().catch(e => console.log("Auto-play prevented, waiting for interaction:", e));
+  }, [isVideoReady]);
 
 
   useEffect(() => {
@@ -54,7 +54,6 @@ const Text = ({ sectionRef }) => {
       animationRef.current = animation;
 
       const onReady = () => {
-        setIsLottieReady(true); // ← HERE (after SVG is injected)
 
 
 
@@ -175,11 +174,7 @@ const Text = ({ sectionRef }) => {
 
 
   }, [isVideoReady]);
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true)
-    }, 500)
-  }, [isVideoReady])
+
   return (
     <>
       {/* {lottieReady && ( */}
