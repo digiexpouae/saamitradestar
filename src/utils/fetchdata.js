@@ -1,5 +1,6 @@
 export const safeFetchJson = async (url, fallback = []) => {
     try {
+
         const res = await fetch(url);
 
         // If fetch succeeded, but server responded with error

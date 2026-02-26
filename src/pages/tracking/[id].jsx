@@ -20,16 +20,16 @@ export default function TrackingPage() {
 
         const fetchData = async () => {
             setLoading(true);
-
-            const trackingData = await safeFetchJson(`https://trackapi.saamitradestar.com/products?C_NO=${id}`, []);
-            const customerData = await safeFetchJson(`https://trackapi.saamitradestar.com/customers?Cust_NO=${id}`, []);
             const podData = await safeFetchJson(`https://apps.saamitradestar.com/pod/${id}.jpg`, null);
             const podscanData = await safeFetchJson(`https://apps.saamitradestar.com/pod/scan/${id}.jpg`, null);
+            const trackingData = await safeFetchJson(`https://trackapi.saamitradestar.com/products?C_NO=${id}`, []);
+            const customerData = await safeFetchJson(`https://trackapi.saamitradestar.com/customers?Cust_NO=${id}`, []);
+            setPodData(podData);
+            setpodscanData(podscanData)
 
             setTrackingData(trackingData);
             setCustomerData(customerData);
-            setPodData(podData);
-            setpodscanData(podscanData)
+
             setLoading(false);
         };
 
@@ -42,7 +42,11 @@ export default function TrackingPage() {
             </div>
 
             {loading ? (
-                <p className="text-center">Loading tracking details…</p>
+                <p className="text-center">Loading tracking details…
+                </p>
+
+
+
             ) : (
                 <Trackingui data={trackingData} podData={podData} podscanData={podscanData} id={id} customerData={customerData} />
             )}
