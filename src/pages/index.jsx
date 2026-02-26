@@ -38,6 +38,11 @@ const index = () => {
   const [complete, setcomplete] = useState(false);
   const completeRef = useRef(complete);
 
+
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     completeRef.current = complete; // keep ref in sync
   }, [complete]);
