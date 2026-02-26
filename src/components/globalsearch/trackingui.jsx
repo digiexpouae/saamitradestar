@@ -77,8 +77,9 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
         </p>
 
         {/* Booking Info */}
-        <div className="w-[30%] ">
-          <Field_two label={'POD'} data={imgUrl && ('poddata')} datatwo={imgUrltwo && ('podscanData')} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />        </div>
+        <div className="w-[70%] lg:w-1/3">
+          <Field_two label={'POD'} data={imgUrl && ('View POD')} datatwo={imgUrltwo && ('View POD2')} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
+        </div>
         {/* Booking Info */}
 
         {deliveryData?.length ? (
@@ -277,7 +278,7 @@ function Field({ label, data }) {
 }
 function Field_two({ label, data, linkOne, linktwo, datatwo }) {
   return (
-    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+    <div className="flex flex-row items-center justify-center gap-2 mb-2">
       <span className="text-gray-700 text-sm sm:text-base sm:w-32">{label}</span>
       <div className="border text-sm text-zinc-800 border-gray-300 rounded-full px-3 flex items-center gap-2 h-8 w-full sm:flex-1">
         {linkOne && (<Link href={linkOne} target="_blank" rel="noopener noreferrer">{data}</Link>)} /    {linktwo && (<Link href={linktwo} target="_blank" rel="noopener noreferrer">{datatwo}</Link>)}
