@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import Header from '../../layout/header';
 import { useRouter } from "next/navigation";
-
-export default function GlobalSearch({ data, id, customerData }) {
+import Link from "next/link";
+export default function GlobalSearch({ data, id, podscanData, customerData, podData }) {
   const [consignmentNo, setConsignmentNo] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [deliveryData, setDeliveryData] = useState(data || []);
   const [customer, setCustomer] = useState(customerData || []);
+  const [imgUrl, setimgUrl] = useState("")
+  const [imgUrltwo, setimgUrltwo] = useState("")
   const router = useRouter();
+  useEffect(() => {
+    console.log("podData", podData.url)
+    setimgUrl(podData?.url)
+    setimgUrltwo(podscanData?.url)
 
+  }, [])
   const handleSubmit = (e) => {
     e.preventDefault();
     const targetId = consignmentNo;
     router.push(`/tracking/${targetId}`);
     setSubmitted(true);
   };
-
   useEffect(() => {
     setDeliveryData(data);
     setCustomer(customerData);
@@ -71,9 +77,10 @@ export default function GlobalSearch({ data, id, customerData }) {
         </p>
 
         {/* Booking Info */}
-
-
+        <div className="w-[30%] ">
+          <Field_two label={'POD'} data={imgUrl && ('poddata')} datatwo={imgUrltwo && ('podscanData')} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />        </div>
         {/* Booking Info */}
+
         {deliveryData?.length ? (
           deliveryData.map((item, index) => (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
@@ -92,7 +99,7 @@ export default function GlobalSearch({ data, id, customerData }) {
                       })
                       : "—"
                   }
-                />                <Field label="POD :" data={item.POD} />
+                />
               </div>
               <div className="space-y-2">
                 <Field label="Reference No :" data={item.Ref_No2} />
@@ -184,13 +191,13 @@ export default function GlobalSearch({ data, id, customerData }) {
                   {item?.Status_date ? new Date(item.Status_date).toLocaleString() : "—"}
                 </p>
                 <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
-                                    <p><span className="font-semibold">Status:</span> 
-  {item.STATUS_CODE === "Manifest"
-    ? `Forwarded to ${item.Place_name}`
-    : item.STATUS_CODE === "DRS"
-       ? `Forwarded to ${id || "—"}`
-      : "—"}
-</p>
+                  <p><span className="font-semibold">Status:</span>
+                    {item.STATUS_CODE === "Manifest"
+                      ? `Forwarded to ${item.Place_name}`
+                      : item.STATUS_CODE === "DRS"
+                        ? `Forwarded to ${id || "—"}`
+                        : "—"}
+                  </p>
 
                   <p><span className="font-semibold">Received By:</span> {item.Received_By || "—"}</p>
                   <p><span className="font-semibold">Remark:</span> {item.remark || "—"}</p>
@@ -211,7 +218,7 @@ export default function GlobalSearch({ data, id, customerData }) {
               <tr>
                 <th className="p-3 border">Branch</th>
                 <th className="p-3 border">Date & Time</th>
-                   <th className="p-3 border">Status</th>
+                <th className="p-3 border">Status</th>
 
                 <th className="p-3 border">Received By</th>
                 <th className="p-3 border">Remark</th>
@@ -235,17 +242,17 @@ export default function GlobalSearch({ data, id, customerData }) {
                         hour12: true
                       })
                       : "—"}
-                  </td>           
-  <td className="p-3">
-  {item.STATUS_CODE === "Manifest"
-    ? `Forwarded to ${item.Place_name}`
-    : item.STATUS_CODE === "DRS"
-       ? `Forwarded to ${id || "—"}`
-      : "—"}
-</td>
+                  </td>
+                  <td className="p-3">
+                    {item.STATUS_CODE === "Manifest"
+                      ? `Forwarded to ${item.Place_name}`
+                      : item.STATUS_CODE === "DRS"
+                        ? `Forwarded to ${id || "—"}`
+                        : "—"}
+                  </td>
 
-                  
-                           <td className="p-3">{item.Received_By || "—"}</td>
+
+                  <td className="p-3">{item.Received_By || "—"}</td>
                   <td className="p-3">{item.remark || "—"}</td>
                   <td className="p-3">{item.jobname || "—"}</td>
                 </tr>
@@ -254,7 +261,7 @@ export default function GlobalSearch({ data, id, customerData }) {
           </table>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
@@ -268,3 +275,14 @@ function Field({ label, data }) {
     </div>
   );
 }
+function Field_two({ label, data, linkOne, linktwo, datatwo }) {
+  return (
+    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
+      <span className="text-gray-700 text-sm sm:text-base sm:w-32">{label}</span>
+      <div className="border text-sm text-zinc-800 border-gray-300 rounded-full px-3 flex items-center gap-2 h-8 w-full sm:flex-1">
+        {linkOne && (<Link href={linkOne} target="_blank" rel="noopener noreferrer">{data}</Link>)} /    {linktwo && (<Link href={linktwo} target="_blank" rel="noopener noreferrer">{datatwo}</Link>)}
+      </div>
+    </div>
+  );
+}
+

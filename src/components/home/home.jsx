@@ -102,7 +102,7 @@ const home = ({ complete, setcomplete }) => {
           </div>
         </div>
         <div className="absolute inset-0 bg-cover flex flex-col items-center  translate-y-[70%]">
-          <Image src={'/assets/section1/globe.svg'} loading="lazy" width={600} height={1000} className="object-cover  globe-spin" />
+          <Image src={'/assets/globeCompressed.webp'} loading="lazy" width={600} height={1000} className="object-cover  globe-spin" />
         </div>
         <div class="circle-animation absolute" style={{ width: '300px', margin: 'auto' }}>
 

@@ -184,7 +184,7 @@ const Text = ({ sectionRef }) => {
 
       <video
         ref={videoRef}
-        src="/assets/SaamiCompressed_two.mp4"
+        src="/assets/Saami2.mp4"
         playsInline
         muted
         loop
