@@ -263,7 +263,7 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
     </div >
   );
 }
-
+// Field Component
 function Field({ label, data }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
