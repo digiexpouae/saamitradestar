@@ -31,6 +31,23 @@ const Text = ({ sectionRef }) => {
 
 
   useEffect(() => {
+    const handlePageShow = (event) => {
+      if (event.persisted) {
+        window.scrollTo(0, 0);
+      }
+    };
+
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+
+    window.addEventListener("pageshow", handlePageShow);
+
+    return () => {
+      window.removeEventListener("pageshow", handlePageShow);
+    };
+  }, []);
+
+  useEffect(() => {
 
     if (!isVideoReady) return;
     console.log('animation works', isVideoReady)
