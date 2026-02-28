@@ -40,8 +40,8 @@ const Header = ({ complete }) => {
             ${update ? "backdrop-blur-[10px] bg-[#FFFFFF99] opacity-60" : "backdrop-blur-lg opacity-100"}`}
         ></div>
 
-        {/* Logo */}
-        <div className="aspect-[12/2] w-[70%] md:w-[35%] cursor-pointer transition-all duration-1000 ease-out">
+        {/* Logo swap on scroll */}
+        {/* <div className="aspect-[12/2] w-[70%] md:w-[35%] cursor-pointer transition-all duration-1000 ease-out">
           <Link href="/">
             <Image
               src={update ? "/assets/saamilogo-2.png" : "/assets/whitelogo.png"}
@@ -52,22 +52,33 @@ const Header = ({ complete }) => {
               className="object-cover duration-1000 ease-out"
             />
           </Link>
+        </div> */}
+        <div className="aspect-[12/2] w-[70%] md:w-[35%] cursor-pointer transition-all duration-1000 ease-out">
+          <Link href="/">
+            <Image
+              src={"/assets/saamilogo-2.png"}
+              alt="logo"
+              width={500}
+              height={50}
+              priority
+              className="object-cover duration-1000 ease-out"
+            />
+          </Link>
         </div>
+
 
         {/* Desktop Nav */}
         <div
-          className="hidden lg:flex w-1/2 h-[70%] gap-6 pt-4 items-center justify-center"
+          className={`hidden lg:flex w-1/2 h-[70%] gap-6  font-medium text-lg  pt-4 items-center justify-center ${update ? 'text-white' : 'text-black'} `}
         >
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
-              }`}
+            className={` transition-all duration-1000 ease-out `}
             href={"/"}
           >
             Home
           </Link>
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
-              }`}
+            className={` transition-all duration-1000 ease-out `}
             href={"/about"}
           >
             About
@@ -77,43 +88,40 @@ const Header = ({ complete }) => {
           <div className="relative">
             <Link
               href="/services"
-              className={`font-semibold duration-1000 ease-out text-sm  transition-colors peer ${update ? "text-black" : "text-white"
-                }`}
+              className={` duration-1000 ease-out  transition-colors peer `}
             >
               Services
             </Link>
             <div className="absolute left-0 mt-2 w-56 flex-col rounded-lg bg-white shadow-lg opacity-0 invisible transition-all duration-300 ease-out peer-hover:opacity-100 peer-hover:visible hover:opacity-100 hover:visible z-20">
-              <Link href="/freightforwarding" className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+              <Link href="/freightforwarding" className="block px-4 py-2 hover:bg-gray-100  text-gray-700">
                 Freight Forwarding
               </Link>
-              <Link href="/warehousing" className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+              <Link href="/warehousing" className="block px-4 py-2 hover:bg-gray-100  text-gray-700">
                 Warehousing & Distribution
               </Link>
-              <Link href="/transportation" className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+              <Link href="/transportation" className="block px-4 py-2 hover:bg-gray-100  text-gray-700">
                 Transportation
               </Link>
-              <Link href="/spareparts" className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+              <Link href="/spareparts" className="block px-4 py-2 hover:bg-gray-100  text-gray-700">
                 Spare Part Logistics
               </Link>
-              <Link href="/customerclearance" className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+              <Link href="/customerclearance" className="block px-4 py-2 hover:bg-gray-100  text-gray-700">
                 Customer Clearance
               </Link>
-              <Link href="/ITSupport" className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700">
+              <Link href="/ITSupport" className="block px-4 py-2 hover:bg-gray-100  text-gray-700">
                 IT Support
               </Link>
             </div>
           </div>
 
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
-              }`}
+            className={`  transition-all duration-1000 ease-out `}
             href={"/career"}
           >
             Career
           </Link>
           <Link
-            className={`font-semibold text-sm transition-all duration-1000 ease-out ${update ? "text-black" : "text-white"
-              }`}
+            className={`  transition-all duration-1000 ease-out `}
             style={{ whiteSpace: "nowrap" }}
             href={"/contact"}
           >

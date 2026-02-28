@@ -1,7 +1,7 @@
 import Image from "next/image"
 const section2 = () => {
   return (
-    <div className="h-screen flex items-center justify-center w-full  container2" style={{ backgroundColor: 'rgba(255, 240, 241, 1)' }}>
+    <div className="h-screen flex items-center justify-center w-full  container2" style={{ backgroundColor: 'rgba(255, 240, 241, 1)' }} >
       <div className=" w-[80%]  md:w-[90%] lg:w-[80%] mx-auto h-full flex md:flex-row flex-col items-center justify-center gap-10 lg:gap-20 md:justify-between">
         <div className="w-full h-1/3 lg:h-1/2 xl:h-[60%]  md:w-1/2 relative">
           <Image src={'/assets/Untitled-1.png'} loading="lazy" fill className="object-cover" />
