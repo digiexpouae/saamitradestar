@@ -93,7 +93,7 @@ const home = () => {
 
 
 
-        <div className="absolute inset-0 bg-cover flex flex-col h-[4] items-center translate-y-[60%]  md:translate-y-[40%]"
+        <div className="absolute inset-0 bg-cover flex flex-col items-center translate-y-[60%]  md:translate-y-[40%]"
           style={{
 
 
