@@ -70,7 +70,7 @@ const home = () => {
 
 
       <motion.div
-        className="absolute inset-0 z-10 bg-white bg-cover bg-center flex flex-col items-center justify-center  h-[150vh] md:h-[180vh] " ref={containerRef}
+        className="absolute inset-0 z-10 bg-white bg-cover bg-center flex flex-col items-center justify-center  h-[150vh] md:h-[190vh] " ref={containerRef}
 
         style={{
           backgroundImage: "url('/assets/section1/h-1.webp')", backgroundSize: 'cover', backgroundPosition: 'center',
@@ -93,7 +93,7 @@ const home = () => {
 
 
 
-        <div className="absolute inset-0 bg-cover flex flex-col items-center translate-y-[55%]  md:translate-y-[40%]"
+        <div className="absolute inset-0 bg-cover flex flex-col items-center translate-y-[55%]  md:translate-y-[45%]"
           style={{
 
 
