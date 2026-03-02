@@ -99,7 +99,7 @@ const home = () => {
 
             transformOrigin: 'center center',
           }}>
-          <Image src={'/assets/globeCompressed.webp'} loading="lazy" width={600} height={1000} className="object-cover  globe-spin" />
+          <Image src={'/assets/globeCompressed.webp'} width={600} height={1000} className="object-cover  globe-spin" />
         </div>
 
 
