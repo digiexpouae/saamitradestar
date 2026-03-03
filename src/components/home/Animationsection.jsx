@@ -29,7 +29,7 @@ const home = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: `+=2000`, // 👈 correct way
+          end: `${window.innerHeight}`, // 👈 correct way
 
           pin: true,
           pinSpacing: true,        // ← explicitly keep spacer (default true, but be explicit)
@@ -49,6 +49,11 @@ const home = () => {
       tl.to(ref2.current, {
         yPercent: -100,
         ease: "power2.out",
+      }, "+=0.2")
+
+
+      tl.to(ref2.current, {
+        ease: "power1.out",
       }, "+=0.2")
 
 
