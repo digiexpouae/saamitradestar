@@ -24,6 +24,7 @@ import Getintouch from "@/common/getintouch";
 import Home from "@/components/home/home";
 import Footer from '../layout/footer/footer'
 import Animationsection from '../components/home/Animationsection'
+import ScrollProvider from '../common/Smoothscroll'
 import { useEffect, useRef, useState } from "react";
 const index = () => {
   const ref1 = useRef()
@@ -52,34 +53,36 @@ const index = () => {
 
   return (<>
     <div className="">
-      <Header complete={complete} />
-      {/* <Home complete={complete} setcomplete={setcomplete} /> */}
 
-      <Animationsection />
-
-
-
+      <ScrollProvider>
+        <Header complete={complete} />
+        {/* <Home complete={complete} setcomplete={setcomplete} /> */}
+        <Animationsection />
 
 
-      {/* <div>
+
+
+        {/* <div>
         <Homesectio2 />
       </div> */}
 
-      {/* <Section2 /> */}
+        {/* <Section2 /> */}
 
 
 
 
 
-      <div className="relative h-full w-full ">
-        <Scrollsection />
+        <div className="relative h-full w-full ">
+          <Scrollsection />
 
-      </div>
+        </div>
+      </ScrollProvider>
       <Fadein><Sectionhomethree heading1={'Over the past 25 years,'} heading2={<> Saami <br /> Tradestar Logistics Limited Has Pioneered <br /> Supply Chain Management Solutions</>} text={'as a 3PL in Domestic and International Logistics. STL has carved a niche as a 3PL within the Service Parts Logistics (SPL) and Expedited Time Definite Air Service.'} /> </Fadein>
       <Fadein><Section6 /></Fadein>
       <Getintouch />
 
       <Fadein><Footer /></Fadein>
+
 
     </div ></>)
 }

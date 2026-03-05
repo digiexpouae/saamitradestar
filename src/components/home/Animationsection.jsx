@@ -20,20 +20,24 @@ const home = () => {
   const sectionRef = useRef()
   const containerRef = useRef()
   const ref2 = useRef()
+  const stableVH = useRef(0);
+
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
+    // ✅ Normalize scroll speed on mobile — prevents kinetic overshoot
+    ScrollTrigger.normalizeScroll();
+    const isMobile = window.innerWidth <= 786
+    stableVH.current = document.documentElement.clientHeight;
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: `${window.innerHeight}`, // 👈 correct way
-
+          end: () => `+=${isMobile ? stableVH.current * 5 : stableVH.current * 3}`,  // ✅ 3x stable height
           pin: true,
           pinSpacing: true,        // ← explicitly keep spacer (default true, but be explicit)
-          scrub: 1,
+          scrub: isMobile ? 2 : 1,
           anticipatePin: 1,
           invalidateOnRefresh: true,
 
@@ -42,18 +46,20 @@ const home = () => {
 
       tl.to(containerRef.current, {
         yPercent: -200,
-        ease: "power2.out",
+        duration: 2
+        // , ease: "power2.out",
       });
 
 
       tl.to(ref2.current, {
         yPercent: -100,
-        ease: "power2.out",
+        duration: 2,
+        // ease: "power2.out",
       }, "+=0.2")
 
 
       tl.to(ref2.current, {
-        ease: "power1.out",
+        // ease: "power1.out",
       }, "+=0.2")
 
 
@@ -71,6 +77,7 @@ const home = () => {
 
 
   return (
+
     <div className="flex items-center relative h-screen w-full justify-center overflow-hidden " ref={sectionRef}>
 
 
@@ -118,6 +125,7 @@ const home = () => {
         <Homesectio2 />
       </div>
 
-    </div >)
+    </div >
+  )
 }
 export default home
