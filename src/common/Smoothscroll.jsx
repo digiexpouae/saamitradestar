@@ -8,14 +8,15 @@ export default function SmoothScrollProvider({ children }) {
         const isMobile = window.innerWidth < 768
 
         import("gsap/ScrollTrigger").then((module) => {
+
+            let lenis = null;
             const ScrollTrigger = module.ScrollTrigger;
             gsap.registerPlugin(ScrollTrigger);
 
-            const lenis = new Lenis({
+            lenis = new Lenis({
                 lerp: 0.08,
-                smoothTouch: true
+                smoothTouch: true,
             });
-
             // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
             lenis.on('scroll', ScrollTrigger.update);
 
@@ -47,11 +48,12 @@ export default function SmoothScrollProvider({ children }) {
 
             // ScrollTrigger.refresh();
 
-            return () => {
-                lenis.destroy();
-                ScrollTrigger.kill();
-            };
         });
+
+        return () => {
+            lenis.destroy();
+            ScrollTrigger.kill();
+        };
     }, []);
 
     return children;

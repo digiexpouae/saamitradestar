@@ -11,18 +11,18 @@ export default function App({ Component, pageProps }) {
   //   // 
   //   // Initialize Lenis
   //   const lenis = new Lenis({
-  //     //   lerp: 0.08, // 0 = instant, 1 = very slow
-  //     //   smoothWheel: true,
-  //     //   smoothTouch: true,
-  //     //   touchMultiplier: 1.2,
+  //     lerp: 0.02, // 0 = instant, 1 = very slow
+  //     smoothWheel: true,
+  //     smoothTouch: true,
+  //     touchMultiplier: 1.2,
   //     //   // disable smooth scroll on touch if you want
   //   });
   //   // 
   //   // Sync Lenis and ScrollTrigger
   //   function raf(time) {
-  //     //     lenis.raf(time);
-  //     //     ScrollTrigger.update();
-  //     //     requestAnimationFrame(raf);
+  //     lenis.raf(time);
+  //     ScrollTrigger.update();
+  //     requestAnimationFrame(raf);
   //   }
   //   requestAnimationFrame(raf);
   //   // 
