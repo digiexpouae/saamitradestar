@@ -34,7 +34,7 @@ const home = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: () => `+=${stableVH.current * 3}`,  // ✅ 3x stable height
+          end: () => `+=${isMobile ? stableVH.current * 4 : stableVH.current * 3}`,  // ✅ 3x stable height
           pin: true,
           pinSpacing: true,        // ← explicitly keep spacer (default true, but be explicit)
           scrub: isMobile ? 2.5 : 1,
