@@ -22,19 +22,27 @@ export default function TrackingPage() {
             setLoading(true);
             const podData = await safeFetchJson(`https://apps.saamitradestar.com/pod/${id}.jpg`, null);
             const podscanData = await safeFetchJson(`https://apps.saamitradestar.com/pod/scan/${id}.jpg`, null);
-            const trackingData = await safeFetchJson(`https://trackapi.saamitradestar.com/products?C_NO=${id}`, []);
-            const customerData = await safeFetchJson(`https://trackapi.saamitradestar.com/customers?Cust_NO=${id}`, []);
+            const data = await safeFetchJson(`https://trackapi.saamitradestar.com/products?C_NO=${id}`, null);
+            const res1 = await data.json()
+            const customerdata = await safeFetchJson(`https://trackapi.saamitradestar.com/customers?Cust_NO=${id}`, null);
+            const res2 = await customerdata.json()
             setPodData(podData);
             setpodscanData(podscanData)
 
-            setTrackingData(trackingData);
-            setCustomerData(customerData);
+            setTrackingData(res1);
+            setCustomerData(res2);
 
             setLoading(false);
         };
 
         fetchData();
-    }, [router.isReady, id]);
+    }, [router.isReady, id])
+
+
+    useEffect(() => {
+        console.log("tracking ", trackingData, customerData)
+    }, [trackingData, customerData])
+
     return (
         <div>
             <div className="flex items-center justify-center w-full h-[20vh]">

@@ -5,8 +5,8 @@ import Link from "next/link";
 export default function GlobalSearch({ data, id, podscanData, customerData, podData }) {
   const [consignmentNo, setConsignmentNo] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [deliveryData, setDeliveryData] = useState(data || []);
-  const [customer, setCustomer] = useState(customerData || []);
+  const [deliveryData, setDeliveryData] = useState(Array.isArray(data) ? data : []);
+  const [customer, setCustomer] = useState(Array.isArray(customerData) ? customerData : []);
   const [imgUrl, setimgUrl] = useState("")
   const [imgUrltwo, setimgUrltwo] = useState("")
   const router = useRouter();
@@ -77,12 +77,14 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
         </p>
 
         {/* Booking Info */}
-        <Field_two label={'POD'} data={imgUrl && ('View POD')} datatwo={imgUrltwo && ('View POD2')} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
+        <Field_two label={'POD'} data={imgUrl ? ('View POD') : ''} datatwo={imgUrltwo ? ('View POD2') : ''} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
         {/* Booking Info */}
 
         {deliveryData?.length ? (
           deliveryData.map((item, index) => (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4"
+              key={index}
+            >
 
               <div className="space-y-2">
                 <Field label="Type :" data={item.Job_Name} />
@@ -125,7 +127,7 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
         {/* Mobile View: Stacked Cards */}
         <div className="md:hidden space-y-4">
           {deliveryData?.length > 0 ? (
-            deliveryData.map((item, index) => (
+            deliveryData?.map((item, index) => (
 
               <div key={index} className="border border-gray-200 rounded-lg p-4 shadow-sm bg-white">
                 <div className="flex justify-between border-b pb-2 mb-2">
@@ -182,7 +184,7 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
         {/* Mobile View: Vertical Timeline Style */}
         <div className="md:hidden space-y-4">
           {customerData?.length > 0 ? (
-            customerData.map((item, index) => (
+            customerData?.map((item, index) => (
               <div key={index} className="relative pl-6 border-l-2 border-red-500 ml-2 py-1">
                 <div className="absolute -left-[9px] top-2 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
                 <p className="font-bold text-gray-800">{item.Place_name || "Unknown Branch"}</p>
@@ -268,7 +270,8 @@ function Field({ label, data }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
       <span className="text-gray-700 text-sm sm:text-base sm:w-32">{label}</span>
-      <div className="border text-sm text-zinc-800 border-gray-300 rounded-full px-3 flex items-center h-8 w-full sm:flex-1">
+      <div className="border text-sm text-zinc-800 text-nowrap overflow-x-scroll no-scrollbar border-gray-300 rounded-full px-3 flex items-center h-8 w-full sm:flex-1"
+      >
         {data || "—"}
       </div>
     </div>

@@ -13,15 +13,15 @@ const getintouch = () => {
                         <h2 className="font-semibold text-5xl lg:text-7xl ">Get In Touch</h2>
                         <p className="text-lg md:text-xl " style={{ color: 'rgba(90, 90, 90, 1)' }}><>Call us for your navigational <br /> services needs anytime, anywhere</></p>
                         <div className="flex  gap-2">
-                            <button class="button  " style={{ backgroundColor: 'rgba(237, 48, 57, 1)', border: '1px solid rgba(237, 48, 57, 1)' }}>
+                            <button className="button  " style={{ backgroundColor: 'rgba(237, 48, 57, 1)', border: '1px solid rgba(237, 48, 57, 1)' }}>
 
-                                <div class="button-inner text-white">
+                                <div className="button-inner text-white">
                                     <Link href="/contact"><span>Get In Touch</span></Link>
                                 </div>
                             </button>
 
-                            <button class="button bg-white" style={{ border: '1px solid rgba(237, 48, 57, 1)' }}>
-                                <div class="button-inner text-[rgba(42, 42, 42, 1)]">
+                            <button className="button bg-white" style={{ border: '1px solid rgba(237, 48, 57, 1)' }}>
+                                <div className="button-inner text-[rgba(42, 42, 42, 1)]">
                                     <Link href="/services"><span>Learn more</span></Link>
                                 </div>
                             </button>
@@ -45,15 +45,15 @@ const getintouch = () => {
                         <h2 className="font-semibold text-6xl ">Get In Touch</h2>
                         <p className="text-base " style={{ color: 'rgba(90, 90, 90, 1)' }}><>Call us for your navigational services needs anytime, anywhere</></p>
                         <div className="flex  gap-2">
-                            <button class="button  " style={{ backgroundColor: 'rgba(237, 48, 57, 1)', border: '1px solid rgba(237, 48, 57, 1)' }}>
+                            <button className="button  " style={{ backgroundColor: 'rgba(237, 48, 57, 1)', border: '1px solid rgba(237, 48, 57, 1)' }}>
 
-                                <div class="button-inner text-white">
+                                <div className="button-inner text-white">
                                     <Link href="/contact"><span>Get In Touch</span></Link>
                                 </div>
                             </button>
 
-                            <button class="button bg-white" style={{ border: '1px solid rgba(237, 48, 57, 1)' }}>
-                                <div class="button-inner text-[rgba(42, 42, 42, 1)]">
+                            <button className="button bg-white" style={{ border: '1px solid rgba(237, 48, 57, 1)' }}>
+                                <div className="button-inner text-[rgba(42, 42, 42, 1)]">
                                     <Link href="/services"> <span>Learn more</span></Link>
                                 </div>
                             </button>
