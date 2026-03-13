@@ -11,7 +11,6 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
   const [imgUrltwo, setimgUrltwo] = useState("")
   const router = useRouter();
   useEffect(() => {
-    console.log("podData", podData.url)
     setimgUrl(podData?.url)
     setimgUrltwo(podscanData?.url)
 
