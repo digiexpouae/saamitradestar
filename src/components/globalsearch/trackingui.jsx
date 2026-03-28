@@ -102,7 +102,7 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
                 />
               </div>
               <div className="space-y-2">
-                <Field label="Reference No :" data={item.Ref_No2} />
+                <Field label="Reference No :" data={item.Ref_No1} />
                 <Field label="Delivery Place :" data={item.Del_Place} />
                 <Field
                   label="Book Time:"
