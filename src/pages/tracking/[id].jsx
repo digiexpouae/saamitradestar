@@ -24,7 +24,7 @@ export default function TrackingPage() {
             const podscanData = await safeFetchJson(`https://apps.saamitradestar.com/pod/scan/${id}.jpg`, null);
             const data = await safeFetchJson(`https://trackapi.saamitradestar.com/products?C_NO=${id}`, null);
             const res1 = await data.json()
-            const customerdata = await safeFetchJson(`https://trackapi.saamitradestar.com/customers?Cust_NO=${id}`, null);
+            const customerdata = await safeFetchJson(`https://trackapi.saamitradestar.com/trackingApi?Cust_NO=${id}`, null);
             const res2 = await customerdata.json()
             setPodData(podData);
             setpodscanData(podscanData)

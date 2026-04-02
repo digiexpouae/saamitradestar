@@ -135,7 +135,7 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <p><span className="text-gray-500">Consignee:</span> {item?.Consignee_Name || "—"}</p>
-                  <p><span className="text-gray-500">Type:</span> {item?.Job_Name || "—"}</p>
+                  <p><span className="text-gray-500">Type:</span> {"—"}</p>
                   <p><span className="text-gray-500">Services:</span> {item?.Services || "—"}</p>
                   <p><span className="text-gray-500">Weight:</span> {item?.Act_Weight || "0"}</p>
                   <p><span className="text-gray-500">Pkgs:</span> {item?.No_of_pkg || "0"}</p>
@@ -165,7 +165,7 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
                 <tr key={index} className="hover:bg-gray-50 border-b">
                   <td className="p-3">{item?.Consignor_Name || "—"}</td>
                   <td className="p-3">{item?.Consignee_Name || "—"}</td>
-                  <td className="p-3">{item?.Job_Name || "—"}</td>
+                  <td className="p-3">{"—"}</td>
                   <td className="p-3">{item?.Services || "—"}</td>
                   <td className="p-3">{item?.Act_Weight || "0"}</td>
                   <td className="p-3">{item?.No_of_pkg || "0"}</td>
@@ -186,17 +186,19 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
             customerData?.map((item, index) => (
               <div key={index} className="relative pl-6 border-l-2 border-red-500 ml-2 py-1">
                 <div className="absolute -left-[9px] top-2 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
-                <p className="font-bold text-gray-800">{item.Place_name || "Unknown Branch"}</p>
+                <p className="font-bold text-gray-800">
+                  {index == 0 ? item.DRS_Status ? item.Place : deliveryData[0].Book_Place : item.Place || "Unknown Branch"}
+                </p>
                 <p className="text-xs text-gray-500">
-                  {item?.Status_date ? new Date(item.Status_date).toLocaleString() : "—"}
+                  {item.Date}  {item.Time}
                 </p>
                 <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
                   <p><span className="font-semibold">Status:</span>
-                    {item.STATUS_CODE === "Manifest"
-                      ? `Forwarded to ${item.Place_name}`
-                      : item.STATUS_CODE === "DRS"
-                        ? `Forwarded to ${id || "—"}`
-                        : "—"}
+                    {item.ReferenceType === "Outscan"
+                      ? `Forwarded to ${item.Place}`
+                      : item.ReferenceType === "Inscan"
+                        ? `	Received At ${item.Place}`
+                        : item.DRS_Status}
                   </p>
 
                   <p><span className="font-semibold">Received By:</span> {item.Received_By || "—"}</p>
@@ -230,31 +232,23 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
             <tbody>
               {customerData?.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50 border-b">
-                  <td className="p-3">{item.Place_name || "—"}</td>
+                  <td className="p-3">{index === 0 ? item.DRS_Status ? item.Place : deliveryData[0].Book_Place : item.Place || "—"}</td>
                   <td className="p-3">
-                    {item?.Status_date
-                      ? new Date(item.Status_date).toLocaleString('en-US', {
-                        month: 'short',
-                        day: '2-digit',
-                        year: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        hour12: true
-                      })
-                      : "—"}
+                    {item.Date} {item.Time}
                   </td>
                   <td className="p-3">
-                    {item.STATUS_CODE === "Manifest"
-                      ? `Forwarded to ${item.Place_name}`
-                      : item.STATUS_CODE === "DRS"
-                        ? `Forwarded to ${id || "—"}`
-                        : "—"}
+                    {item.ReferenceType === "Outscan"
+                      ? `Forwarded to ${item.Place}`
+                      : item.ReferenceType === "Inscan"
+                        ? `	Received At ${item.Place}`
+                        : item.DRS_Status}
+
                   </td>
 
 
                   <td className="p-3">{item.Received_By || "—"}</td>
                   <td className="p-3">{item.remark || "—"}</td>
-                  <td className="p-3">{item.jobname || "—"}</td>
+                  <td className="p-3">{item.Reference || "—"}</td>
                 </tr>
               ))}
             </tbody>
