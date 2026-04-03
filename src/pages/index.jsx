@@ -24,7 +24,6 @@ import Getintouch from "@/common/getintouch";
 import Home from "@/components/home/home";
 import Footer from '../layout/footer/footer'
 import Animationsection from '../components/home/Animationsection'
-import ScrollProvider from '../common/Smoothscroll'
 import { useEffect, useRef, useState } from "react";
 const index = () => {
   const ref1 = useRef()
@@ -57,9 +56,9 @@ const index = () => {
 
       <Header complete={complete} />
       {/* <Home complete={complete} setcomplete={setcomplete} /> */}
-      <ScrollProvider>
+      
         <Animationsection />
-      </ScrollProvider>
+    
 
 
 

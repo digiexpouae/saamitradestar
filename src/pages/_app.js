@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-
+import SmoothScrollProvider from "@/common/Smoothscroll";
 export default function App({ Component, pageProps }) {
   // useEffect(() => {
   //   gsap.registerPlugin(ScrollTrigger);
@@ -33,5 +33,5 @@ export default function App({ Component, pageProps }) {
   //   };
   // }, []);
 
-  return <Component {...pageProps} />;
+  return <SmoothScrollProvider ><Component {...pageProps} /></SmoothScrollProvider>;
 }
