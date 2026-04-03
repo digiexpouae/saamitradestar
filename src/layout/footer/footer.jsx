@@ -92,7 +92,7 @@ export default function Footer() {
 
         <div className="max-w-7xl py-4  mx-auto flex flex-col md:flex-row justify-between items-center text-xs text-white">
 
-          <p className="text-xl">Saamitradestar©2025 All rights reserved</p>
+          <p className="text-xl">Saamitradestar©2026 All rights reserved</p>
           <p className="mt-2 md:mt-0 text-xl">
             <Link href="/terms" className="  hover:text-white">
               Terms & Conditions
