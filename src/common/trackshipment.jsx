@@ -26,7 +26,7 @@ export default function TrackShipment() {
                     Track Shipment
                 </h1>
                 <form onSubmit={handleSubmit} className="flex ">
-                    <div className="flex rounded-full shadow  w-xs md:w-sm bg-white h-12 " style={{ boxShadow: '0px 2px 4px black ', }}>
+                    <div className="flex rounded-full shadow  w-xs md:w-sm  2xl:w-md bg-white h-12 " style={{ boxShadow: '0px 2px 4px black ', }}>
                         <input
                             type="text"
                             value={awb}

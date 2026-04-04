@@ -96,12 +96,12 @@ const home = () => {
       >
 
         <div className="flex flex-col items-center h-full justify-start  translate-y-[20%] md:translate-y-[15%]">
-          <h2 className="text-4xl md:text-7xl  font-semibold flex flex-col items-center tracking-tighter" style={{ color: 'rgba(42, 42, 42, 1)' }}>We Make Shipping
+          <h2 className="text-4xl md:text-7xl 2xl:text-[92px] font-semibold flex flex-col items-center tracking-tighter" style={{ color: 'rgba(42, 42, 42, 1)' }}>We Make Shipping
             <span className="" style={{ color: 'rgba(238, 34, 61, 1)' }}>
               Faster & Easier
             </span>
           </h2>
-          <span style={{ color: 'rgba(90, 90, 90, 1)' }} className="text-base text-center md:text-xl mb-6"> Call us for your navigational services needs anytime, anywhere</span>
+          <span style={{ color: 'rgba(90, 90, 90, 1)' }} className="text-base text-center md:text-xl 2xl:text-2xl mb-6"> Call us for your navigational services needs anytime, anywhere</span>
 
           <TrackShipment />
 
@@ -115,7 +115,7 @@ const home = () => {
 
             transformOrigin: 'center center',
           }}>
-          <Image src={'/assets/globeCompressed.webp'} width={600} height={1000} className="object-cover  globe-spin" />
+          <Image src={'/assets/globeCompressed.webp'} width={600} height={1000} className=" object-cover globe-spin 2xl:w-[900px]" />
         </div>
 
 
