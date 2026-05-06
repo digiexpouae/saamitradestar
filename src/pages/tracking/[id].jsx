@@ -39,9 +39,7 @@ export default function TrackingPage() {
     }, [router.isReady, id])
 
 
-    useEffect(() => {
-        console.log("tracking ", trackingData, customerData)
-    }, [trackingData, customerData])
+    
 
     return (
         <div>
