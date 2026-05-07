@@ -40,7 +40,7 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
         onSubmit={handleSubmit}
         className="flex flex-col md:flex-row px-4 md:px-0 sm:items-center gap-3 mb-8"
       >
-        <label className="text-gray-700 text-sm sm:text-base whitespace-nowrap">
+        <label className="text-gray-700 text-sm sm:text-base whitespace-nowrap font-bold">
           Enter Consignment Number :
         </label>
         <div className="flex flex-col sm:flex-row gap-3 md:w-full w-auto">
@@ -79,7 +79,7 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
         </p>
 
         {/* Booking Info */}
-        <Field_two label={'POD'} data={imgUrl ? ('View POD 1') : ''} datatwo={imgUrltwo ? ('View POD2') : ''} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
+        <Field_two className={"bg-[#fff0f0] "} label={'POD'} data={imgUrl ? ('View POD 1') : ''} datatwo={imgUrltwo ? ('View POD 2') : ''} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
         {/* Booking Info */}
 
         {deliveryData?.length ? (
@@ -137,11 +137,11 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                   <span>{item?.Consignor_Name || "—"}</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <p><span className="text-gray-500">Consignee:</span> {item?.Consignee_Name || "—"}</p>
-                  <p><span className="text-gray-500">Type:</span> {"—"}</p>
-                  <p><span className="text-gray-500">Services:</span> {item?.Services || "—"}</p>
-                  <p><span className="text-gray-500">Weight:</span> {item?.Act_Weight || "0"}</p>
-                  <p><span className="text-gray-500">Pkgs:</span> {item?.No_of_pkg || "0"}</p>
+                  <p><span className="text-gray-500 font-bold">Consignee:</span> {item?.Consignee_Name || "—"}</p>
+                  <p><span className="text-gray-500 font-bold">Type:</span> {"—"}</p>
+                  <p><span className="text-gray-500 font-bold">Services:</span> {item?.Services || "—"}</p>
+                  <p><span className="text-gray-500 font-bold">Weight:</span> {item?.Act_Weight || "0"}</p>
+                  <p><span className="text-gray-500 font-bold">Pkgs:</span> {item?.No_of_pkg || "0"}</p>
                 </div>
               </div>
             ))
@@ -165,7 +165,7 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
             </thead>
             <tbody>
               {deliveryData?.map((item, index) => (
-                <tr key={index} className="hover:bg-gray-50 border-b">
+                <tr key={index} className="hover:bg-gray-50 border-b font-bold">
                   <td className="p-3">{item?.Consignor_Name || "—"}</td>
                   <td className="p-3">{item?.Consignee_Name || "—"}</td>
                   <td className="p-3">{"—"}</td>
@@ -234,8 +234,8 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
             </thead>
             <tbody>
               {customerData?.map((item, index) => (
-                <tr key={index} className="hover:bg-gray-50 border-b">
-                  <td className="p-3">{index === 0 ? item.DRS_Status ? item.Place : deliveryData[0].Book_Place : item.Place || "—"}</td>
+                <tr key={index} className="hover:bg-gray-50 border-b font-bold">
+                  <td className="p-3 ">{index === 0 ? item.DRS_Status ? item.Place : deliveryData[0].Book_Place : item.Place || "—"}</td>
                   <td className="p-3">
                     {item.Date} {item.Time}
                   </td>
@@ -265,20 +265,20 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
 function Field({ label, data }) {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-      <span className="text-gray-700 text-sm sm:text-base sm:w-32">{label}</span>
-      <div className="border text-sm text-zinc-800 text-nowrap overflow-x-scroll no-scrollbar border-gray-300 rounded-full px-3 flex items-center h-8 w-full sm:flex-1"
+      <span className="text-gray-700 text-sm sm:text-base sm:w-32 font-bold">{label}</span>
+      <div className="border text-sm text-zinc-800 text-nowrap overflow-x-scroll no-scrollbar border-gray-300 rounded-full px-3 flex items-center h-8 w-full sm:flex-1 font-medium"
       >
         {data || "—"}
       </div>
     </div>
   );
 }
-function Field_two({ label, data, linkOne, linktwo, datatwo }) {
+function Field_two({ label, data, linkOne, linktwo, datatwo,className }) {
   return (
-    <div className="flex flex-row items-center gap-2 mb-2">
-      <span className="text-gray-700 text-sm sm:text-base sm:w-32">{label}</span>
-      <div className="border text-sm text-zinc-800 border-gray-300 rounded-full px-3 flex items-center gap-2 h-8 w-auto ">
-        {linkOne && (<Link href={linkOne} target="_blank" rel="noopener noreferrer">{data}</Link>)} /    {linktwo && (<Link href={linktwo} target="_blank" rel="noopener noreferrer">{datatwo}</Link>)}
+    <div className={`flex flex-row items-center gap-2 mb-2 `}>
+      <span className="text-gray-700 text-sm sm:text-base sm:w-32 font-bold">{label}</span>
+      <div className={`border-2 text-sm text-zinc-800 border-[#e63946] rounded-full px-3 flex items-center gap-2 h-8 w-auto ${className} `}>
+        {linkOne && (<Link href={linkOne} target="_blank" className="font-bold" rel="noopener noreferrer">{data}</Link>)} /    {linktwo && (<Link href={linktwo} target="_blank" className="font-bold" rel="noopener noreferrer">{datatwo}</Link>)}
       </div>
     </div>
   );
