@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Header from '../../layout/header';
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-export default function GlobalSearch({ data, id, podscanData, customerData, podData }) {
+export default function GlobalSearch({ data, id,  customerData, podData }) {
   const [consignmentNo, setConsignmentNo] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [deliveryData, setDeliveryData] = useState(Array.isArray(data) ? data : []);
@@ -11,10 +11,13 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
   const [imgUrltwo, setimgUrltwo] = useState("")
   const router = useRouter();
   useEffect(() => {
-    setimgUrl(podData?.url)
-    setimgUrltwo(podscanData?.url)
+    setimgUrl(podData[0]?.PodImageUrl)
+    setimgUrltwo(podData[0]?.ScanImageUrl)
 
   }, [])
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const targetId = consignmentNo;
@@ -76,7 +79,7 @@ export default function GlobalSearch({ data, id, podscanData, customerData, podD
         </p>
 
         {/* Booking Info */}
-        <Field_two label={'POD'} data={imgUrl ? ('View POD') : ''} datatwo={imgUrltwo ? ('View POD2') : ''} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
+        <Field_two label={'POD'} data={imgUrl ? ('View POD 1') : ''} datatwo={imgUrltwo ? ('View POD2') : ''} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
         {/* Booking Info */}
 
         {deliveryData?.length ? (
