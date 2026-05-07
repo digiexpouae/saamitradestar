@@ -140,6 +140,8 @@ const Header = () => {
           <Link
   className="transition-all duration-1000 ease-out text-white bg-[#ED3039] hover:bg-red-700 px-5 py-2 rounded-full whitespace-nowrap"
   href={"https://apps.saamitradestar.com/login.aspx"}
+   target="_blank"
+  rel="noopener noreferrer"
 >
   Login
 </Link>
@@ -223,6 +225,8 @@ const Header = () => {
           </Link>
           <Link
   href="https://apps.saamitradestar.com/login.aspx"
+   target="_blank"
+  rel="noopener noreferrer"
   onClick={closeMenu}
   className="mt-2 text-white bg-[#ED3039] hover:bg-red-700 transition-colors duration-300 px-8 py-3 rounded-full text-xl md:text-2xl font-semibold"
 >
