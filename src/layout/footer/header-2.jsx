@@ -127,6 +127,12 @@ const Header = ({ complete }) => {
           >
             Contact Us
           </Link>
+          <Link
+  className="transition-all duration-1000 ease-out text-white bg-[#ED3039] hover:bg-red-700 px-5 py-2 rounded-full whitespace-nowrap"
+  href="https://apps.saamitradestar.com/login.aspx"
+>
+  Login
+</Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -192,6 +198,13 @@ const Header = ({ complete }) => {
           <Link href="/contact" onClick={closeMenu} className="text-2xl md:text-3xl">
             Contact
           </Link>
+          <Link
+  href="https://apps.saamitradestar.com/login.aspx"
+  onClick={closeMenu}
+  className="mt-2 text-white bg-[#ED3039] hover:bg-red-700 transition-colors duration-300 px-8 py-3 rounded-full text-xl md:text-2xl font-semibold"
+>
+  Login
+</Link>
         </div>
       </nav>
 
