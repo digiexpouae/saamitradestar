@@ -235,7 +235,11 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
             <tbody>
               {customerData?.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50 border-b font-bold">
-                  <td className="p-3 ">{index === 0 ? item.DRS_Status ? item.Place : deliveryData[0].Book_Place : item.Place || "—"}</td>
+                  <td className="p-3 ">{index === 0 ?
+                   item.DRS_Status ? item.Place :
+                   deliveryData[0].Book_Place : customerData[index - 1]?.Place  || "—"}
+                   
+                   </td>
                   <td className="p-3">
                     {item.Date} {item.Time}
                   </td>
