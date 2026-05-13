@@ -170,8 +170,8 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                   <td className="p-3">{item?.Consignee_Name || "—"}</td>
                   <td className="p-3">{"—"}</td>
                   <td className="p-3">{item?.Services || "—"}</td>
-                  <td className="p-3">{"0"}</td>
-                  <td className="p-3">{"0"}</td>
+                  <td className="p-3">{item?.Act_Weight || "0"}</td>
+                  <td className="p-3">{item?.No_of_pkg || "0"}</td>
                 </tr>
               ))}
             </tbody>
