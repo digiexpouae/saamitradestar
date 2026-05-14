@@ -140,8 +140,8 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                   <p><span className="text-gray-500 font-bold">Consignee:</span> {item?.Consignee_Name || "—"}</p>
                   <p><span className="text-gray-500 font-bold">Type:</span> {"—"}</p>
                   <p><span className="text-gray-500 font-bold">Services:</span> {item?.Services || "—"}</p>
-                  <p><span className="text-gray-500 font-bold">Weight:</span> {item?.Act_Weight || "0"}</p>
-                  <p><span className="text-gray-500 font-bold">Pkgs:</span> {item?.No_of_pkg || "0"}</p>
+                  <p><span className="text-gray-500 font-bold">Weight:</span> {item?.Act_Weight || "1"}</p>
+                  <p><span className="text-gray-500 font-bold">Pkgs:</span> {item?.No_of_pkg || "1"}</p>
                 </div>
               </div>
             ))
@@ -170,8 +170,8 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                   <td className="p-3">{item?.Consignee_Name || "—"}</td>
                   <td className="p-3">{"—"}</td>
                   <td className="p-3">{item?.Services || "—"}</td>
-                  <td className="p-3">{item?.Act_Weight || "0"}</td>
-                  <td className="p-3">{item?.No_of_pkg || "0"}</td>
+                  <td className="p-3">{item?.Act_Weight || "1"}</td>
+                  <td className="p-3">{item?.No_of_pkg || "1"}</td>
                 </tr>
               ))}
             </tbody>
@@ -196,6 +196,12 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                   {item.Date}  {item.Time}
                 </p>
                 <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
+             <p><span className="font-semibold">Branch:</span> {index === 0 ?
+                   item.DRS_Status ? item.Place :
+                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :customerData[index - 1]?.Place  || "—"}</p>
+
+                  <p><span className="font-semibold">Date & Time:</span>  {item.Date} {item.Time}</p>
+
                   <p><span className="font-semibold">Status:</span>
                     {item.ReferenceType === "Outscan"
                       ? `Forwarded to ${item.Place}`
@@ -237,7 +243,7 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                 <tr key={index} className="hover:bg-gray-50 border-b font-bold">
                   <td className="p-3 ">{index === 0 ?
                    item.DRS_Status ? item.Place :
-                   deliveryData[0].Book_Place : customerData[index - 1]?.Place  || "—"}
+                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :customerData[index - 1]?.Place  || "—"}
                    
                    </td>
                   <td className="p-3">
