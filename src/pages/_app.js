@@ -5,33 +5,19 @@ import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SmoothScrollProvider from "@/common/Smoothscroll";
+import { useRouter } from "next/router";
 export default function App({ Component, pageProps }) {
-  // useEffect(() => {
-  //   gsap.registerPlugin(ScrollTrigger);
-  //   // 
-  //   // Initialize Lenis
-  //   const lenis = new Lenis({
-  //     lerp: 0.02, // 0 = instant, 1 = very slow
-  //     smoothWheel: true,
-  //     smoothTouch: true,
-  //     touchMultiplier: 1.2,
-  //     //   // disable smooth scroll on touch if you want
-  //   });
-  //   // 
-  //   // Sync Lenis and ScrollTrigger
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     ScrollTrigger.update();
-  //     requestAnimationFrame(raf);
-  //   }
-  //   requestAnimationFrame(raf);
-  //   // 
-  //   // Cleanup on unmount
-  //   return () => {
-  //     lenis.destroy();
-  //     ScrollTrigger.getAll().forEach((t) => t.kill());
-  //   };
-  // }, []);
+  const router = useRouter();
+  
+  // Add any pages you want to exclude here
+  const disableSmoothScroll = ["/tracking"];
+  const shouldDisable = disableSmoothScroll.includes(router.pathname);
 
-  return <SmoothScrollProvider ><Component {...pageProps} /></SmoothScrollProvider>;
+  return shouldDisable ? (
+    <Component {...pageProps} />
+  ) : (
+    <SmoothScrollProvider>
+      <Component {...pageProps} />
+    </SmoothScrollProvider>
+  );
 }
