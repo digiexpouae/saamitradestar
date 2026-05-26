@@ -10,8 +10,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   
   // Add any pages you want to exclude here
-  const disableSmoothScroll = ["/tracking"];
-  const shouldDisable = disableSmoothScroll.includes(router.pathname);
+const shouldDisable = router.pathname.startsWith("/tracking");
 
   return shouldDisable ? (
     <Component {...pageProps} />
