@@ -26,7 +26,9 @@ const dismissKeyboard = () => {
 
 
     return (
-        <div className="flex items-center w-full justify-center  ">
+        <div className="flex items-center w-full justify-center  "
+                                    onTouchStart={dismissKeyboard} // Dismisses keyboard if user touches anywhere outside fields to scroll
+>
             <div className="    flex md:flex-row flex-col items-center justify-center gap-4">
                 <h1 className="text-2xl font-bold text-gray-500 ">
                     Track Shipment
@@ -39,7 +41,6 @@ const dismissKeyboard = () => {
                             onChange={(e) => setAwb(e.target.value)}
                             placeholder="Tracking number"
                             required
-                            onTouchStart={dismissKeyboard} // Dismisses keyboard if user touches anywhere outside fields to scroll
                             className="flex-1 px-4 md:pl-6 md:pr-2 bg-white w-xs text-black  rounded-l-full focus:outline-none border-gray-300  "
                         />
                         <button
