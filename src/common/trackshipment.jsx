@@ -26,14 +26,14 @@ const dismissKeyboard = () => {
 
 
     return (
-        <div className="flex items-center w-full justify-center  "
-                                    onTouchStart={dismissKeyboard} // Dismisses keyboard if user touches anywhere outside fields to scroll
->
+        <div className="flex items-center w-full justify-center  ">
             <div className="    flex md:flex-row flex-col items-center justify-center gap-4">
                 <h1 className="text-2xl font-bold text-gray-500 ">
                     Track Shipment
                 </h1>
-                <form onSubmit={handleSubmit} className="flex ">
+                <form onSubmit={handleSubmit} className="flex "
+                                            onTouchStart={dismissKeyboard} // Dismisses keyboard if user touches anywhere outside fields to scroll
+>
                     <div className="flex rounded-full shadow  w-xs md:w-sm  2xl:w-md bg-white h-12 " style={{ boxShadow: '0px 2px 4px black ', }}>
                         <input
                             type="text"
