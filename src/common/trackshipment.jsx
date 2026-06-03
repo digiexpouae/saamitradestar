@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function TrackShipment() {
@@ -14,7 +14,6 @@ export default function TrackShipment() {
 
         router.push(`/tracking/${awb}`);
     };
-
 useEffect(() => {
         const handleGlobalInteraction = (e) => {
             const activeEl = document.activeElement;
