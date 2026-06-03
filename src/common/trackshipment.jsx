@@ -8,17 +8,23 @@ export default function TrackShipment() {
     const [awb, setAwb] = useState('');
     const [data, setData] = useState([]);
 
-
-
-
-
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
 
         router.push(`/tracking/${awb}`);
     };
+
+const dismissKeyboard = () => {
+        if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
+    };
+
+
+
+
+
     return (
         <div className="flex items-center w-full justify-center  ">
             <div className="    flex md:flex-row flex-col items-center justify-center gap-4">
@@ -33,7 +39,7 @@ export default function TrackShipment() {
                             onChange={(e) => setAwb(e.target.value)}
                             placeholder="Tracking number"
                             required
-
+                            onTouchStart={dismissKeyboard} // Dismisses keyboard if user touches anywhere outside fields to scroll
                             className="flex-1 px-4 md:pl-6 md:pr-2 bg-white w-xs text-black  rounded-l-full focus:outline-none border-gray-300  "
                         />
                         <button
