@@ -26,7 +26,6 @@ const home = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     // ✅ Normalize scroll speed on mobile — prevents kinetic overshoot
-    ScrollTrigger.normalizeScroll();
     const isMobile = window.innerWidth <= 786
     stableVH.current = document.documentElement.clientHeight;
     const ctx = gsap.context(() => {
