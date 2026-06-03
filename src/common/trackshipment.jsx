@@ -15,24 +15,39 @@ export default function TrackShipment() {
         router.push(`/tracking/${awb}`);
     };
 
-const dismissKeyboard = () => {
-        if (document.activeElement instanceof HTMLElement) {
-            document.activeElement.blur();
-        }
-    };
+useEffect(() => {
+        const handleGlobalInteraction = (e) => {
+            const activeEl = document.activeElement;
+            if (activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA')) {
+                if (e.target !== activeEl) {
+                    activeEl.blur();
+                }
+            }
+        };
+
+        window.addEventListener('touchstart', handleGlobalInteraction, { passive: true });
+        window.addEventListener('touchmove', handleGlobalInteraction, { passive: true });
+
+        return () => {
+            window.removeEventListener('touchstart', handleGlobalInteraction);
+            window.removeEventListener('touchmove', handleGlobalInteraction);
+        };
+    }, []);
 
 
 
 
 
     return (
-        <div className="flex items-center w-full justify-center  ">
+        <div className="flex items-center w-full justify-center"
+           
+           >
             <div className="    flex md:flex-row flex-col items-center justify-center gap-4">
                 <h1 className="text-2xl font-bold text-gray-500 ">
                     Track Shipment
                 </h1>
                 <form onSubmit={handleSubmit} className="flex "
-                                            onTouchStart={dismissKeyboard} // Dismisses keyboard if user touches anywhere outside fields to scroll
+                                          // Dismisses keyboard if user touches anywhere outside fields to scroll
 >
                     <div className="flex rounded-full shadow  w-xs md:w-sm  2xl:w-md bg-white h-12 " style={{ boxShadow: '0px 2px 4px black ', }}>
                         <input
