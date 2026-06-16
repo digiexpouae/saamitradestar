@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from '../../layout/header';
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import React from "react";
 export default function GlobalSearch({ data, id,  customerData, podData }) {
   const [consignmentNo, setConsignmentNo] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -16,8 +17,67 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
 
   }, [])
 
+const manifestItem = customerData?.find((d) => d.STATUS_CODE === "Manifest");
+const getConsistentDelay = (str) => {
+  if (!str) return 0;
+  // Creates a numeric hash from the string
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  // Returns a delay between 0 and 20 minutes (in milliseconds)
+  return (Math.abs(hash) % 21) * 60 * 1000; 
+};
+const isConnectionDone = (() => {
+  if (!manifestItem?.Date || !manifestItem?.Time) return false;
+
+  const [year, month, day] = manifestItem.Date.split("-").map(Number);
+  const [timePart, meridiem] = manifestItem.Time.split(" ");
+  let [hours, minutes] = timePart.split(":").map(Number);
+
+  if (meridiem === "PM" && hours !== 12) hours += 12;
+  if (meridiem === "AM" && hours === 12) hours = 0;
+
+  const manifestDate = new Date(year, month - 1, day, hours, minutes, 0);
+  const manifestMs = manifestDate.getTime();
+  
+  // Base requirement: 3 hours passed
+  const baseThreshold = 3 * 60 * 60 * 1000;
+  
+  // Add the deterministic delay based on the current ID
+  const delay = getConsistentDelay(id); 
+console.log("DElay",delay)
+  if (Number.isNaN(manifestMs)) return false;
+
+  // The status triggers only after 3 hours + the specific offset
+  return (Date.now() - manifestMs) >= (baseThreshold + delay);
+})();
+
+// Add this helper function outside your component
 
 
+const processedHistory = React.useMemo(() => {
+  if (!customerData || !Array.isArray(customerData)) return [];
+  
+  const history = [...customerData];
+  const outscanIndex = history.findIndex(item => item.ReferenceType === "Outscan");
+
+  // If connection is done and we found an outscan, inject the new entry
+  if (isConnectionDone && outscanIndex !== -1) {
+    const outscanItem = history[outscanIndex];
+    const connectionDoneEntry = {
+      ...outscanItem,
+      STATUS_CODE:"ConnectionDone", // Identifier
+      ReferenceType: "ConnectionDone", // Logic identifier
+    };
+    
+    // Insert after Outscan
+    history.splice(outscanIndex + 1, 0, connectionDoneEntry);
+    console.log("history",history);
+  }
+  
+  return history;
+}, [customerData, isConnectionDone]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const targetId = consignmentNo;
@@ -186,7 +246,7 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
         {/* Mobile View: Vertical Timeline Style */}
         <div className="md:hidden space-y-4">
           {customerData?.length > 0 ? (
-            customerData?.map((item, index) => (
+            processedHistory?.map((item, index) => (
               <div key={index} className="relative pl-6 border-l-2 border-red-500 ml-2 py-1">
                 <div className="absolute -left-[9px] top-2 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
                 <p className="font-bold text-gray-800">
@@ -196,18 +256,24 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                   {item.Date}  {item.Time}
                 </p>
                 <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
-             <p><span className="font-semibold">Branch:</span> {index === 0 ?
+             <p><span className="font-semibold">Branch:</span> 
+             
+  {index === 0 ?
                    item.DRS_Status ? item.Place :
-                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :customerData[index - 1]?.Place  || "—"}</p>
+                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :
+                   item.STATUS_CODE== "ConnectionDone" ? deliveryData[0].Book_Place: customerData[index - 1]?.Place  || "—"}
+                   
+                   </p>
 
                   <p><span className="font-semibold">Date & Time:</span>  {item.Date} {item.Time}</p>
 
                   <p><span className="font-semibold">Status:</span>
                     {item.ReferenceType === "Outscan"
-                      ? `Forwarded to ${item.Place}`
+                      ?`Forwarded to ${item.Place}`:item.ReferenceType === "ConnectionDone"? "Connection done"
                       : item.ReferenceType === "Inscan"
                         ? `	Received At ${item.Place}`
                         : item.DRS_Status}
+
                   </p>
 
                   <p><span className="font-semibold">Received By:</span> {item.Received_By || "—"}</p>
@@ -239,11 +305,12 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
               </tr>
             </thead>
             <tbody>
-              {customerData?.map((item, index) => (
+              {processedHistory?.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50 border-b font-bold">
                   <td className="p-3 ">{index === 0 ?
                    item.DRS_Status ? item.Place :
-                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :customerData[index - 1]?.Place  || "—"}
+                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :
+                   item.STATUS_CODE== "ConnectionDone" ? deliveryData[0].Book_Place: customerData[index - 1]?.Place  || "—"}
                    
                    </td>
                   <td className="p-3">
@@ -251,7 +318,7 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
                   </td>
                   <td className="p-3">
                     {item.ReferenceType === "Outscan"
-                      ? `Forwarded to ${item.Place}`
+                      ?`Forwarded to ${item.Place}`:item.ReferenceType === "ConnectionDone"? "Connection done"
                       : item.ReferenceType === "Inscan"
                         ? `	Received At ${item.Place}`
                         : item.DRS_Status}
