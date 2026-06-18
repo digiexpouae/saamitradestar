@@ -11,6 +11,7 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
   const [imgUrl, setimgUrl] = useState("")
   const [imgUrltwo, setimgUrltwo] = useState("")
   const router = useRouter();
+
   useEffect(() => {
     setimgUrl(podData[0]?.PodImageUrl)
     setimgUrltwo(podData[0]?.ScanImageUrl)
@@ -46,38 +47,75 @@ const isConnectionDone = (() => {
   
   // Add the deterministic delay based on the current ID
   const delay = getConsistentDelay(id); 
-console.log("DElay",delay)
   if (Number.isNaN(manifestMs)) return false;
-
   // The status triggers only after 3 hours + the specific offset
+  (Date.now() - manifestMs) >= (baseThreshold + delay)
   return (Date.now() - manifestMs) >= (baseThreshold + delay);
 })();
 
 // Add this helper function outside your component
 
 
+
+function formatDateFromDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function formatTimeFromDate(date) {
+  let hours = date.getHours();
+  const minutes = date.getMinutes();
+  const meridiem = hours >= 12 ? "PM" : "AM";
+
+  if (hours >= 12) hours -= 12;
+  if (hours === 0) hours = 12;
+
+  const minutesStr = String(minutes).padStart(2, "0");
+
+  return `${hours}:${minutesStr} ${meridiem}`;
+}
 const processedHistory = React.useMemo(() => {
   if (!customerData || !Array.isArray(customerData)) return [];
-  
+
   const history = [...customerData];
   const outscanIndex = history.findIndex(item => item.ReferenceType === "Outscan");
-
-  // If connection is done and we found an outscan, inject the new entry
   if (isConnectionDone && outscanIndex !== -1) {
     const outscanItem = history[outscanIndex];
+
+    const baseThreshold = 3 * 60 * 60 * 1000; // 3h in ms
+    const delay = getConsistentDelay(id);      // in ms
+
+    // Parse outscan Date + Time
+    const [year, month, day] = outscanItem.Date.split("-").map(Number);
+    const [timePart, meridiem] = outscanItem.Time.split(" ");
+    let [hours, minutes] = timePart.split(":").map(Number);
+
+    if (meridiem === "PM" && hours !== 12) hours += 12;
+    if (meridiem === "AM" && hours === 12) hours = 0;
+
+    const outscanDate = new Date(year, month - 1, day, hours, minutes, 0);
+
+    // Add 3h + delay
+    const connectionDate = new Date(
+      outscanDate.getTime() + baseThreshold + delay
+    );
+
     const connectionDoneEntry = {
       ...outscanItem,
-      STATUS_CODE:"ConnectionDone", // Identifier
-      ReferenceType: "ConnectionDone", // Logic identifier
+      STATUS_CODE: "ConnectionDone",
+      ReferenceType: "ConnectionDone",
+     Date: formatDateFromDate(connectionDate),   // e.g. "2026-06-18"
+  Time: formatTimeFromDate(connectionDate), 
     };
-    
-    // Insert after Outscan
+
     history.splice(outscanIndex + 1, 0, connectionDoneEntry);
-    console.log("history",history);
   }
-  
+
   return history;
-}, [customerData, isConnectionDone]);
+}, [customerData, isConnectionDone, id]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const targetId = consignmentNo;
