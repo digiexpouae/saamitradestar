@@ -296,10 +296,19 @@ const processedHistory = React.useMemo(() => {
                 <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
              <p><span className="font-semibold">Branch:</span> 
              
-  {index === 0 ?
-                   item.DRS_Status ? item.Place :
-                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :
-                   item.STATUS_CODE== "ConnectionDone" ? deliveryData[0].Book_Place: customerData[index - 1]?.Place  || "—"}
+                {index === 0 ? (
+    item.STATUS_CODE === "DRS"
+      ? deliveryData[0].Book_Place
+      : item.DRS_Status
+        ? item.Place
+        : deliveryData[0].Book_Place
+  ) : item.STATUS_CODE === "ConnectionDone" ? (
+    deliveryData[0].Book_Place
+  ) : item.STATUS_CODE === "DRS" ? (
+    item.Place
+  ) : (
+    customerData[index === 2 ? index - 2 : index - 1]?.Place || "—"
+  )}
                    
                    </p>
 
@@ -345,14 +354,25 @@ const processedHistory = React.useMemo(() => {
             <tbody>
               {processedHistory?.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-50 border-b font-bold">
-                  <td className="p-3 ">{index === 0 ?
-                   item.DRS_Status ? item.Place :
-                   deliveryData[0].Book_Place : item.STATUS_CODE =="DRS" ? item.Place  :
-                   item.STATUS_CODE== "ConnectionDone" ? deliveryData[0].Book_Place: customerData[index - 1]?.Place  || "—"}
+                  <td className="p-3 "> 
+                    
+                     {index === 0 ? (
+    item.STATUS_CODE === "DRS"
+      ? deliveryData[0].Book_Place
+      : item.DRS_Status
+        ? item.Place
+        : deliveryData[0].Book_Place
+  ) : item.STATUS_CODE === "ConnectionDone" ? (
+    deliveryData[0].Book_Place
+  ) : item.STATUS_CODE === "DRS" ? (
+    item.Place
+  ) : (
+    customerData[index === 2 ? index - 2 : index - 1]?.Place || "—"
+  )}
                    
                    </td>
                   <td className="p-3">
-                    {item.Date} {item.Time}
+                    {item.Date} <br /> {item.Time}
                   </td>
                   <td className="p-3">
                     {item.ReferenceType === "Outscan"
