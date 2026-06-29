@@ -367,7 +367,7 @@ const processedHistory = React.useMemo(() => {
   ) : item.STATUS_CODE === "DRS" ? (
     item.Place
   ) : (
-    customerData[index === 2 ? index - 2 : index - 1]?.Place || "—"
+  customerData[index === 2 ? index - 2 : index-2]?.Place || "—"
   )}
                    
                    </td>
