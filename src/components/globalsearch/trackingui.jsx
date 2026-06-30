@@ -296,7 +296,7 @@ const processedHistory = React.useMemo(() => {
                 <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
              <p><span className="font-semibold">Branch:</span> 
              
-                {index === 0 ? (
+                {/* {index === 0 ? (
     item.STATUS_CODE === "DRS"
       ? deliveryData[0].Book_Place
       : item.DRS_Status
@@ -308,7 +308,17 @@ const processedHistory = React.useMemo(() => {
     item.Place
   ) : (
     customerData[index === 2 ? index - 2 : index - 1]?.Place || "—"
-  )}
+  )} */}
+
+
+     { (
+    item.STATUS_CODE === "Manifest"
+      ? item.orgPlace:item.STATUS_CODE === "ConnectionDone"?
+        item.orgPlace: item.Place
+                     )
+  }
+
+
                    
                    </p>
 
@@ -356,7 +366,7 @@ const processedHistory = React.useMemo(() => {
                 <tr key={index} className="hover:bg-gray-50 border-b font-bold">
                   <td className="p-3 "> 
                     
-                     {index === 0 ? (
+                     {/* {index === 0 ? (
     item.STATUS_CODE === "DRS"
       ? deliveryData[0].Book_Place
       : item.DRS_Status
@@ -369,7 +379,17 @@ const processedHistory = React.useMemo(() => {
   ) : (
   customerData[index === 2 ? index - 2 : index-2]?.Place || "—"
   )}
-                   
+                    */}
+
+
+                       { (
+    item.STATUS_CODE === "Manifest"
+      ? item.orgPlace:item.STATUS_CODE === "ConnectionDone"?
+        item.orgPlace: item.Place
+                     )
+  }
+
+
                    </td>
                   <td className="p-3">
                     {item.Date} <br /> {item.Time}
