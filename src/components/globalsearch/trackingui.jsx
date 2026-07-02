@@ -106,7 +106,7 @@ const processedHistory = React.useMemo(() => {
     const connectionDoneEntry = {
       ...outscanItem,
       STATUS_CODE: "ConnectionDone",
-      ReferenceType: "ConnectionDone",
+      // ReferenceType: "ConnectionDone",
      Date: formatDateFromDate(connectionDate),   // e.g. "2026-06-18"
   Time: formatTimeFromDate(connectionDate), 
     };
@@ -310,14 +310,14 @@ const processedHistory = React.useMemo(() => {
     customerData[index === 2 ? index - 2 : index - 1]?.Place || "—"
   )} */}
 
-
-     { (
-    item.STATUS_CODE === "Manifest"
-      ? item.orgPlace:item.STATUS_CODE === "ConnectionDone"?
-        item.orgPlace: item.Place
+                    { (
+    item.STATUS_CODE === "Manifest"? item.ReferenceType === "Inscan"?item.Place:item.orgPlace
+    
+:item.STATUS_CODE === "ConnectionDone"?
+item.ReferenceType === "Inscan"?item.Place: item.orgPlace
+        : item.Place
                      )
   }
-
 
                    
                    </p>
@@ -326,7 +326,7 @@ const processedHistory = React.useMemo(() => {
 
                   <p><span className="font-semibold">Status:</span>
                     {item.ReferenceType === "Outscan"
-                      ?`Forwarded to ${item.Place}`:item.ReferenceType === "ConnectionDone"? "Connection done"
+                      ?`Forwarded to ${item.Place}`:item.STATUS_CODE === "ConnectionDone"? "Connection done"
                       : item.ReferenceType === "Inscan"
                         ? `	Received At ${item.Place}`
                         : item.DRS_Status}
@@ -383,9 +383,11 @@ const processedHistory = React.useMemo(() => {
 
 
                        { (
-    item.STATUS_CODE === "Manifest"
-      ? item.orgPlace:item.STATUS_CODE === "ConnectionDone"?
-        item.orgPlace: item.Place
+    item.STATUS_CODE === "Manifest"? item.ReferenceType === "Inscan"?item.Place:item.orgPlace
+    
+:item.STATUS_CODE === "ConnectionDone"?
+item.ReferenceType === "Inscan"?item.Place: item.orgPlace
+        : item.Place
                      )
   }
 
@@ -396,7 +398,7 @@ const processedHistory = React.useMemo(() => {
                   </td>
                   <td className="p-3">
                     {item.ReferenceType === "Outscan"
-                      ?`Forwarded to ${item.Place}`:item.ReferenceType === "ConnectionDone"? "Connection done"
+                      ?`Forwarded to ${item.Place}`:item.STATUS_CODE === "ConnectionDone"? "Connection done"
                       : item.ReferenceType === "Inscan"
                         ? `	Received At ${item.Place}`
                         : item.DRS_Status}
