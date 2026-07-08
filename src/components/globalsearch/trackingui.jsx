@@ -113,7 +113,6 @@ const processedHistory = React.useMemo(() => {
 
     history.splice(outscanIndex + 1, 0, connectionDoneEntry);
   }
-
   return history;
 }, [customerData, isConnectionDone, id]);
   const handleSubmit = (e) => {
@@ -325,11 +324,17 @@ item.ReferenceType === "Inscan"?item.Place: item.orgPlace
                   <p><span className="font-semibold">Date & Time:</span>  {item.Date} {item.Time}</p>
 
                   <p><span className="font-semibold">Status:</span>
-                    {item.ReferenceType === "Outscan"
-                      ?`Forwarded to ${item.Place}`:item.STATUS_CODE === "ConnectionDone"? "Connection done"
-                      : item.ReferenceType === "Inscan"
-                        ? `	Received At ${item.Place}`
-                        : item.DRS_Status}
+                  {
+  item.ReferenceType === "Outscan"
+    ? item.STATUS_CODE === "ConnectionDone"
+      ? "Connection done"
+      : `Forwarded to ${item.Place}`
+    : item.ReferenceType === "Inscan"
+      ? item.STATUS_CODE === "ConnectionDone"
+        ? "Connection done"
+        : `Received At ${item.Place}`
+      : item.DRS_Status
+}
 
                   </p>
 
@@ -397,11 +402,17 @@ item.ReferenceType === "Inscan"?item.Place: item.orgPlace
                     {item.Date} <br /> {item.Time}
                   </td>
                   <td className="p-3">
-                    {item.ReferenceType === "Outscan"
-                      ?`Forwarded to ${item.Place}`:item.STATUS_CODE === "ConnectionDone"? "Connection done"
-                      : item.ReferenceType === "Inscan"
-                        ? `	Received At ${item.Place}`
-                        : item.DRS_Status}
+                               {
+  item.ReferenceType === "Outscan"
+    ? item.STATUS_CODE === "ConnectionDone"
+      ? "Connection done"
+      : `Forwarded to ${item.Place}`
+    : item.ReferenceType === "Inscan"
+      ? item.STATUS_CODE === "ConnectionDone"
+        ? "Connection done"
+        : `Received At ${item.Place}`
+      : item.DRS_Status
+}
 
                   </td>
 
