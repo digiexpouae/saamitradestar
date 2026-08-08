@@ -2,11 +2,14 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaBars, FaPlus, FaTimes } from "react-icons/fa";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [mounted, setMounted] = useState(false); // for mount animation
+  const { pathname } = useRouter();
+  const isTrackingPage = pathname.startsWith("/tracking/");
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => {
@@ -22,7 +25,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 z-[999] w-full transition-all duration-1000 ease-out
+      className={`${isTrackingPage ? "relative" : "fixed"} top-0 z-[999] w-full transition-all duration-1000 ease-out
         ${mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"}`}
     >
       {/* Top Bar */}
