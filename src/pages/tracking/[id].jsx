@@ -20,18 +20,18 @@ export default function TrackingPage() {
 
         const fetchData = async () => {
             setLoading(true);
-            const response = await safeFetchJson(`https://trackapi.saamitradestar.com/productsImg?C_NO=${id}`, null);
+            // const response = await safeFetchJson(`https://trackapi.saamitradestar.com/productsImg?C_NO=${id}`, null);
             // const podscanData = await safeFetchJson(`https://apps.saamitradestar.com/pod/scan/${id}.jpg`, null);
-            const podData = await response.json()  // parse the JSON body
-            const data = await safeFetchJson(`https://trackapi.saamitradestar.com/products?C_NO=${id}`, null);
+            // const podData = await response.json()  // parse the JSON body
+            const data = await safeFetchJson(`https://careapi.saamitradestar.com/api/TrackAPI?consignmentNo=${id}`, null);
             const res1 = await data.json()
-            const customerdata = await safeFetchJson(`https://trackapi.saamitradestar.com/trackingApi?Cust_NO=${id}`, null);
-            const res2 = await customerdata.json()
-            setPodData(podData);
+            // const customerdata = await safeFetchJson(`https://trackapi.saamitradestar.com/trackingApi?Cust_NO=${id}`, null);
+            // const res2 = await customerdata.json()
+            // setPodData(podData);
             // setpodscanData(podscanData)
 
             setTrackingData(res1);
-            setCustomerData(res2);
+            // setCustomerData(res2);
 
             setLoading(false);
         };

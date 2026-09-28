@@ -12,11 +12,16 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
   const [imgUrltwo, setimgUrltwo] = useState("")
   const router = useRouter();
 
-  useEffect(() => {
-    setimgUrl(podData[0]?.PodImageUrl)
-    setimgUrltwo(podData[0]?.ScanImageUrl)
 
-  }, [])
+    const details = data?.consignmentDetails;
+  const summary = data?.consignmentSummary;
+  const history = Array.isArray(data?.trackingHistory) ? data.trackingHistory : [];
+
+  // useEffect(() => {
+  //   setimgUrl(podData[0]?.PodImageUrl)
+  //   setimgUrltwo(podData[0]?.ScanImageUrl)
+
+  // }, [])
 
 const manifestItem = customerData?.find((d) => d.STATUS_CODE === "Manifest");
 const getConsistentDelay = (str) => {
@@ -179,101 +184,75 @@ const processedHistory = React.useMemo(() => {
         <Field_two className={"bg-[#fff0f0] "} label={'POD'} data={imgUrl ? ('View POD 1') : ''} datatwo={imgUrltwo ? ('View POD 2') : ''} linkOne={imgUrl && imgUrl} linktwo={imgUrltwo && imgUrltwo} />
         {/* Booking Info */}
 
-        {deliveryData?.length ? (
-          deliveryData.map((item, index) => (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4"
-              key={index}
-            >
-
-              <div className="space-y-2">
-                <Field label="Type :" data={item.Job_Name} />
-                <Field label="Book Place :" data={item.Book_Place} />
-                <Field
-                  label="Book Date :"
-                  data={
-                    item?.Book_Dt
-                      ? new Date(item.Book_Dt).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: '2-digit',
-                        year: 'numeric'
-                      })
-                      : "—"
-                  }
-                />
-              </div>
-              <div className="space-y-2">
-                <Field label="Reference No :" data={item.Ref_No1} />
-                <Field label="Delivery Place :" data={item.Del_Place} />
-                <Field
-                  label="Book Time:"
-                  data={
-                    item?.Book_Time
-                      ? new Date(item.Book_Time).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })
-                      : "—"
-                  }
-                />                </div></div>
-          ))
-        ) : (
-          <p className="text-gray-500 italic">No Booking Info Found</p>
-        )}
+      {details ? (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+    <div className="space-y-2">
+      <Field label="Type :" data={details.type} />
+      <Field label="Book Place :" data={details.bookPlace} />
+      <Field label="Book Date :" data={details.bookDate} />
+    </div>
+    <div className="space-y-2">
+      <Field label="Reference No :" data={details.referenceNo} />
+      <Field label="Delivery Place :" data={details.deliveryPlace} />
+      <Field label="Book Time :" data={details.bookTime} />
+    </div>
+  </div>
+) : (
+  <p className="text-gray-500 italic">No Booking Info Found</p>
+)}
       </div>
       <div className="mb-10">
         <h2 className="text-lg font-bold mb-3 text-red-600">Consignment Summary</h2>
 
         {/* Mobile View: Stacked Cards */}
-        <div className="md:hidden space-y-4">
-          {deliveryData?.length > 0 ? (
-            deliveryData?.map((item, index) => (
+    {/* Mobile View: Stacked Cards */}
+<div className="md:hidden space-y-4">
+  {summary ? (
+    <div className="border border-gray-200 rounded-lg p-4 shadow-sm bg-white">
+      <div className="flex justify-between border-b pb-2 mb-2">
+        <span className="font-bold text-red-500">Consignor</span>
+        <span>{summary.consignor || "—"}</span>
+      </div>
+      <div className="grid grid-cols-2 gap-2 text-sm">
+        <p><span className="text-gray-500 font-bold">Consignee:</span> {summary.consignee || "—"}</p>
+        <p><span className="text-gray-500 font-bold">Type:</span> {summary.type || "—"}</p>
+        <p><span className="text-gray-500 font-bold">Services:</span> {summary.services || "—"}</p>
+        <p><span className="text-gray-500 font-bold">Weight:</span> {summary.weight ?? "—"}</p>
+        <p><span className="text-gray-500 font-bold">Pkgs:</span> {summary.pkgs ?? "—"}</p>
+      </div>
+    </div>
+  ) : (
+    <p className="text-center py-4 text-gray-500 italic">No Data Found</p>
+  )}
+</div>
 
-              <div key={index} className="border border-gray-200 rounded-lg p-4 shadow-sm bg-white">
-                <div className="flex justify-between border-b pb-2 mb-2">
-                  <span className="font-bold text-red-500">Consignor</span>
-                  <span>{item?.Consignor_Name || "—"}</span>
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <p><span className="text-gray-500 font-bold">Consignee:</span> {item?.Consignee_Name || "—"}</p>
-                  <p><span className="text-gray-500 font-bold">Type:</span> {"—"}</p>
-                  <p><span className="text-gray-500 font-bold">Services:</span> {item?.Services || "—"}</p>
-                  <p><span className="text-gray-500 font-bold">Weight:</span> {item?.Act_Weight || "1"}</p>
-                  <p><span className="text-gray-500 font-bold">Pkgs:</span> {item?.No_of_pkg || "1"}</p>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center py-4 text-gray-500 italic">No Data Found</p>
-          )}
-        </div>
-
-        {/* Desktop View: Standard Table */}
-        <div className="hidden md:block overflow-hidden border border-gray-200 rounded-lg">
-          <table className="w-full text-sm">
-            <thead className="bg-red-500 text-white text-left">
-              <tr>
-                <th className="p-3 border">Consignor</th>
-                <th className="p-3 border">Consignee</th>
-                <th className="p-3 border">Type</th>
-                <th className="p-3 border">Services</th>
-                <th className="p-3 border">Weight</th>
-                <th className="p-3 border">Pkgs</th>
-              </tr>
-            </thead>
-            <tbody>
-              {deliveryData?.map((item, index) => (
-                <tr key={index} className="hover:bg-gray-50 border-b font-bold">
-                  <td className="p-3">{item?.Consignor_Name || "—"}</td>
-                  <td className="p-3">{item?.Consignee_Name || "—"}</td>
-                  <td className="p-3">{"—"}</td>
-                  <td className="p-3">{item?.Services || "—"}</td>
-                  <td className="p-3">{item?.Act_Weight || "1"}</td>
-                  <td className="p-3">{item?.No_of_pkg || "1"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+{/* Desktop View: Standard Table */}
+<div className="hidden md:block overflow-hidden border border-gray-200 rounded-lg">
+  <table className="w-full text-sm">
+    <thead className="bg-red-500 text-white text-left">
+      <tr>
+        <th className="p-3 border">Consignor</th>
+        <th className="p-3 border">Consignee</th>
+        <th className="p-3 border">Type</th>
+        <th className="p-3 border">Services</th>
+        <th className="p-3 border">Weight</th>
+        <th className="p-3 border">Pkgs</th>
+      </tr>
+    </thead>
+    <tbody>
+      {summary && (
+        <tr className="hover:bg-gray-50 border-b font-bold">
+          <td className="p-3">{summary.consignor || "—"}</td>
+          <td className="p-3">{summary.consignee || "—"}</td>
+          <td className="p-3">{summary.type || "—"}</td>
+          <td className="p-3">{summary.services || "—"}</td>
+          <td className="p-3">{summary.weight ?? "—"}</td>
+          <td className="p-3">{summary.pkgs ?? "—"}</td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
       </div>
 
       {/* --- TABLE 2: TRACKING HISTORY --- */}
@@ -281,150 +260,62 @@ const processedHistory = React.useMemo(() => {
         <h2 className="text-lg font-bold mb-3 text-red-600">Tracking History</h2>
 
         {/* Mobile View: Vertical Timeline Style */}
-        <div className="md:hidden space-y-4">
-          {customerData?.length > 0 ? (
-            processedHistory?.map((item, index) => (
-              <div key={index} className="relative pl-6 border-l-2 border-red-500 ml-2 py-1">
-                <div className="absolute -left-[9px] top-2 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
-                <p className="font-bold text-gray-800">
-                  {index == 0 ? item.DRS_Status ? item.Place : deliveryData[0].Book_Place : item.Place || "Unknown Branch"}
-                </p>
-                <p className="text-xs text-gray-500">
-                  {item.Date}  {item.Time}
-                </p>
-                <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
-             <p><span className="font-semibold">Branch:</span> 
-             
-                {/* {index === 0 ? (
-    item.STATUS_CODE === "DRS"
-      ? deliveryData[0].Book_Place
-      : item.DRS_Status
-        ? item.Place
-        : deliveryData[0].Book_Place
-  ) : item.STATUS_CODE === "ConnectionDone" ? (
-    deliveryData[0].Book_Place
-  ) : item.STATUS_CODE === "DRS" ? (
-    item.Place
-  ) : (
-    customerData[index === 2 ? index - 2 : index - 1]?.Place || "—"
-  )} */}
-
-                    { (
-    item.STATUS_CODE === "Manifest"? item.ReferenceType === "Inscan"?item.Place:item.orgPlace
-    
-:item.STATUS_CODE === "ConnectionDone"?
-item.ReferenceType === "Inscan"?item.Place: item.orgPlace
-        : item.Place
-                     )
-  }
-
-                   
-                   </p>
-
-                  <p><span className="font-semibold">Date & Time:</span>  {item.Date} {item.Time}</p>
-
-                  <p><span className="font-semibold">Status:</span>
-                  {
-  item.ReferenceType === "Outscan"
-    ? item.STATUS_CODE === "ConnectionDone"
-      ? "Connection done"
-      : `Forwarded to ${item.Place}`
-    : item.ReferenceType === "Inscan"
-      ? item.STATUS_CODE === "ConnectionDone"
-        ? "Connection done"
-        : `Received At ${item.Place}`
-      : item.DRS_Status
-}
-
-                  </p>
-
-                  <p><span className="font-semibold">Received By:</span> {item.Received_By || "—"}</p>
-                  <p><span className="font-semibold">Remark:</span> {item.remark || "—"}</p>
-                  <p><span className="font-semibold">Reference:</span> {item.jobname || "—"}</p>
-
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center py-4 text-gray-500 italic">No History Found</p>
-          )}
+      {/* Mobile View: Vertical Timeline */}
+<div className="md:hidden space-y-4">
+  {history.length > 0 ? (
+    history.map((item, index) => (
+      <div key={index} className="relative pl-6 border-l-2 border-red-500 ml-2 py-1">
+        <div className="absolute -left-[9px] top-2 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
+        <p className="font-bold text-gray-800">{item.branch || "Unknown Branch"}</p>
+        <p className="text-xs text-gray-500">{item.dateTime}</p>
+        <div className="mt-2 text-sm bg-gray-50 p-2 rounded">
+          <p><span className="font-semibold">Branch:</span> {item.branch || "—"}</p>
+          <p><span className="font-semibold">Date & Time:</span> {item.dateTime || "—"}</p>
+          <p><span className="font-semibold">Status:</span> {item.status || "—"}</p>
+          <p><span className="font-semibold">Received By:</span> {item.receivedBy || "—"}</p>
+          <p><span className="font-semibold">Remark:</span> {item.remark || "—"}</p>
+          <p><span className="font-semibold">Reference:</span> {item.reference || "—"}</p>
         </div>
-
-        {/* Desktop View: Standard Table */}
-        <div className="hidden md:block overflow-hidden border border-gray-200 rounded-lg">
-          <table className="w-full text-sm">
-            <thead className="bg-red-500 text-white text-left">
-              <tr>
-                <th className="p-3 border">Branch</th>
-                <th className="p-3 border">Date & Time</th>
-                <th className="p-3 border">Status</th>
-
-                <th className="p-3 border">Received By</th>
-                <th className="p-3 border">Remark</th>
-                <th className="p-3 border">Reference</th>
-
-
-              </tr>
-            </thead>
-            <tbody>
-              {processedHistory?.map((item, index) => (
-                <tr key={index} className="hover:bg-gray-50 border-b font-bold">
-                  <td className="p-3 "> 
-                    
-                     {/* {index === 0 ? (
-    item.STATUS_CODE === "DRS"
-      ? deliveryData[0].Book_Place
-      : item.DRS_Status
-        ? item.Place
-        : deliveryData[0].Book_Place
-  ) : item.STATUS_CODE === "ConnectionDone" ? (
-    deliveryData[0].Book_Place
-  ) : item.STATUS_CODE === "DRS" ? (
-    item.Place
+      </div>
+    ))
   ) : (
-  customerData[index === 2 ? index - 2 : index-2]?.Place || "—"
+    <p className="text-center py-4 text-gray-500 italic">No History Found</p>
   )}
-                    */}
+</div>
 
-
-                       { (
-    item.STATUS_CODE === "Manifest"? item.ReferenceType === "Inscan"?item.Place:item.orgPlace
-    
-:item.STATUS_CODE === "ConnectionDone"?
-item.ReferenceType === "Inscan"?item.Place: item.orgPlace
-        : item.Place
-                     )
-  }
-
-
-                   </td>
-                  <td className="p-3">
-                    {item.Date} <br /> {item.Time}
-                  </td>
-                  <td className="p-3">
-                               {
-  item.ReferenceType === "Outscan"
-    ? item.STATUS_CODE === "ConnectionDone"
-      ? "Connection done"
-      : `Forwarded to ${item.Place}`
-    : item.ReferenceType === "Inscan"
-      ? item.STATUS_CODE === "ConnectionDone"
-        ? "Connection done"
-        : `Received At ${item.Place}`
-      : item.DRS_Status
-}
-
-                  </td>
-
-
-                  <td className="p-3">{item.Received_By || "—"}</td>
-                  <td className="p-3">{item.remark || "—"}</td>
-                  <td className="p-3">{item.Reference || "—"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+{/* Desktop View: Table */}
+<div className="hidden md:block overflow-hidden border border-gray-200 rounded-lg">
+  <table className="w-full text-sm">
+    <thead className="bg-red-500 text-white text-left">
+      <tr>
+        <th className="p-3 border">Branch</th>
+        <th className="p-3 border">Date & Time</th>
+        <th className="p-3 border">Status</th>
+        <th className="p-3 border">Received By</th>
+        <th className="p-3 border">Remark</th>
+        <th className="p-3 border">Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      {history.length > 0 ? (
+        history.map((item, index) => (
+          <tr key={index} className="hover:bg-gray-50 border-b font-bold">
+            <td className="p-3">{item.branch || "—"}</td>
+            <td className="p-3">{item.dateTime || "—"}</td>
+            <td className="p-3">{item.status || "—"}</td>
+            <td className="p-3">{item.receivedBy || "—"}</td>
+            <td className="p-3">{item.remark || "—"}</td>
+            <td className="p-3">{item.reference || "—"}</td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colSpan={6} className="p-4 text-center text-gray-500 italic">No History Found</td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
       </div>
     </div >
   );
