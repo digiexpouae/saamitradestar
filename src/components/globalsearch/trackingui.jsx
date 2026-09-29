@@ -6,10 +6,9 @@ import React from "react";
 export default function GlobalSearch({ data, id,  customerData, podData }) {
   const [consignmentNo, setConsignmentNo] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [deliveryData, setDeliveryData] = useState(Array.isArray(data) ? data : []);
-  const [customer, setCustomer] = useState(Array.isArray(customerData) ? customerData : []);
-  const [imgUrl, setimgUrl] = useState("")
-  const [imgUrltwo, setimgUrltwo] = useState("")
+  // const [deliveryData, setDeliveryData] = useState(Array.isArray(data) ? data : []);
+  // const [customer, setCustomer] = useState(Array.isArray(customerData) ? customerData : []);
+
   const router = useRouter();
 
 
@@ -17,119 +16,120 @@ export default function GlobalSearch({ data, id,  customerData, podData }) {
   const summary = data?.consignmentSummary;
   const history = Array.isArray(data?.trackingHistory) ? data.trackingHistory : [];
 
-  // useEffect(() => {
-  //   setimgUrl(podData[0]?.PodImageUrl)
-  //   setimgUrltwo(podData[0]?.ScanImageUrl)
 
-  // }, [])
+   const imgUrl = data?.consignmentDetails?.podImageUrl || null;
+const imgUrltwo = data?.consignmentDetails?.scanImageUrl || null;
 
-const manifestItem = customerData?.find((d) => d.STATUS_CODE === "Manifest");
-const getConsistentDelay = (str) => {
-  if (!str) return 0;
-  // Creates a numeric hash from the string
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  }
-  // Returns a delay between 0 and 20 minutes (in milliseconds)
-  return (Math.abs(hash) % 21) * 60 * 1000; 
-};
-const isConnectionDone = (() => {
-  if (!manifestItem?.Date || !manifestItem?.Time) return false;
 
-  const [year, month, day] = manifestItem.Date.split("-").map(Number);
-  const [timePart, meridiem] = manifestItem.Time.split(" ");
-  let [hours, minutes] = timePart.split(":").map(Number);
 
-  if (meridiem === "PM" && hours !== 12) hours += 12;
-  if (meridiem === "AM" && hours === 12) hours = 0;
 
-  const manifestDate = new Date(year, month - 1, day, hours, minutes, 0);
-  const manifestMs = manifestDate.getTime();
+// const manifestItem = customerData?.find((d) => d.STATUS_CODE === "Manifest");
+// const getConsistentDelay = (str) => {
+//   if (!str) return 0;
+//   // Creates a numeric hash from the string
+//   let hash = 0;
+//   for (let i = 0; i < str.length; i++) {
+//     hash = str.charCodeAt(i) + ((hash << 5) - hash);
+//   }
+//   // Returns a delay between 0 and 20 minutes (in milliseconds)
+//   return (Math.abs(hash) % 21) * 60 * 1000; 
+// };
+// const isConnectionDone = (() => {
+//   if (!manifestItem?.Date || !manifestItem?.Time) return false;
+
+//   const [year, month, day] = manifestItem.Date.split("-").map(Number);
+//   const [timePart, meridiem] = manifestItem.Time.split(" ");
+//   let [hours, minutes] = timePart.split(":").map(Number);
+
+//   if (meridiem === "PM" && hours !== 12) hours += 12;
+//   if (meridiem === "AM" && hours === 12) hours = 0;
+
+//   const manifestDate = new Date(year, month - 1, day, hours, minutes, 0);
+//   const manifestMs = manifestDate.getTime();
   
-  // Base requirement: 3 hours passed
-  const baseThreshold = 3 * 60 * 60 * 1000;
+//   // Base requirement: 3 hours passed
+//   const baseThreshold = 3 * 60 * 60 * 1000;
   
-  // Add the deterministic delay based on the current ID
-  const delay = getConsistentDelay(id); 
-  if (Number.isNaN(manifestMs)) return false;
-  // The status triggers only after 3 hours + the specific offset
-  (Date.now() - manifestMs) >= (baseThreshold + delay)
-  return (Date.now() - manifestMs) >= (baseThreshold + delay);
-})();
+//   // Add the deterministic delay based on the current ID
+//   const delay = getConsistentDelay(id); 
+//   if (Number.isNaN(manifestMs)) return false;
+//   // The status triggers only after 3 hours + the specific offset
+//   (Date.now() - manifestMs) >= (baseThreshold + delay)
+//   return (Date.now() - manifestMs) >= (baseThreshold + delay);
+// })();
 
 // Add this helper function outside your component
 
 
 
-function formatDateFromDate(date) {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
+// function formatDateFromDate(date) {
+//   const year = date.getFullYear();
+//   const month = String(date.getMonth() + 1).padStart(2, "0");
+//   const day = String(date.getDate()).padStart(2, "0");
 
-  return `${year}-${month}-${day}`;
-}
+//   return `${year}-${month}-${day}`;
+// }
 
-function formatTimeFromDate(date) {
-  let hours = date.getHours();
-  const minutes = date.getMinutes();
-  const meridiem = hours >= 12 ? "PM" : "AM";
+// function formatTimeFromDate(date) {
+//   let hours = date.getHours();
+//   const minutes = date.getMinutes();
+//   const meridiem = hours >= 12 ? "PM" : "AM";
 
-  if (hours >= 12) hours -= 12;
-  if (hours === 0) hours = 12;
+//   if (hours >= 12) hours -= 12;
+//   if (hours === 0) hours = 12;
 
-  const minutesStr = String(minutes).padStart(2, "0");
+//   const minutesStr = String(minutes).padStart(2, "0");
 
-  return `${hours}:${minutesStr} ${meridiem}`;
-}
-const processedHistory = React.useMemo(() => {
-  if (!customerData || !Array.isArray(customerData)) return [];
+//   return `${hours}:${minutesStr} ${meridiem}`;
+// }
+// const processedHistory = React.useMemo(() => {
+//   if (!customerData || !Array.isArray(customerData)) return [];
 
-  const history = [...customerData];
-  const outscanIndex = history.findIndex(item => item.ReferenceType === "Outscan");
-  if (isConnectionDone && outscanIndex !== -1) {
-    const outscanItem = history[outscanIndex];
+//   const history = [...customerData];
+//   const outscanIndex = history.findIndex(item => item.ReferenceType === "Outscan");
+//   if (isConnectionDone && outscanIndex !== -1) {
+//     const outscanItem = history[outscanIndex];
 
-    const baseThreshold = 3 * 60 * 60 * 1000; // 3h in ms
-    const delay = getConsistentDelay(id);      // in ms
+//     const baseThreshold = 3 * 60 * 60 * 1000; // 3h in ms
+//     const delay = getConsistentDelay(id);      // in ms
 
-    // Parse outscan Date + Time
-    const [year, month, day] = outscanItem.Date.split("-").map(Number);
-    const [timePart, meridiem] = outscanItem.Time.split(" ");
-    let [hours, minutes] = timePart.split(":").map(Number);
+//     // Parse outscan Date + Time
+//     const [year, month, day] = outscanItem.Date.split("-").map(Number);
+//     const [timePart, meridiem] = outscanItem.Time.split(" ");
+//     let [hours, minutes] = timePart.split(":").map(Number);
 
-    if (meridiem === "PM" && hours !== 12) hours += 12;
-    if (meridiem === "AM" && hours === 12) hours = 0;
+//     if (meridiem === "PM" && hours !== 12) hours += 12;
+//     if (meridiem === "AM" && hours === 12) hours = 0;
 
-    const outscanDate = new Date(year, month - 1, day, hours, minutes, 0);
+//     const outscanDate = new Date(year, month - 1, day, hours, minutes, 0);
 
-    // Add 3h + delay
-    const connectionDate = new Date(
-      outscanDate.getTime() + baseThreshold + delay
-    );
+//     // Add 3h + delay
+//     const connectionDate = new Date(
+//       outscanDate.getTime() + baseThreshold + delay
+//     );
 
-    const connectionDoneEntry = {
-      ...outscanItem,
-      STATUS_CODE: "ConnectionDone",
-      // ReferenceType: "ConnectionDone",
-     Date: formatDateFromDate(connectionDate),   // e.g. "2026-06-18"
-  Time: formatTimeFromDate(connectionDate), 
-    };
+//     const connectionDoneEntry = {
+//       ...outscanItem,
+//       STATUS_CODE: "ConnectionDone",
+//       // ReferenceType: "ConnectionDone",
+//      Date: formatDateFromDate(connectionDate),   // e.g. "2026-06-18"
+//   Time: formatTimeFromDate(connectionDate), 
+//     };
 
-    history.splice(outscanIndex + 1, 0, connectionDoneEntry);
-  }
-  return history;
-}, [customerData, isConnectionDone, id]);
+//     history.splice(outscanIndex + 1, 0, connectionDoneEntry);
+//   }
+//   return history;
+// }, [customerData, isConnectionDone, id]);
   const handleSubmit = (e) => {
     e.preventDefault();
     const targetId = consignmentNo;
     router.push(`/tracking/${targetId}`);
     setSubmitted(true);
   };
-  useEffect(() => {
-    setDeliveryData(data);
-    setCustomer(customerData);
-  }, [data, customerData]);
+  // useEffect(() => {
+  //   setDeliveryData(data);
+  //   setCustomer(customerData);
+  // }, [data, customerData]);
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:p-6">
